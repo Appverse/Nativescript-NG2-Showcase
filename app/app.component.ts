@@ -39,6 +39,7 @@ let absoluteLayout = require("ui/layouts/absolute-layout");
 
 export class AppComponent {
     private toggled: boolean = false;
+    private animationDuration: number = 200;
     
     constructor(private page: Page, private _router: Router){
         this.page.actionBarHidden = true;
@@ -56,20 +57,23 @@ export class AppComponent {
         }
     }
 
-    public subItemTap(page){
+    public subItemTap(page: string){
         this.toggleSideDrawer();
-        this.navigationTransition(page)
+        console.log("from", this._router.currentInstruction.urlPath, "to", page);
+        if(page.toLocaleLowerCase()!==this._router.currentInstruction.urlPath.toLocaleLowerCase()){
+            this.navigationTransition(page)
+        }
     }
 
     public navigationTransition(page){
         this.router.animate({
             opacity: 0,
-            duration: 200
+            duration: this.animationDuration
         }).then(()=>{
             this._router.navigate([page]);
             this.router.animate({
                 opacity: 1,
-                duration: 200
+                duration: this.animationDuration
             })
         });
         
@@ -78,21 +82,21 @@ export class AppComponent {
     public openSideDrawer(){
         this.toggled = !this.toggled;
         this.backDrop.animate({
-            duration:200,
+            duration:this.animationDuration,
             opacity: .3,
         })
         this.menuIcon.animate({
-            duration: 200,
+            duration: this.animationDuration,
             rotate: 90,
             curve: "easeIn"
         });
         this.router.animate({
-            duration: 200,
+            duration: this.animationDuration,
             translate: {x: 130, y: 0},
             curve: "easeIn"
         });
         this.sideDrawer.animate({
-            duration: 200,
+            duration: this.animationDuration,
             translate: {x: 130, y: 0},
             curve: "easeIn"
         });
@@ -100,21 +104,21 @@ export class AppComponent {
 
     public closeSideDrawer(){
         this.backDrop.animate({
-            duration:200,
+            duration:this.animationDuration,
             opacity: 0,
         })
         this.menuIcon.animate({
-            duration:200,
+            duration:this.animationDuration,
             rotate: 0,
             curve: "easeIn"
         })
         this.router.animate({
-            duration: 200,
+            duration: this.animationDuration,
             translate: {x: 0, y: 0},
             curve: "easeIn"
         })
         this.sideDrawer.animate({
-            duration: 200,
+            duration: this.animationDuration,
             translate: {x: 0, y: 0},
             curve: "easeIn"
         }).then(()=>{
