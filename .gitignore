@@ -1,0 +1,15 @@
+node_modules
+hooks
+built
+tags
+typings
+.baseDir.ts
+.tscache
+*.iml
+*.log
+*.css
+
+app/**/*.js
+app/**/*.map
+platforms
+lib

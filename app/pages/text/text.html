@@ -1,0 +1,62 @@
+<StackLayout>
+    <!-- TITLE -->
+    <GridLayout rows="auto" class="app-color-light">
+        <Label text="TEXT" class="h4 center min-margin app-color-light"></Label>
+        <StackLayout orientation="horizontal" class="right">
+            <Label text="ROUNDED" class="h6 center"></Label>
+            <Switch checked="false" (tap)="switchChange($event)" class="app-color-darkest center"></Switch>
+        </StackLayout>
+    </GridLayout>
+    <GridLayout class="h-spacer app-color-dark bottom"></GridLayout>
+    <!-- COMPONENTS SELECTOR -->
+    <TabView selectedColor="#1B3C80" tabsBackgroundColor="#FFFFFF">
+        <!-- LABEL -->
+        <StackLayout *tabItem="{title: 'LABEL'}">
+            <ScrollView>
+                <StackLayout>
+                    <Label *ngFor="let style of textStyles" [text]="'It\'s ' + style.name" [class]="'center min-margin ' + style.style"></Label>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+        <!-- TEXTFIELD -->
+        <StackLayout *tabItem="{title: 'FIELD'}">
+            <!-- STYLE SELECTOR -->
+            <SegmentedBar (selectedIndexChanged)="selectedIndexChanged($event)" [items]="styles" class="app-color-light" selectedBackgroundColor="#1B3C80"></SegmentedBar>
+            <ScrollView>
+                <StackLayout *ngIf="!rounded">
+                    <TextField *ngFor="let textfield of styles[styleSelected].styles" [text]="textfield.name" [class]="'text-field min-margin ' + textfield.style"></TextField>
+                </StackLayout>
+                <StackLayout *ngIf="rounded">
+                    <TextField *ngFor="let textfield of styles[styleSelected].styles" [text]="textfield.name" [class]="'text-field min-margin full-rounded-text-field ' + textfield.style"></TextField>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+        <!-- TEXTVIEW -->
+        <StackLayout *tabItem="{title: 'TEXTVIEW'}">
+            <!-- COLOR SELECTOR -->
+            <ScrollView orientation="horizontal">
+                <SegmentedBar width="{{ 100 * colors.length}}" (selectedIndexChanged)="selectedColorChanged($event)" [items]="colors" class="app-color-light" selectedBackgroundColor="#1B3C80"></SegmentedBar>
+            </ScrollView>
+            <ScrollView>
+                <StackLayout>
+                    <StackLayout *ngFor="let list of colors[colorSelected].styles" height="100">
+                        <TextView [text]="opening" [class]="'min-margin text-view ' + list.style"></TextView>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+        <!-- SEARCHBAR -->
+        <StackLayout *tabItem="{title: 'SEARCH'}">
+            <ScrollView>
+                <StackLayout *ngIf="!rounded">
+                    <SearchBar *ngFor="let search of styles[0].styles" [class]="'search-bar min-margin ' + search.style"></SearchBar>
+                </StackLayout>
+                <StackLayout *ngIf="rounded">
+                    <SearchBar *ngFor="let search of styles[0].styles" [class]="'search-bar min-margin full-rounded-search-bar ' + search.style"></SearchBar>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </TabView>
+</StackLayout>
+
+
