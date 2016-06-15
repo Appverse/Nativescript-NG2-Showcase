@@ -31,7 +31,7 @@
                             <Label [text]="category.name" class="left"></Label>
                         </GridLayout>
                         <!-- SUB-ITEM -->
-                            <GridLayout columns="*,4*" height="35" rows="*,auto" *ngFor="let subItem of category.subItems; let i=index" (tap)="subItemTap(subItem.page)">
+                            <GridLayout [id]="subItem.name.toLowerCase()" columns="*,4*" height="35" rows="*,auto" *ngFor="let subItem of category.subItems; let i=index" (tap)="subItemTap($event,subItem.page)">
                                 <Label [text]="subItem.icon" class="material-icon center"></Label>
                                 <Label row="0" col="1" [text]="subItem.name" class="left"></Label>
                                 <GridLayout row="1" col="1" *ngIf="category.subItems.length > i+1" class="h-spacer app-color-dark"></GridLayout>

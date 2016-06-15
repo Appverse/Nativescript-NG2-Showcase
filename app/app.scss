@@ -4,6 +4,7 @@
 
 $primary-color : #1B3C80;
 $secondary-color : white;
+$tertiary-color : #e8eaf6 ;
 $darkest-color : #0d1e3f;
 
 $light-primary : white;
@@ -75,6 +76,11 @@ $big-radius: 20;
 .app-color-light{
     background-color: $secondary-color;
     color: $stable-secondary;
+}
+
+.app-color-selected{
+    background-color: $tertiary-color;
+    color: $darkest-color;
 }
 
 .app-color-darkest{

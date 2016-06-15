@@ -13,6 +13,8 @@ import {LayoutsPage} from "./pages/layouts/layouts.component";
 import {SelectorsPage} from "./pages/selectors/selectors.component";
 import {IndicatorsPage} from "./pages/indicators/indicators.component";
 import {ImagesPage} from "./pages/images/images.component";
+import {DialogsPage} from "./pages/dialogs/dialogs.component";
+import {ViewsPage} from "./pages/views/views.component";
 
 let Color = colorModule.Color;
 let themes = require( "nativescript-themes" );
@@ -34,7 +36,9 @@ let absoluteLayout = require("ui/layouts/absolute-layout");
     { path: "/layouts", component: LayoutsPage, name: "Layouts" },
     { path: "/selectors", component: SelectorsPage, name: "Selectors" },
     { path: "/indicators", component: IndicatorsPage, name: "Indicators" },
-    { path: "/images", component: ImagesPage, name: "Images" }
+    { path: "/images", component: ImagesPage, name: "Images" },
+    { path: "/views", component: ViewsPage, name: "Views" },
+    { path: "/dialogs", component: DialogsPage, name: "Dialogs" }
 ])
 
 export class AppComponent {
@@ -47,6 +51,7 @@ export class AppComponent {
     
     ngAfterViewInit(){
         this.setNativeElements();
+        this.page.getViewById("home").className = "app-color-selected";
     }
 
     public toggleSideDrawer(){
@@ -57,7 +62,9 @@ export class AppComponent {
         }
     }
 
-    public subItemTap(page: string){
+    public subItemTap(args,page: string){
+        this.page.getViewById(this._router.currentInstruction.urlPath).className = "app-color-light";
+        args.object.className = "app-color-selected";
         this.toggleSideDrawer();
         console.log("from", this._router.currentInstruction.urlPath, "to", page);
         if(page.toLocaleLowerCase()!==this._router.currentInstruction.urlPath.toLocaleLowerCase()){

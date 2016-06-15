@@ -1,0 +1,39 @@
+<StackLayout>
+    <!-- TITLE -->
+    <GridLayout rows="auto" class="app-color-light">
+        <Label text="SELECTORS" class="h4 center min-margin app-color-light"></Label>
+    </GridLayout>
+    <GridLayout class="h-spacer app-color-dark bottom"></GridLayout>
+    <!-- COMPONENT SELECTOR -->
+    <TabView selectedColor="#1B3C80" tabsBackgroundColor="#FFFFFF">
+        <!-- SWITCH -->
+        <StackLayout *tabItem="{title: 'SWITCH'}">
+            <ScrollView>
+                <StackLayout>
+                    <Switch *ngFor="let switch of styles[3].styles" [class]="'center min-margin ' + switch.style"></Switch>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+        <!-- SLIDER -->
+        <StackLayout *tabItem="{title: 'SLIDER'}">
+            <ScrollView>
+                <StackLayout>
+                    <Slider maxValue="100" *ngFor="let slider of styles[3].styles; let i=index" [class]="'min-margin ' + slider.style" [value]="i*10"></Slider>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+        <!-- SEGMENTED BAR -->
+        <StackLayout *tabItem="{title: 'SEGMENTED BAR'}">
+            <ScrollView>
+                <StackLayout>
+                    <StackLayout *ngFor="let segmented of styles[0].styles">
+                        <Label [text]="segmented.name" class="min-margin h5"></Label>
+                        <SegmentedBar [class]="'min-margin ' + segmented.style" selectedBackgroundColor="#e0e0e0" [items]="[{title: 'DARK SIDE'}, {title: 'LIGHT SIDE'}]"></SegmentedBar>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </TabView>
+</StackLayout>
+
+
