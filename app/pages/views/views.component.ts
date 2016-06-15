@@ -8,9 +8,25 @@ import {ContentService} from "../../common/services/content.service";
 })
 export class ViewsPage {
 
-    private styles: any[];
-
     public constructor(private _contentService: ContentService){
-        this.styles = _contentService.getStyles();
     }
+
+    ngAfterViewInit(){
+        this.setNativeElements()
+        this.setHtmlCode();
+    }
+
+    public setHtmlCode(){
+        this.htmlView.html =this.htmlCode.text;
+    }
+
+    public setNativeElements(){
+        this.htmlCode=this.htmlCodeRef.nativeElement;
+        this.htmlView=this.htmlViewRef.nativeElement;
+    }
+    
+    @ViewChild('htmlCode') htmlCodeRef: ElementRef;
+    private htmlCode;
+    @ViewChild('htmlView') htmlViewRef: ElementRef;
+    private htmlView;
 }

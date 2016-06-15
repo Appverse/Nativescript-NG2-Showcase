@@ -1,35 +1,41 @@
 <StackLayout>
     <!-- TITLE -->
     <GridLayout rows="auto" class="app-color-light">
-        <Label text="SELECTORS" class="h4 center min-margin app-color-light"></Label>
+        <Label text="VIEWS" class="h4 center min-margin app-color-light"></Label>
     </GridLayout>
     <GridLayout class="h-spacer app-color-dark bottom"></GridLayout>
     <!-- COMPONENT SELECTOR -->
     <TabView selectedColor="#1B3C80" tabsBackgroundColor="#FFFFFF">
-        <!-- SWITCH -->
-        <StackLayout *tabItem="{title: 'SWITCH'}">
-            <ScrollView>
-                <StackLayout>
-                    <Switch *ngFor="let switch of styles[3].styles" [class]="'center min-margin ' + switch.style"></Switch>
-                </StackLayout>
-            </ScrollView>
+        <!-- TAB VIEW -->
+        <StackLayout *tabItem="{title: 'TAB VIEW'}">
+            <!-- TAB VIEW SELECTED COLOR AND BACKGROUND COLOR CAN ONLY BE SET HERE (HTML) OR PROGRAMATICALLY (TYPESCRIPT/JAVASCRIPT), IT CAN'T BE STYLED THROUGH CSS -->
+            <TabView selectedColor="#FFFFFF" tabsBackgroundColor="#f44336" class="min-margin quarter-height">
+                <StackLayout *tabItem="{title: 'VIEW 1'}"></StackLayout>
+                <StackLayout *tabItem="{title: 'VIEW 2'}"></StackLayout>
+                <StackLayout *tabItem="{title: 'VIEW 3'}"></StackLayout>
+            </TabView>
+            <TabView selectedColor="#FFFFFF" tabsBackgroundColor="#673ab7" class="min-margin quarter-height">
+                <StackLayout *tabItem="{title: 'VIEW 1'}"></StackLayout>
+                <StackLayout *tabItem="{title: 'VIEW 2'}"></StackLayout>
+                <StackLayout *tabItem="{title: 'VIEW 3'}"></StackLayout>
+            </TabView>
+            <TabView selectedColor="#FFFFFF" tabsBackgroundColor="#03a9f4" class="min-margin quarter-height">
+                <StackLayout *tabItem="{title: 'VIEW 1'}"></StackLayout>
+                <StackLayout *tabItem="{title: 'VIEW 2'}"></StackLayout>
+                <StackLayout *tabItem="{title: 'VIEW 3'}"></StackLayout>
+            </TabView>
         </StackLayout>
-        <!-- SLIDER -->
-        <StackLayout *tabItem="{title: 'SLIDER'}">
+        <!-- HTML VIEW -->
+        <GridLayout rows="*,*" *tabItem="{title: 'HTML VIEW'}">
+            <TextView row="0" #htmlCode text="<span><font color='#ff0000'>HTML VIEW</font></span>" class="dark min-margin"></TextView>
+            <Button row="0" text="VIEW HTML" (tap)="setHtmlCode()" class="light bottom-right full-rounded-small-button min-margin"></Button>
+            <HtmlView row="1" #htmlView class="light min-margin"></HtmlView>
+        </GridLayout>
+        <!-- WEB VIEW -->
+        <StackLayout *tabItem="{title: 'WEB VIEW'}">
             <ScrollView>
                 <StackLayout>
-                    <Slider maxValue="100" *ngFor="let slider of styles[3].styles; let i=index" [class]="'min-margin ' + slider.style" [value]="i*10"></Slider>
-                </StackLayout>
-            </ScrollView>
-        </StackLayout>
-        <!-- SEGMENTED BAR -->
-        <StackLayout *tabItem="{title: 'SEGMENTED BAR'}">
-            <ScrollView>
-                <StackLayout>
-                    <StackLayout *ngFor="let segmented of styles[0].styles">
-                        <Label [text]="segmented.name" class="min-margin h5"></Label>
-                        <SegmentedBar [class]="'min-margin ' + segmented.style" selectedBackgroundColor="#e0e0e0" [items]="[{title: 'DARK SIDE'}, {title: 'LIGHT SIDE'}]"></SegmentedBar>
-                    </StackLayout>
+                    <WebView src="https://google.es"></WebView>
                 </StackLayout>
             </ScrollView>
         </StackLayout>
