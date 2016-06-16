@@ -1,0 +1,40 @@
+<StackLayout>
+    <!-- TITLE -->
+    <GridLayout rows="auto" class="app-color-light">
+        <Label text="CONTACTS" class="h4 center s-margin app-color-light"></Label>
+    </GridLayout>
+    <GridLayout class="h-spacer app-color-dark bottom"></GridLayout>
+    <GridLayout>
+        <!-- CONTACTS LIST -->
+        <ScrollView>
+            <ListView id="listview" [items]="contacts" height="100%" (itemTap)="itemTap($event)">
+                <template let-contact="item" let-i="index">
+                    <GridLayout columns="auto,*,*" rows="auto,auto">
+                        <Image col="0" row="0" rowSpan="2" [src]="contact.icon" class="material-design-icon s-margin"></Image>
+                        <Label col="1" row="0" rowSpan="2" [text]="contact.name" class="left s-margin bold"></Label>
+                        <Label col="2" row="0" [text]="contact.number" class="right s-margin"></Label>
+                        <Label col="2" row="1" [text]="contact.from" class="right s-margin"></Label>
+                    </GridLayout>
+                </template>
+            </ListView>
+        </ScrollView>
+        <!-- MODAL -->
+        <AbsoluteLayout #backdrop class="backdrop">
+        </AbsoluteLayout>
+        <AbsoluteLayout #modal class="fill-width fill-heigth">
+            <GridLayout class="fill-width fill-height" *ngIf="modalToogled" (tap)="closeModal()">
+                <GridLayout rows="3*,auto,*,*,*,*,*,*" columns="*,*" class="light center threequarters-width threequarters-height medium-rounded s-padding">
+                    <Image row="0" [src]="contacts[selected].icon" class="s-margin"></Image>
+                    <Label col="1" row="0" [text]=" contacts[selected].name" class="center bold"></Label>
+                    <GridLayout row="1" colSpan="2" class="h-spacer s-margin app-color-dark"></GridLayout>
+                    <Label row="2" colSpan="2" text="Number" class="left"></Label>
+                    <Label row="3" colSpan="2" [text]="contacts[selected].number" class="center h4"></Label>
+                    <Label row="4" colSpan="2" text="Planet" class="left"></Label>
+                    <Label row="5" colSpan="2" [text]="contacts[selected].from" class="center h4"></Label>
+                    <Label row="6" colSpan="2" text="Race" class="left"></Label>
+                    <Label row="7" colSpan="2" [text]="contacts[selected].race" class="center h4"></Label>
+                </GridLayout>
+            </GridLayout>
+        </AbsoluteLayout>
+    </GridLayout>
+</StackLayout>

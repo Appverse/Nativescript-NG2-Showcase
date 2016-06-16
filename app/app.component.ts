@@ -4,17 +4,20 @@ import colorModule = require("color");
 import {RouteConfig, RouterOutlet, Router} from "@angular/router-deprecated";
 import {NS_ROUTER_DIRECTIVES, NS_ROUTER_PROVIDERS} from "nativescript-angular/router";
 import {ContentService} from "./common/services/content.service";
-import {HomePage} from "./pages/home/home.component";
+import {IndicatorsPage} from "./pages/indicators/indicators.component";
+import {SelectorsPage} from "./pages/selectors/selectors.component";
+import {ContactsPage} from "./pages/contacts/contacts.component";
 import {ButtonsPage} from "./pages/buttons/buttons.component";
-import {TextPage} from "./pages/text/text.component";
-import {ListsPage} from "./pages/lists/lists.component";
 import {PickersPage} from "./pages/pickers/pickers.component";
 import {LayoutsPage} from "./pages/layouts/layouts.component";
-import {SelectorsPage} from "./pages/selectors/selectors.component";
-import {IndicatorsPage} from "./pages/indicators/indicators.component";
-import {ImagesPage} from "./pages/images/images.component";
 import {DialogsPage} from "./pages/dialogs/dialogs.component";
+import {ImagesPage} from "./pages/images/images.component";
 import {ViewsPage} from "./pages/views/views.component";
+import {LoginPage} from "./pages/login/login.component";
+import {TablePage} from "./pages/table/table.component";
+import {ListsPage} from "./pages/lists/lists.component";
+import {HomePage} from "./pages/home/home.component";
+import {TextPage} from "./pages/text/text.component";
 
 let Color = colorModule.Color;
 let themes = require( "nativescript-themes" );
@@ -38,7 +41,10 @@ let absoluteLayout = require("ui/layouts/absolute-layout");
     { path: "/indicators", component: IndicatorsPage, name: "Indicators" },
     { path: "/images", component: ImagesPage, name: "Images" },
     { path: "/views", component: ViewsPage, name: "Views" },
-    { path: "/dialogs", component: DialogsPage, name: "Dialogs" }
+    { path: "/dialogs", component: DialogsPage, name: "Dialogs" },
+    { path: "/login", component: LoginPage, name: "Login" },
+    { path: "/contacts", component: ContactsPage, name: "Contacts" },
+    { path: "/table", component: TablePage, name: "Table" }
 ])
 
 export class AppComponent {
@@ -51,6 +57,7 @@ export class AppComponent {
     
     ngAfterViewInit(){
         this.setNativeElements();
+        this.backDrop.opacity = 0;
         this.page.getViewById("home").className = "app-color-selected";
     }
 
@@ -161,7 +168,6 @@ export class AppComponent {
         {name: " Examples", subItems: [
             {name: "Login", page: "Login", icon: "\uf1cc"},
             {name: "Table", page: "Table", icon: "\uf22b"},
-            {name: "Form", page: "Form", icon: "\uf23b"},
             {name: "Contacts", page: "Contacts", icon: "\uf20b"},
         ]},
         {name: "Other", subItems: [

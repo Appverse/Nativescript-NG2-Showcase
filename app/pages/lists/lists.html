@@ -1,7 +1,7 @@
 <StackLayout>
     <!-- TITLE -->
     <StackLayout class="app-color-light">
-        <Label text="LISTS" class="h4 center min-margin app-color-light"></Label>
+        <Label text="LISTS" class="h4 center s-margin app-color-light"></Label>
         <GridLayout class="h-spacer app-color-dark bottom"></GridLayout>
     </StackLayout>
     <!-- COLOR SELECTOR -->
@@ -13,13 +13,13 @@
     <ScrollView>
         <StackLayout>
             <StackLayout *ngFor="let list of colors[colorSelected].styles" height="100">
-                <ListView #listView [items]="films" [class]="'min-margin list-view ' + list.style">
+                <ListView #listView [items]="films" [class]="'s-margin list-view ' + list.style">
                     <!-- LIST TEMPLATE -->
                     <template let-item="item">
                         <GridLayout rows="auto,auto" columns="*,auto">
-                            <Label row="0" col="0" [text]="item.ep" class="min-margin"></Label>
-                            <Label row="1" col="0" [text]="item.name" class="min-margin"></Label>
-                            <Label row="0" col="1" rowSpan="2" [text]="item.year" class="center min-margin"></Label>
+                            <Label row="0" col="0" [text]="item.ep" class="s-margin"></Label>
+                            <Label row="1" col="0" [text]="item.name" class="s-margin"></Label>
+                            <Label row="0" col="1" rowSpan="2" [text]="item.year" class="center s-margin"></Label>
                         </GridLayout>
                     </template>
                 </ListView>

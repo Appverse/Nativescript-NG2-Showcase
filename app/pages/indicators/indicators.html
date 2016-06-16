@@ -1,7 +1,7 @@
 <StackLayout>
     <!-- TITLE -->
     <GridLayout rows="auto" class="app-color-light">
-        <Label text="INDICATORS" class="h4 center min-margin app-color-light"></Label>
+        <Label text="INDICATORS" class="h4 center s-margin app-color-light"></Label>
     </GridLayout>
     <GridLayout class="h-spacer app-color-dark bottom"></GridLayout>
     <!-- COMPONENT SELECTOR -->
@@ -10,7 +10,7 @@
         <StackLayout *tabItem="{title: 'ACTIVITY INDICATOR'}">
             <ScrollView>
                 <StackLayout>
-                    <ActivityIndicator busy="true" *ngFor="let switch of fontColors" [class]="'center min-margin ' + switch.style"></ActivityIndicator>
+                    <ActivityIndicator busy="true" *ngFor="let switch of fontColors" [class]="'center s-margin ' + switch.style"></ActivityIndicator>
                 </StackLayout>
             </ScrollView>
         </StackLayout>
@@ -18,7 +18,7 @@
         <StackLayout *tabItem="{title: 'PROGRESS'}">
             <ScrollView>
                 <StackLayout>
-                    <Progress maxValue="100" *ngFor="let slider of styles[3].styles; let i=index" [class]="'min-margin ' + slider.style" [value]="i*10"></Progress>
+                    <Progress maxValue="100" *ngFor="let slider of styles[3].styles; let i=index" [class]="'s-margin ' + slider.style" [value]="i*10"></Progress>
                 </StackLayout>
             </ScrollView>
         </StackLayout>

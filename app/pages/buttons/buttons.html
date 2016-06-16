@@ -2,7 +2,7 @@
     <!-- TITLE -->
     <StackLayout>
         <GridLayout rows="auto" class="app-color-light">
-            <Label text="BUTTONS" class="h4 center min-margin app-color-light"></Label>
+            <Label text="BUTTONS" class="h4 center s-margin app-color-light"></Label>
             <StackLayout orientation="horizontal" class="right">
                 <Label text="ROUNDED" class="h6 center"></Label>
                 <Switch checked="false" (tap)="switchChange($event)" class="app-color-darkest center"></Switch>
@@ -16,10 +16,10 @@
     <!-- BUTTONS -->
     <ScrollView>
         <StackLayout *ngIf="!rounded">
-            <Button *ngFor="let button of styles[styleSelected].styles" [text]="button.name" [class]="'button min-margin ' + button.style"></Button>
+            <Button *ngFor="let button of styles[styleSelected].styles" [text]="button.name" [class]="'button s-margin ' + button.style"></Button>
         </StackLayout>
         <StackLayout *ngIf="rounded">
-            <Button *ngFor="let button of styles[styleSelected].styles" [text]="button.name" [class]="'button min-margin full-rounded-button ' + button.style"></Button>
+            <Button *ngFor="let button of styles[styleSelected].styles" [text]="button.name" [class]="'button s-margin full-rounded-button ' + button.style"></Button>
         </StackLayout>
     </ScrollView>
 </StackLayout>

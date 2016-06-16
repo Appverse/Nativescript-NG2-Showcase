@@ -1,7 +1,7 @@
 <StackLayout>
     <!-- TITLE -->
     <StackLayout class="app-color-light">
-        <Label text="LAYOUTS" class="h4 center min-margin"></Label>
+        <Label text="LAYOUTS" class="h4 center s-margin"></Label>
         <GridLayout class="h-spacer app-color-dark bottom"></GridLayout>
     </StackLayout>
     <!-- LAYOUT SELECTOR -->
@@ -9,53 +9,53 @@
         <!-- GRID LAYOUT -->
         <StackLayout *tabItem="{title: 'GRID'}" >
             <GridLayout columns="*,*,*" rows="*,*,*">
-                <GridLayout col="0" row="0" rowSpan="2" class="dark inset min-margin"></GridLayout>
-                <GridLayout col="0" row="2" class="info inset min-margin"></GridLayout>
-                <GridLayout col="1" row="0" colSpan="2" class="success inset min-margin"></GridLayout>
-                <GridLayout col="1" row="1" rowSpan="2" class="warning inset min-margin"></GridLayout>
-                <GridLayout col="2" row="1" rowSpan="2" class="danger inset min-margin"></GridLayout>
+                <GridLayout col="0" row="0" rowSpan="2" class="dark inset s-margin"></GridLayout>
+                <GridLayout col="0" row="2" class="info inset s-margin"></GridLayout>
+                <GridLayout col="1" row="0" colSpan="2" class="success inset s-margin"></GridLayout>
+                <GridLayout col="1" row="1" rowSpan="2" class="warning inset s-margin"></GridLayout>
+                <GridLayout col="2" row="1" rowSpan="2" class="danger inset s-margin"></GridLayout>
             </GridLayout>
         </StackLayout>
         <!-- STACK LAYOUT -->
         <StackLayout *tabItem="{title: 'STACK'}" >
             <ScrollableView>
                 <StackLayout>
-                    <GridLayout height="20%" class="dark inset min-margin"></GridLayout>
-                    <GridLayout height="20%" class="info inset min-margin"></GridLayout>
-                    <GridLayout height="20%" class="success inset min-margin"></GridLayout>
-                    <GridLayout height="20%" class="warning inset min-margin"></GridLayout>
-                    <GridLayout height="20%" class="danger inset min-margin"></GridLayout>
+                    <GridLayout height="20%" class="dark inset s-margin"></GridLayout>
+                    <GridLayout height="20%" class="info inset s-margin"></GridLayout>
+                    <GridLayout height="20%" class="success inset s-margin"></GridLayout>
+                    <GridLayout height="20%" class="warning inset s-margin"></GridLayout>
+                    <GridLayout height="20%" class="danger inset s-margin"></GridLayout>
                 </StackLayout>
             </ScrollableView>
         </StackLayout>
         <!-- DOCK LAYAOUT -->
         <StackLayout *tabItem="{title: 'DOCK'}" >
             <DockLayout stretchLastChild="false">
-                <GridLayout dock="top" height="20%" class="dark inset min-margin"></GridLayout>
-                <GridLayout dock="right" width="20%" class="info inset min-margin"></GridLayout>
-                <GridLayout dock="left" width="20%" class="success inset min-margin"></GridLayout>
-                <GridLayout dock="bottom" height="20%" class="warning inset min-margin"></GridLayout>
-                <GridLayout class="danger inset min-margin"></GridLayout>
+                <GridLayout dock="top" height="20%" class="dark inset s-margin"></GridLayout>
+                <GridLayout dock="right" width="20%" class="info inset s-margin"></GridLayout>
+                <GridLayout dock="left" width="20%" class="success inset s-margin"></GridLayout>
+                <GridLayout dock="bottom" height="20%" class="warning inset s-margin"></GridLayout>
+                <GridLayout class="danger inset s-margin"></GridLayout>
             </DockLayout>
         </StackLayout>
         <!-- WRAP LAYOUT -->
         <StackLayout *tabItem="{title: 'WRAP'}" >
             <WrapLayout>
-                <GridLayout height="35%" width="25%" class="dark inset min-margin"></GridLayout>
-                <GridLayout height="25%" width="35%" class="info inset min-margin"></GridLayout>
-                <GridLayout height="45%" width="15%" class="success inset min-margin"></GridLayout>
-                <GridLayout height="15%" width="45%" class="warning inset min-margin"></GridLayout>
-                <GridLayout height="30%" width="30%" class="danger inset min-margin"></GridLayout>
+                <GridLayout height="35%" width="25%" class="dark inset s-margin"></GridLayout>
+                <GridLayout height="25%" width="35%" class="info inset s-margin"></GridLayout>
+                <GridLayout height="45%" width="15%" class="success inset s-margin"></GridLayout>
+                <GridLayout height="15%" width="45%" class="warning inset s-margin"></GridLayout>
+                <GridLayout height="30%" width="30%" class="danger inset s-margin"></GridLayout>
             </WrapLayout>
         </StackLayout>
         <!-- ABOSLUTE LAYOUT -->
         <StackLayout *tabItem="{title: 'ABSOLUTE'}" >
             <AbsoluteLayout>
-                <GridLayout height="35%" width="25%" left="10" top="100" class="dark inset min-margin"></GridLayout>
-                <GridLayout height="25%" width="35%" left="40" top="80" class="info inset min-margin"></GridLayout>
-                <GridLayout height="45%" width="15%" left="200" top="200" class="success inset min-margin"></GridLayout>
-                <GridLayout height="15%" width="45%" left="80" top="200" class="warning inset min-margin"></GridLayout>
-                <GridLayout height="30%" width="30%" left="150" top="10" class="danger inset min-margin"></GridLayout>
+                <GridLayout height="35%" width="25%" left="10" top="100" class="dark inset s-margin"></GridLayout>
+                <GridLayout height="25%" width="35%" left="40" top="80" class="info inset s-margin"></GridLayout>
+                <GridLayout height="45%" width="15%" left="200" top="200" class="success inset s-margin"></GridLayout>
+                <GridLayout height="15%" width="45%" left="80" top="200" class="warning inset s-margin"></GridLayout>
+                <GridLayout height="30%" width="30%" left="150" top="10" class="danger inset s-margin"></GridLayout>
             </AbsoluteLayout>
         </StackLayout>
     </TabView>

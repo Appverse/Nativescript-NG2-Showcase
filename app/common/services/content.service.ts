@@ -34,6 +34,10 @@ export class ContentService {
         return this.textStyles;
     }
 
+    public getContacts(): any[]{
+        return this.contacts;
+    }
+
     private films: any[] = [
         {ep: "Episode I", name: "The Phantom Menace", year: "1999"},
         {ep: "Episode II", name: "Attack of the Clones", year: "2001"},
@@ -44,6 +48,24 @@ export class ContentService {
         {ep: "Episode VII", name: "The Force Awakens", year: "2015"},
         {ep: "Episode VIII", name: "", year: "2017"},
         {ep: "Episode IX", name: "", year: "2019"}
+    ]
+
+    private contacts: any[] = [
+        {name: "Yoda", race: "Unknown", number: "689574123", icon: "res://yoda", from: "Dagobah"},
+        {name: "Chewbacca", race: " Wookie", number: "654321987", icon: "http://www.highpants.net/wp-content/uploads/2016/01/Highpants-Chewbacca-200x200.jpg", from: "Kashyyyk"},
+        {name: "Han", race: "Human", number: "684521478", icon: "http://www.technobuffalo.com/wp-content/uploads/2015/06/grumpy-harrison-ford-roles-han-solo-3-1088594-TwoByOne-200x200.jpg", from: "Corellia"},
+        {name: "Jabba", race: "Hutt", number: "625895478", icon: "http://images.forbes.com/media/lists/fictional/2008/jabbathehutt.jpg", from: "Tatooine"},
+        {name: "Boba", race: "Human Clone", number: "635214563", icon: "http://www.technobuffalo.com/wp-content/uploads/2014/04/Boba-Fett-200x200.jpg", from: "Kamino"},
+        {name: "Anakin", race: "Human", number: "687459852", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAYwSge9-4jEAVjN3roqFlJc3BXOlWI7yTiGvI6ZyXHLB6K4MdIg", from: "Tatooine"},
+        {name: "Ben", race: "Human", number: "678452154", icon: "http://rs213.pbsrc.com/albums/cc190/thatguyno1/Ben%20Kenobi%20screen%20shots/IMG_1037b.jpg~c200", from: "Stewjon"},
+        {name: "Luke", race: "Human", number: "687458523", icon: "http://www.technobuffalo.com/wp-content/uploads/2015/11/lukeskywalker-200x200.jpg", from: "Tatooine"},
+        {name: "Leia", race: "Human", number: "613548795", icon: "http://www.technobuffalo.com/wp-content/uploads/2015/06/leia-princess-leia-organa-solo-skywalker-8413731-1024-768-200x200.jpg", from: "Naboo"},
+        {name: "C-3PO", race: "Droid", number: "659852364", icon: "https://qph.is.quoracdn.net/main-thumb-t-47346-200-VG7p4ldgrtX1VNGAlD5PHCOc9Bzeqj3a.jpeg", from: "Tatooine"},
+        {name: "R2-D2", race: "Droid", number: "648521745", icon: "https://pbs.twimg.com/profile_images/679154009949650944/hK_N09QV.jpg", from: "Naboo"},
+        {name: "Palpatine", race: "Human", number: "695823568", icon: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRrwR4XEexMmU7VLxdbIiROmscHvuZG7dAL1QMM5jyQrfL_NM0n", from: "Naboo"},
+        {name: "Lando", race: "Human", number: "698531475", icon: "http://vignette4.wikia.nocookie.net/starwars/images/a/a7/Lando-AoD.jpg/revision/latest/scale-to-width-down/200?cb=20090928202401", from: "Bespin"},
+        {name: "Greedo", race: "Rodian", number: "695824651", icon: "http://rs625.pbsrc.com/albums/tt331/Anthony8934/Star%20Wars%20Clone%20Commanders/Star%20Wars%20Sith/Star%20Wars%20Bounty%20Hunter/Greedo.jpg~c200", from: "Rodia"},
+        {name: "Ackbar", race: "Mon Calamari", number: "6687595824", icon: "http://media.npr.org/assets/blogs/thetwo-way/images/2010/03/ackbar-dfdfea93d8ed875f978acf5fcbf63b65c0cf7033-s300-c85.jpg", from: "Mon Cala"}
     ]
 
     private jedis: string[] = ["Yoda", "Mace Windu", "Ashoka Tano", "Obi-Wan Kenobi", "Qui-Gon Jinn", "Anakin Skywalker", "Luke SkyWalker"]

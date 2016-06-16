@@ -1,7 +1,7 @@
 <StackLayout>
     <!-- TITLE -->
     <GridLayout rows="auto" class="app-color-light">
-        <Label text="SELECTORS" class="h4 center min-margin app-color-light"></Label>
+        <Label text="SELECTORS" class="h4 center s-margin app-color-light"></Label>
     </GridLayout>
     <GridLayout class="h-spacer app-color-dark bottom"></GridLayout>
     <!-- COMPONENT SELECTOR -->
@@ -10,7 +10,7 @@
         <StackLayout *tabItem="{title: 'SWITCH'}">
             <ScrollView>
                 <StackLayout>
-                    <Switch *ngFor="let switch of styles[3].styles" [class]="'center min-margin ' + switch.style"></Switch>
+                    <Switch *ngFor="let switch of styles[3].styles" [class]="'center s-margin ' + switch.style"></Switch>
                 </StackLayout>
             </ScrollView>
         </StackLayout>
@@ -18,7 +18,7 @@
         <StackLayout *tabItem="{title: 'SLIDER'}">
             <ScrollView>
                 <StackLayout>
-                    <Slider maxValue="100" *ngFor="let slider of styles[3].styles; let i=index" [class]="'min-margin ' + slider.style" [value]="i*10"></Slider>
+                    <Slider maxValue="100" *ngFor="let slider of styles[3].styles; let i=index" [class]="'s-margin ' + slider.style" [value]="i*10"></Slider>
                 </StackLayout>
             </ScrollView>
         </StackLayout>
@@ -27,8 +27,8 @@
             <ScrollView>
                 <StackLayout>
                     <StackLayout *ngFor="let segmented of styles[0].styles">
-                        <Label [text]="segmented.name" class="min-margin h5"></Label>
-                        <SegmentedBar [class]="'min-margin ' + segmented.style" selectedBackgroundColor="#e0e0e0" [items]="[{title: 'DARK SIDE'}, {title: 'LIGHT SIDE'}]"></SegmentedBar>
+                        <Label [text]="segmented.name" class="s-margin h5"></Label>
+                        <SegmentedBar [class]="'s-margin ' + segmented.style" selectedBackgroundColor="#e0e0e0" [items]="[{title: 'DARK SIDE'}, {title: 'LIGHT SIDE'}]"></SegmentedBar>
                     </StackLayout>
                 </StackLayout>
             </ScrollView>
