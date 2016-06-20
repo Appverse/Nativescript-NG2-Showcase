@@ -1,8 +1,8 @@
 import {Component, ViewChild, ElementRef, EventEmitter} from "@angular/core";
 import {Page} from "ui/page";
 import dialogs = require("ui/dialogs");
+// import cameraModule for accesing camera hardware
 import cameraModule = require("camera");
-import imageModule = require("ui/image");
 
 @Component({
     selector: "CameraPage",
@@ -20,7 +20,7 @@ export class CameraPage {
 
     public constructor(private page: Page){
     }
-
+    //Opens camera module and passes the picture
     public openCamera(){
         cameraModule.takePicture({width: this.width, height: this.height, keepAspectRatio: this.keepAspectRatio}).then(picture => {
             this.image.src = picture;

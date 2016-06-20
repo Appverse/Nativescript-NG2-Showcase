@@ -20,13 +20,13 @@ export class ContactsPage {
         this.setNativeElements();
         this.modal.opacity = 0;
     }
-
+    //Opens detail modal
     public itemTap(args){
         console.log(args.index)
         this.selected = args.index;
         this.openModal();
     }
-
+    //Open modal animation
     public openModal(){
         this.modalToogled = true;
         this.backdrop.animate({
@@ -38,7 +38,7 @@ export class ContactsPage {
             duration: 300
         })
     }
-
+    //Close modal animation
     public closeModal(){
         this.backdrop.animate({
             opacity: 0,
@@ -51,7 +51,7 @@ export class ContactsPage {
             this.modalToogled = false;
         })
     }
-
+    //Native Elemtns set
     public setNativeElements(){
         this.backdrop=this.backdropRef.nativeElement;
         this.modal=this.modalRef.nativeElement;

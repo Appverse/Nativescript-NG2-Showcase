@@ -14,11 +14,11 @@ export class ButtonsPage {
     public constructor(private _contentService: ContentService){
         this.styles = _contentService.getStyles();
     }
-
+    //Switch between default and round buttons
     public switchChange(args){
         this.rounded = !this.rounded;
     }
-
+    
     public selectedIndexChanged(args){
         this.styleSelected = args.object.selectedIndex;
         console.log("style selected", this.styleSelected)

@@ -4,6 +4,8 @@ import colorModule = require("color");
 import {RouteConfig, RouterOutlet, Router} from "@angular/router-deprecated";
 import {NS_ROUTER_DIRECTIVES, NS_ROUTER_PROVIDERS} from "nativescript-angular/router";
 import {ContentService} from "./common/services/content.service";
+import {SignaturePadPage} from "./pages/signaturepad/signaturepad.component";
+import {CodeScannerPage} from "./pages/codescanner/codescanner.component";
 import {IndicatorsPage} from "./pages/indicators/indicators.component";
 import {SelectorsPage} from "./pages/selectors/selectors.component";
 import {ContactsPage} from "./pages/contacts/contacts.component";
@@ -50,7 +52,9 @@ let absoluteLayout = require("ui/layouts/absolute-layout");
     { path: "/table", component: TablePage, name: "Table" },
     { path: "/settings", component: SettingsPage, name: "Settings" },
     { path: "/database", component: DatabasePage, name: "Database" },
-    { path: "/camera", component: CameraPage, name: "Camera" }
+    { path: "/camera", component: CameraPage, name: "Camera" },
+    { path: "/codescanner", component:CodeScannerPage, name: "CodeScanner" },
+    { path: "/signaturepad", component:SignaturePadPage, name: "SignaturePad" }
 ])
 
 export class AppComponent {
@@ -176,7 +180,9 @@ export class AppComponent {
             {name: "Table", page: "Table", icon: "\uf22b"},
             {name: "Contacts", page: "Contacts", icon: "\uf20b"},
             {name: "Camera", page: "Camera", icon: "\uf28c"},
-            {name: "Database", page: "Database", icon: "\uf18c"}
+            {name: "CodeScanner", page: "CodeScanner", icon: "\uf16d"},
+            {name: "Database", page: "Database", icon: "\uf18c"},
+            {name: "SignaturePad", page: "SignaturePad", icon: "\uf158"}
         ]},
         {name: "Other", subItems: [
             {name: "Settings", page: "Settings", icon: "\uf1c6"},

@@ -22,6 +22,7 @@ export class DatabasePage {
 
     public constructor(private page: Page){
         let instance= this;
+        //Create the database (DB)
         var db_promise = new Sqlite("MyDB", (err, db)=>{
             if (err) { 
             console.error("We failed to open database", err);
@@ -44,7 +45,7 @@ export class DatabasePage {
                 instance.age = v;
             });
     }
-
+    // To insert a new row
     public insert(){
         let instance = this;
         //CHECK IF ITS OPEN
@@ -58,7 +59,7 @@ export class DatabasePage {
             instance.info = "DB is closed!";
         }
     }
-
+    //To get all the rows
     public getAll(){
         let instance = this;
         //CHECK IF ITS OPEN
@@ -73,7 +74,7 @@ export class DatabasePage {
             instance.info = "DB is closed!";
         }
     }
-
+    //To delete tests rows
     public deleteAll(){
         let instance= this;
         //CHECK IF ITS OPEN
@@ -92,7 +93,7 @@ export class DatabasePage {
             instance.info = "DB is closed!";
         }
     }
-
+    //To close DB
     public closeDB(){
         let instance = this;
         //CHECK IF IT EXISTS AND IF ITS OPEN
@@ -116,7 +117,7 @@ export class DatabasePage {
             instance.info = "DB doesn't exist";
         }
     }
-
+    //To open DB
     public openDB(){
         let instance= this;
         //CHECK IF IT EXISTS AND IF ITS OPEN
@@ -142,7 +143,7 @@ export class DatabasePage {
             instance.info = "DB doesn't exist!";
         }
     }
-
+    //Initial DB set up
     public setupDB() {
     this.db.resultType(Sqlite.RESULTSASOBJECT);
     this.db.execSQL('DROP TABLE IF EXISTS tests;', (err)=>{
