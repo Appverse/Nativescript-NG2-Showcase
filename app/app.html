@@ -20,8 +20,8 @@
     <!-- SCREEN ABSOLUTES -->
     <AbsoluteLayout #absolute row="1" width="100%" height="100%">
         <!-- SIDE DRAWER -->
-        <GridLayout #sideDrawer columns="*,auto" left="-130" class="side-drawer app-color-secondary">
-            <ScrollView col="0">
+        <GridLayout #sideDrawer left="-130" class="side-drawer app-color-secondary">
+            <ScrollView>
                 <StackLayout marginTop="1">
                     <!-- CATEGORY -->
                     <StackLayout *ngFor="let category of sideDrawerCategories">

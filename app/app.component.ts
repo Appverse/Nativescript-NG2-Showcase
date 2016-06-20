@@ -1,6 +1,5 @@
 import {Component, ViewChild, ElementRef} from "@angular/core";
 import {Page} from "ui/page";
-import colorModule = require("color");
 import {RouteConfig, RouterOutlet, Router} from "@angular/router-deprecated";
 import {NS_ROUTER_DIRECTIVES, NS_ROUTER_PROVIDERS} from "nativescript-angular/router";
 import {ContentService} from "./common/services/content.service";
@@ -24,9 +23,10 @@ import {ListsPage} from "./pages/lists/lists.component";
 import {HomePage} from "./pages/home/home.component";
 import {TextPage} from "./pages/text/text.component";
 
-let Color = colorModule.Color;
 let themes = require( "nativescript-themes" );
 let absoluteLayout = require("ui/layouts/absolute-layout");
+//USING PLUGIN: NATIVESCRIPT-MASTER-TECHNOLOGY (FOR APP EXIT BUTTON)
+require( "nativescript-master-technology" );
 
 @Component({
     selector: "my-app",
@@ -70,7 +70,7 @@ export class AppComponent {
         this.backDrop.opacity = 0;
         this.page.getViewById("home").className = "app-color-tertiary";
     }
-
+    //Toggle side drawer
     public toggleSideDrawer(){
         if(this.toggled){
             this.closeSideDrawer();
@@ -78,17 +78,22 @@ export class AppComponent {
             this.openSideDrawer();
         }
     }
-
+    //Menu item tap
     public subItemTap(args,page: string){
-        this.page.getViewById(this._router.currentInstruction.urlPath).className = "app-color-secondary";
-        args.object.className = "app-color-tertiary";
-        this.toggleSideDrawer();
-        console.log("from", this._router.currentInstruction.urlPath, "to", page);
-        if(page.toLocaleLowerCase()!==this._router.currentInstruction.urlPath.toLocaleLowerCase()){
-            this.navigationTransition(page)
+        if(page!="Exit"){
+            this.page.getViewById(this._router.currentInstruction.urlPath).className = "app-color-secondary";
+            args.object.className = "app-color-tertiary";
+            this.toggleSideDrawer();
+            console.log("from", this._router.currentInstruction.urlPath, "to", page);
+            if(page.toLocaleLowerCase()!==this._router.currentInstruction.urlPath.toLocaleLowerCase()){
+                this.navigationTransition(page)
+            }
+        } else {
+            global.process.exit();
         }
+        
     }
-
+    //Router navigation transition
     public navigationTransition(page){
         this.router.animate({
             opacity: 0,
@@ -102,7 +107,7 @@ export class AppComponent {
         });
         
     }
-
+    //Open sider drawer animation
     public openSideDrawer(){
         this.toggled = !this.toggled;
         this.backDrop.animate({
@@ -125,7 +130,7 @@ export class AppComponent {
             curve: "easeIn"
         });
     }
-
+    //Close side drawer animation
     public closeSideDrawer(){
         this.backDrop.animate({
             duration:this.animationDuration,
@@ -150,7 +155,7 @@ export class AppComponent {
             this.toggled = !this.toggled;
         }); 
     }
-
+    // Native elements set
     public setNativeElements(){
         this.router=this.routerRef.nativeElement;
         this.backDrop=this.backDropRef.nativeElement;
@@ -158,7 +163,7 @@ export class AppComponent {
         this.menuIcon=this.menuIconRef.nativeElement;
         this.sideDrawer=this.sideDrawerRef.nativeElement;
     }
-
+    //Menu categories
     private sideDrawerCategories: Array<any> = [
         {name: "Main", subItems: [
             {name: "Home", page: "Home", icon: "\uf175"}
