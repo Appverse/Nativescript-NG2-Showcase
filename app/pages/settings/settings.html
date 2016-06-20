@@ -1,0 +1,20 @@
+<StackLayout class="app-color-tertiary">
+    <!-- TITLE -->
+    <GridLayout rows="auto" class="app-color-secondary">
+        <Label text="SETTINGS" class="h4 center s-margin app-color-secondary"></Label>
+    </GridLayout>
+    <GridLayout class="h-spacer app-color-primary bottom"></GridLayout>
+    <!-- SETTINGS -->
+    <StackLayout>
+        <!-- THEMES -->
+        <GridLayout columns="auto,*" rows="auto" class="app-color-secondary">
+            <Label col="0" text="Theme" class="s-margin center"></Label>
+            <ScrollView orientation="horizontal" col="1">
+                <StackLayout orientation="horizontal">
+                    <Button *ngFor="let theme of themes" [text]="theme.name" (tap)="applyTheme(theme.path)" class="s-margin button app-color-primary"></Button>
+                </StackLayout>
+            </ScrollView>
+        </GridLayout>
+    </StackLayout>
+</StackLayout>
+

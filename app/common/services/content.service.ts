@@ -38,6 +38,10 @@ export class ContentService {
         return this.contacts;
     }
 
+    public getThemes(): any[]{
+        return this.themes;
+    }
+
     private films: any[] = [
         {ep: "Episode I", name: "The Phantom Menace", year: "1999"},
         {ep: "Episode II", name: "Attack of the Clones", year: "2001"},
@@ -66,6 +70,13 @@ export class ContentService {
         {name: "Lando", race: "Human", number: "698531475", icon: "http://vignette4.wikia.nocookie.net/starwars/images/a/a7/Lando-AoD.jpg/revision/latest/scale-to-width-down/200?cb=20090928202401", from: "Bespin"},
         {name: "Greedo", race: "Rodian", number: "695824651", icon: "http://rs625.pbsrc.com/albums/tt331/Anthony8934/Star%20Wars%20Clone%20Commanders/Star%20Wars%20Sith/Star%20Wars%20Bounty%20Hunter/Greedo.jpg~c200", from: "Rodia"},
         {name: "Ackbar", race: "Mon Calamari", number: "6687595824", icon: "http://media.npr.org/assets/blogs/thetwo-way/images/2010/03/ackbar-dfdfea93d8ed875f978acf5fcbf63b65c0cf7033-s300-c85.jpg", from: "Mon Cala"}
+    ]
+
+    private themes: any[] = [
+        {name: "GFT", path: "app.css"},
+        {name: "Dark Side", path: "themes/dark_side.css"},
+        {name: "Pinky", path: "themes/pinky.css"},
+        {name: "Neon", path: "themes/neon.css"}
     ]
 
     private jedis: string[] = ["Yoda", "Mace Windu", "Ashoka Tano", "Obi-Wan Kenobi", "Qui-Gon Jinn", "Anakin Skywalker", "Luke SkyWalker"]

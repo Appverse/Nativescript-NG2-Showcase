@@ -7,11 +7,14 @@ import {ContentService} from "./common/services/content.service";
 import {IndicatorsPage} from "./pages/indicators/indicators.component";
 import {SelectorsPage} from "./pages/selectors/selectors.component";
 import {ContactsPage} from "./pages/contacts/contacts.component";
+import {SettingsPage} from "./pages/settings/settings.component";
+import {DatabasePage} from "./pages/database/database.component";
 import {ButtonsPage} from "./pages/buttons/buttons.component";
 import {PickersPage} from "./pages/pickers/pickers.component";
 import {LayoutsPage} from "./pages/layouts/layouts.component";
 import {DialogsPage} from "./pages/dialogs/dialogs.component";
 import {ImagesPage} from "./pages/images/images.component";
+import {CameraPage} from "./pages/camera/camera.component";
 import {ViewsPage} from "./pages/views/views.component";
 import {LoginPage} from "./pages/login/login.component";
 import {TablePage} from "./pages/table/table.component";
@@ -44,7 +47,10 @@ let absoluteLayout = require("ui/layouts/absolute-layout");
     { path: "/dialogs", component: DialogsPage, name: "Dialogs" },
     { path: "/login", component: LoginPage, name: "Login" },
     { path: "/contacts", component: ContactsPage, name: "Contacts" },
-    { path: "/table", component: TablePage, name: "Table" }
+    { path: "/table", component: TablePage, name: "Table" },
+    { path: "/settings", component: SettingsPage, name: "Settings" },
+    { path: "/database", component: DatabasePage, name: "Database" },
+    { path: "/camera", component: CameraPage, name: "Camera" }
 ])
 
 export class AppComponent {
@@ -58,7 +64,7 @@ export class AppComponent {
     ngAfterViewInit(){
         this.setNativeElements();
         this.backDrop.opacity = 0;
-        this.page.getViewById("home").className = "app-color-selected";
+        this.page.getViewById("home").className = "app-color-tertiary";
     }
 
     public toggleSideDrawer(){
@@ -70,8 +76,8 @@ export class AppComponent {
     }
 
     public subItemTap(args,page: string){
-        this.page.getViewById(this._router.currentInstruction.urlPath).className = "app-color-light";
-        args.object.className = "app-color-selected";
+        this.page.getViewById(this._router.currentInstruction.urlPath).className = "app-color-secondary";
+        args.object.className = "app-color-tertiary";
         this.toggleSideDrawer();
         console.log("from", this._router.currentInstruction.urlPath, "to", page);
         if(page.toLocaleLowerCase()!==this._router.currentInstruction.urlPath.toLocaleLowerCase()){
@@ -169,6 +175,8 @@ export class AppComponent {
             {name: "Login", page: "Login", icon: "\uf1cc"},
             {name: "Table", page: "Table", icon: "\uf22b"},
             {name: "Contacts", page: "Contacts", icon: "\uf20b"},
+            {name: "Camera", page: "Camera", icon: "\uf28c"},
+            {name: "Database", page: "Database", icon: "\uf18c"}
         ]},
         {name: "Other", subItems: [
             {name: "Settings", page: "Settings", icon: "\uf1c6"},

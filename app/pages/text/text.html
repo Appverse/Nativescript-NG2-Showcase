@@ -1,13 +1,13 @@
-<StackLayout>
+<StackLayout class="app-color-tertiary">
     <!-- TITLE -->
-    <GridLayout rows="auto" class="app-color-light">
-        <Label text="TEXT" class="h4 center s-margin app-color-light"></Label>
+    <GridLayout rows="auto" class="app-color-secondary">
+        <Label text="TEXT" class="h4 center s-margin app-color-secondary"></Label>
         <StackLayout orientation="horizontal" class="right">
             <Label text="ROUNDED" class="h6 center"></Label>
             <Switch checked="false" (tap)="switchChange($event)" class="app-color-darkest center"></Switch>
         </StackLayout>
     </GridLayout>
-    <GridLayout class="h-spacer app-color-dark bottom"></GridLayout>
+    <GridLayout class="h-spacer app-color-primary bottom"></GridLayout>
     <!-- COMPONENTS SELECTOR -->
     <TabView selectedColor="#1B3C80" tabsBackgroundColor="#FFFFFF">
         <!-- LABEL -->
@@ -21,7 +21,7 @@
         <!-- TEXTFIELD -->
         <StackLayout *tabItem="{title: 'FIELD'}">
             <!-- STYLE SELECTOR -->
-            <SegmentedBar (selectedIndexChanged)="selectedIndexChanged($event)" [items]="styles" class="app-color-light" selectedBackgroundColor="#1B3C80"></SegmentedBar>
+            <SegmentedBar (selectedIndexChanged)="selectedIndexChanged($event)" [items]="styles" class="app-color-secondary" selectedBackgroundColor="#1B3C80"></SegmentedBar>
             <ScrollView>
                 <StackLayout *ngIf="!rounded">
                     <TextField *ngFor="let textfield of styles[styleSelected].styles" [text]="textfield.name" [class]="'text-field s-margin ' + textfield.style"></TextField>
@@ -35,7 +35,7 @@
         <StackLayout *tabItem="{title: 'TEXTVIEW'}">
             <!-- COLOR SELECTOR -->
             <ScrollView orientation="horizontal">
-                <SegmentedBar width="{{ 100 * colors.length}}" (selectedIndexChanged)="selectedColorChanged($event)" [items]="colors" class="app-color-light" selectedBackgroundColor="#1B3C80"></SegmentedBar>
+                <SegmentedBar width="{{ 100 * colors.length}}" (selectedIndexChanged)="selectedColorChanged($event)" [items]="colors" class="app-color-secondary" selectedBackgroundColor="#1B3C80"></SegmentedBar>
             </ScrollView>
             <ScrollView>
                 <StackLayout>
