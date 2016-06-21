@@ -17,14 +17,14 @@ export class HomePage {
             this.introAnimation();
         } ,1000)
     }
-
+    //Initial settings
     public initSettings(){
         this.leftBracket.scaleY = 0;
         this.rightBracket.scaleY = 0;
         this.letterN.scaleX = 0;
         this.gft.scaleX = 0;
     }
-
+    //Logo animation
     public introAnimation(){
         this.leftBracket.animate({
             scale: {x: 1, y: 1},
@@ -52,7 +52,7 @@ export class HomePage {
             })
         })
     }
-
+    //Get elements from the UI
     public setNativeElements(){
         this.leftBracket=this.leftBracketRef.nativeElement;
         this.rightBracket=this.rightBracketRef.nativeElement;

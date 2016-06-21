@@ -3,6 +3,8 @@ import {Page} from "ui/page";
 import {RouteConfig, RouterOutlet, Router} from "@angular/router-deprecated";
 import {NS_ROUTER_DIRECTIVES, NS_ROUTER_PROVIDERS} from "nativescript-angular/router";
 import {ContentService} from "./common/services/content.service";
+//PAGE CLASSES IMPORT
+import {AccelerometerPage} from "./pages/accelerometer/accelerometer.component";
 import {SignaturePadPage} from "./pages/signaturepad/signaturepad.component";
 import {CodeScannerPage} from "./pages/codescanner/codescanner.component";
 import {IndicatorsPage} from "./pages/indicators/indicators.component";
@@ -10,6 +12,7 @@ import {SelectorsPage} from "./pages/selectors/selectors.component";
 import {ContactsPage} from "./pages/contacts/contacts.component";
 import {SettingsPage} from "./pages/settings/settings.component";
 import {DatabasePage} from "./pages/database/database.component";
+import {LocationPage} from "./pages/location/location.component";
 import {ButtonsPage} from "./pages/buttons/buttons.component";
 import {PickersPage} from "./pages/pickers/pickers.component";
 import {LayoutsPage} from "./pages/layouts/layouts.component";
@@ -22,6 +25,7 @@ import {TablePage} from "./pages/table/table.component";
 import {ListsPage} from "./pages/lists/lists.component";
 import {HomePage} from "./pages/home/home.component";
 import {TextPage} from "./pages/text/text.component";
+import {OCRPage} from "./pages/ocr/ocr.component";
 
 let themes = require( "nativescript-themes" );
 let absoluteLayout = require("ui/layouts/absolute-layout");
@@ -34,7 +38,7 @@ require( "nativescript-master-technology" );
     providers: [NS_ROUTER_PROVIDERS, ContentService],
     templateUrl: "./app.html"
 })
-
+//RouteConfig containing the route for all pages
 @RouteConfig([
     { path: "/home", component: HomePage, name: "Home", useAsDefault: true },
     { path: "/buttons", component: ButtonsPage, name: "Buttons" },
@@ -54,7 +58,10 @@ require( "nativescript-master-technology" );
     { path: "/database", component: DatabasePage, name: "Database" },
     { path: "/camera", component: CameraPage, name: "Camera" },
     { path: "/codescanner", component:CodeScannerPage, name: "CodeScanner" },
-    { path: "/signaturepad", component:SignaturePadPage, name: "SignaturePad" }
+    { path: "/signaturepad", component:SignaturePadPage, name: "SignaturePad" },
+    { path: "/ocr", component:OCRPage, name: "OCR" },
+    { path: "/location", component:LocationPage, name: "Location" },
+    { path: "/accelerometer", component:AccelerometerPage, name: "Accelerometer" }
 ])
 
 export class AppComponent {
@@ -180,12 +187,17 @@ export class AppComponent {
             {name: "Views", page: "Views", icon: "\uf279"},
             {name: "Dialogs", page: "Dialogs", icon: "\uf14b"},
         ]},
-        {name: " Examples", subItems: [
+        {name: "Hardware", subItems: [
+            {name: "Camera", page: "Camera", icon: "\uf28c"},
+            {name: "Accelerometer", page: "Accelerometer", icon: "\uf101"},
+            {name: "Location", page: "Location", icon: "\uf299"}
+        ]},
+        {name: "Examples", subItems: [
             {name: "Login", page: "Login", icon: "\uf1cc"},
             {name: "Table", page: "Table", icon: "\uf22b"},
             {name: "Contacts", page: "Contacts", icon: "\uf20b"},
-            {name: "Camera", page: "Camera", icon: "\uf28c"},
             {name: "CodeScanner", page: "CodeScanner", icon: "\uf16d"},
+            {name: "OCR", page: "OCR", icon: "\uf15c"},
             {name: "Database", page: "Database", icon: "\uf18c"},
             {name: "SignaturePad", page: "SignaturePad", icon: "\uf158"}
         ]},

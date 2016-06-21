@@ -1,5 +1,4 @@
 import {Component, ViewChild, ElementRef} from "@angular/core";
-import {ContentService} from "../../common/services/content.service";
 
 @Component({
     selector: "ViewsPage",
@@ -8,7 +7,7 @@ import {ContentService} from "../../common/services/content.service";
 })
 export class ViewsPage {
 
-    public constructor(private _contentService: ContentService){
+    public constructor(){
     }
 
     ngAfterViewInit(){

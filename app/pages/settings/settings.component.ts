@@ -1,6 +1,4 @@
 import {Component} from "@angular/core";
-import {Page} from "ui/page";
-import dialogs = require("ui/dialogs");
 import {ContentService} from "../../common/services/content.service";
 
 //USING PLUGIN: NATIVESCRIPT-THEMES
@@ -15,7 +13,7 @@ export class SettingsPage {
 
     private themes: any[];
 
-    public constructor(private page: Page, private _contentService: ContentService){
+    public constructor(private _contentService: ContentService){
         this.themes = _contentService.getThemes();
     }
 

@@ -51,7 +51,7 @@ export class ContactsPage {
             this.modalToogled = false;
         })
     }
-    //Native Elemtns set
+    //Get elements from the UI
     public setNativeElements(){
         this.backdrop=this.backdropRef.nativeElement;
         this.modal=this.modalRef.nativeElement;

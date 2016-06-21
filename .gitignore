@@ -8,6 +8,7 @@ typings
 *.iml
 *.log
 *.css
+*.traineddata
 
 app/**/*.js
 app/**/*.map

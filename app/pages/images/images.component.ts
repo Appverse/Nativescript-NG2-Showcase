@@ -1,5 +1,4 @@
-import {Component, ViewChild, ElementRef} from "@angular/core";
-import {ContentService} from "../../common/services/content.service";
+import {Component} from "@angular/core";
 
 @Component({
     selector: "ImagesPage",
@@ -8,6 +7,6 @@ import {ContentService} from "../../common/services/content.service";
 })
 export class ImagesPage {
 
-    public constructor(private _contentService: ContentService){
+    public constructor(){
     }
 }

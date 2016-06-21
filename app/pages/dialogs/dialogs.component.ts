@@ -1,5 +1,4 @@
-import {Component, ViewChild, ElementRef} from "@angular/core";
-import {ContentService} from "../../common/services/content.service";
+import {Component} from "@angular/core";
 import dialogs = require("ui/dialogs");
 
 @Component({
@@ -9,9 +8,9 @@ import dialogs = require("ui/dialogs");
 })
 export class DialogsPage {
 
-    public constructor(private _contentService: ContentService){
+    public constructor(){
     }
-
+    //Alert dialog
     public alert(options: boolean){
         if(options){
             dialogs.alert({
@@ -27,7 +26,7 @@ export class DialogsPage {
             });
         }
     }
-
+    //Confirm dialog
     public confirm(options: boolean){
         if(options){
             dialogs.confirm({
@@ -46,7 +45,7 @@ export class DialogsPage {
             });
         }
     }
-
+    // Prompt dialog
     public prompt(options: boolean){
         if(options){
             // inputType PROPERTY CAN BE dialogs.inputType.password OR dialogs.inputType.text.
@@ -68,7 +67,7 @@ export class DialogsPage {
             });
         }
     }
-
+    //Login dialog
     public login(options: boolean){
         if(options){
             dialogs.login({
@@ -89,7 +88,7 @@ export class DialogsPage {
             });
         }
     }
-
+    //Action dialog
     public action(options: boolean){
         if(options){
             dialogs.action({

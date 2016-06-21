@@ -1,5 +1,4 @@
 import {Component, ViewChild, ElementRef, EventEmitter} from "@angular/core";
-import {Page} from "ui/page";
 import dialogs = require("ui/dialogs");
 
 @Component({
@@ -19,7 +18,7 @@ export class LoginPage {
     private passwordEmitter = new EventEmitter<string>();
     private passwordCheckEmitter = new EventEmitter<string>();
 
-    public constructor(private page: Page){
+    public constructor(){
     }
 
     ngOnInit() {

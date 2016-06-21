@@ -1,6 +1,4 @@
 import {Component, ViewChild, ElementRef, EventEmitter} from "@angular/core";
-import {Page} from "ui/page";
-import dialogs = require("ui/dialogs");
 // import cameraModule for accesing camera hardware
 import cameraModule = require("camera");
 
@@ -18,7 +16,7 @@ export class CameraPage {
     private heightEmitter = new EventEmitter<string>();
     private keepAspectRatioEmitter = new EventEmitter<boolean>();
 
-    public constructor(private page: Page){
+    public constructor(){
     }
     //Opens camera module and passes the picture
     public openCamera(){
@@ -26,7 +24,7 @@ export class CameraPage {
             this.image.src = picture;
         });
     }
-
+    //On page init it subscribes to EventEmitters that are emited by the UI
     ngOnInit(){
         let instance = this;
         this.widthEmitter
@@ -42,7 +40,7 @@ export class CameraPage {
                 instance.keepAspectRatio = v;
             });
     }
-
+    /* Get the elements from the UI */
     ngAfterViewInit(){
         this.image=this.imageRef.nativeElement;
     }

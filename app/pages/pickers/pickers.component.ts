@@ -1,4 +1,4 @@
-import {Component, ViewChild, ElementRef} from "@angular/core";
+import {Component} from "@angular/core";
 import {ContentService} from "../../common/services/content.service";
 
 @Component({
@@ -22,11 +22,15 @@ export class PickersPage {
     }
 
     private selectedDateChange(args){
-        this.date = args.object.day + "/" + args.object.month + "/" + args.object.year;
+        this.date = this.padTwo(args.object.day) + "/" + this.padTwo(args.object.month) + "/" + args.object.year;
     }
 
     private selectedTimeChange(args){
-        this.time = args.object.hour + ":" + args.object.minute;
+        this.time = this.padTwo(args.object.hour) + ":" + this.padTwo(args.object.minute);
+    }
+
+    public padTwo(n: number) {
+        return (n<10 ? '0' : '') + n;
     }
 
 }

@@ -1,6 +1,4 @@
-import {Component, ViewChild, ElementRef, EventEmitter} from "@angular/core";
-import {Page} from "ui/page";
-import dialogs = require("ui/dialogs");
+import {Component, EventEmitter} from "@angular/core";
 
 //USING PLUGIN: NATIVESCRIPT-SQLITE
 var Sqlite = require( "nativescript-sqlite" );
@@ -20,7 +18,7 @@ export class DatabasePage {
     private nameEmitter = new EventEmitter<string>();
     private ageEmitter = new EventEmitter<string>();
 
-    public constructor(private page: Page){
+    public constructor(){
         let instance= this;
         //Create the database (DB)
         var db_promise = new Sqlite("MyDB", (err, db)=>{
@@ -45,11 +43,12 @@ export class DatabasePage {
                 instance.age = v;
             });
     }
-    // To insert a new row
+    // Inserts a new row executing SQL
     public insert(){
         let instance = this;
         //CHECK IF ITS OPEN
         if(this.db.isOpen()){
+            /* To execute non-SELECT SQL statements  */
             this.db.execSQL("INSERT INTO tests (name, age) VALUES (?,?)", [this.name, this.age], (err, id)=>{
                 console.log("The new record id is:", id);
                 instance.info = "Row added";
@@ -59,13 +58,17 @@ export class DatabasePage {
             instance.info = "DB is closed!";
         }
     }
-    //To get all the rows
+    //Gets all the rows
     public getAll(){
         let instance = this;
         //CHECK IF ITS OPEN
         if(this.db.isOpen()){
+            /* To execute SELECT SQL statements:
+                    .get returns the first row as result in the callback
+                    .all returns all the rows as result in the callback
+                    .each returns each row as result in the callback (which is called as many times as the number of rows) */
             this.db.all('SELECT * FROM tests', (err, r)=>{
-                console.log("Row of data was: ", r);  // Prints [["Field1", "Field2",...]]
+                console.log("Row of data was: ", r);
                 instance.info = "Data received";
                 this.results = r;
             });
@@ -74,7 +77,7 @@ export class DatabasePage {
             instance.info = "DB is closed!";
         }
     }
-    //To delete tests rows
+    //Deletes tests rows
     public deleteAll(){
         let instance= this;
         //CHECK IF ITS OPEN
@@ -145,23 +148,23 @@ export class DatabasePage {
     }
     //Initial DB set up
     public setupDB() {
-    this.db.resultType(Sqlite.RESULTSASOBJECT);
-    this.db.execSQL('DROP TABLE IF EXISTS tests;', (err)=>{
-        if (err) { console.log("!---- Drop Err", err); }
-        this.db.execSQL('CREATE TABLE tests (`name` TEXT, `age` NUMERIC)', (err)=>{
-            if (err) {
-                console.log("!---- Create Table err", err);
-                return;
-            }
-            this.db.execSQL('INSERT INTO tests (name, age) VALUES ("Nathan Drake",32)', (err, id)=>{
+        this.db.resultType(Sqlite.RESULTSASOBJECT);
+        this.db.execSQL('DROP TABLE IF EXISTS tests;', (err)=>{
+            if (err) { console.log("!---- Drop Err", err); }
+            this.db.execSQL('CREATE TABLE tests (`name` TEXT, `age` NUMERIC)', (err)=>{
                 if (err) {
-                    console.log("!---- Insert err", err);
+                    console.log("!---- Create Table err", err);
                     return;
                 }
-               this. db.execSQL('INSERT INTO tests (name, age) VALUES ("Elena Fisher",30)');
+                this.db.execSQL('INSERT INTO tests (name, age) VALUES ("Nathan Drake",32)', (err, id)=>{
+                    if (err) {
+                        console.log("!---- Insert err", err);
+                        return;
+                    }
+                this. db.execSQL('INSERT INTO tests (name, age) VALUES ("Elena Fisher",30)');
+                });
             });
         });
-    });
-    this.db.close()
-}
+        this.db.close()
+    }
 }

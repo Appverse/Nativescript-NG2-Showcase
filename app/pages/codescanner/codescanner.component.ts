@@ -1,6 +1,4 @@
-import {Component, ViewChild, ElementRef, EventEmitter} from "@angular/core";
-import {Page} from "ui/page";
-import dialogs = require("ui/dialogs");
+import {Component} from "@angular/core";
 
 //USING PLUGIN: NATIVESCRIPT-BARCODESCANNER
 var barcodescanner = require("nativescript-barcodescanner");
@@ -14,10 +12,9 @@ export class CodeScannerPage {
 
     private result;
 
-    public constructor(private page: Page){
-        
+    public constructor(){
     }
-
+    //Opens camera and scans the code
     public scan(format?:string){
         if (barcodescanner.available()){
             barcodescanner.scan({
@@ -38,7 +35,6 @@ export class CodeScannerPage {
                 }
             )
         }
-        
     }
 
 }

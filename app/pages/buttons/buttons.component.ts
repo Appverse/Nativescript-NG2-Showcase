@@ -1,4 +1,4 @@
-import {Component, ViewChild, ElementRef} from "@angular/core";
+import {Component} from "@angular/core";
 import {ContentService} from "../../common/services/content.service";
 
 @Component({
@@ -18,7 +18,7 @@ export class ButtonsPage {
     public switchChange(args){
         this.rounded = !this.rounded;
     }
-    
+    //Changes tyle selected
     public selectedIndexChanged(args){
         this.styleSelected = args.object.selectedIndex;
         console.log("style selected", this.styleSelected)

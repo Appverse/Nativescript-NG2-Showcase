@@ -1,5 +1,4 @@
-import {Component, ViewChild, ElementRef, EventEmitter} from "@angular/core";
-import {Page} from "ui/page";
+import {Component, ViewChild, ElementRef} from "@angular/core";
 /* IMPORTANT: registering DrawingPad UI component */
 import {registerElement} from "nativescript-angular/element-registry";
 registerElement("DrawingPad", ()=>require("nativescript-drawingpad").DrawingPad)
@@ -20,7 +19,7 @@ export class SignaturePadPage {
 
     private images: any[] = [];
 
-    public constructor(private page: Page){
+    public constructor(){
     }
 
     public getDrawingAsPic() {
