@@ -1,5 +1,4 @@
 import {Component} from "@angular/core";
-import {ContentService} from "../../common/services/content.service";
 
 @Component({
     selector: "TablePage",
@@ -8,6 +7,6 @@ import {ContentService} from "../../common/services/content.service";
 })
 export class TablePage {
 
-    public constructor(private _contentService: ContentService){
+    public constructor(){
     }
 }

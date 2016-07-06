@@ -8,6 +8,7 @@ import {AccelerometerPage} from "./pages/accelerometer/accelerometer.component";
 import {SignaturePadPage} from "./pages/signaturepad/signaturepad.component";
 import {CodeScannerPage} from "./pages/codescanner/codescanner.component";
 import {IndicatorsPage} from "./pages/indicators/indicators.component";
+import {AnimationsPage} from "./pages/animations/animations.component";
 import {SelectorsPage} from "./pages/selectors/selectors.component";
 import {ContactsPage} from "./pages/contacts/contacts.component";
 import {SettingsPage} from "./pages/settings/settings.component";
@@ -61,7 +62,8 @@ require( "nativescript-master-technology" );
     { path: "/signaturepad", component:SignaturePadPage, name: "SignaturePad" },
     { path: "/ocr", component:OCRPage, name: "OCR" },
     { path: "/location", component:LocationPage, name: "Location" },
-    { path: "/accelerometer", component:AccelerometerPage, name: "Accelerometer" }
+    { path: "/accelerometer", component:AccelerometerPage, name: "Accelerometer" },
+    { path: "/animations", component: AnimationsPage, name: "Animations" }
 ])
 
 export class AppComponent {
@@ -112,7 +114,6 @@ export class AppComponent {
                 duration: this.animationDuration
             })
         });
-        
     }
     //Open sider drawer animation
     public openSideDrawer(){
@@ -199,6 +200,7 @@ export class AppComponent {
             {name: "CodeScanner", page: "CodeScanner", icon: "\uf16d"},
             {name: "OCR", page: "OCR", icon: "\uf15c"},
             {name: "Database", page: "Database", icon: "\uf18c"},
+            {name: "Animations", page: "Animations", icon: "\uf1e1"},
             {name: "SignaturePad", page: "SignaturePad", icon: "\uf158"}
         ]},
         {name: "Other", subItems: [
