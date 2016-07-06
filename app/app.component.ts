@@ -23,6 +23,7 @@ import {CameraPage} from "./pages/camera/camera.component";
 import {ViewsPage} from "./pages/views/views.component";
 import {LoginPage} from "./pages/login/login.component";
 import {TablePage} from "./pages/table/table.component";
+import {ChartsPage} from "./pages/charts/charts.component";
 import {ListsPage} from "./pages/lists/lists.component";
 import {HomePage} from "./pages/home/home.component";
 import {TextPage} from "./pages/text/text.component";
@@ -62,6 +63,7 @@ require( "nativescript-master-technology" );
     { path: "/signaturepad", component:SignaturePadPage, name: "SignaturePad" },
     { path: "/ocr", component:OCRPage, name: "OCR" },
     { path: "/location", component:LocationPage, name: "Location" },
+    { path: "/Charts", component:ChartsPage, name: "Charts" },
     { path: "/accelerometer", component:AccelerometerPage, name: "Accelerometer" },
     { path: "/animations", component: AnimationsPage, name: "Animations" }
 ])
@@ -201,6 +203,7 @@ export class AppComponent {
             {name: "OCR", page: "OCR", icon: "\uf15c"},
             {name: "Database", page: "Database", icon: "\uf18c"},
             {name: "Animations", page: "Animations", icon: "\uf1e1"},
+            {name: "Charts", page: "Charts", icon: "\uf131"},
             {name: "SignaturePad", page: "SignaturePad", icon: "\uf158"}
         ]},
         {name: "Other", subItems: [
