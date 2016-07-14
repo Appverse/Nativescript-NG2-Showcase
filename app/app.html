@@ -2,7 +2,7 @@
     <!-- ACTION BAR -->
     <GridLayout row="0" columns="*,8*,*" class="action-bar app-color-primary">
         <!-- LEFT ICON -->
-        <GridLayout col="0" (tap)="toggleSideDrawer()">
+        <GridLayout col="0" (tap)="toggleSideDrawer()" automationText="toggleSDButton">
             <Label #menuIcon text="&#xf197;" class="material-icon icon"></Label>
         </GridLayout>
         <!-- TITLE -->
@@ -12,7 +12,7 @@
         </GridLayout>
     </GridLayout>
     <!-- ROUTER -->
-    <GridLayout #router row="1">
+    <GridLayout #router row="1" automationText="router">
         <router-outlet></router-outlet>
         <GridLayout *ngIf="toggled" (tap)="toggleSideDrawer()"></GridLayout>
         <GridLayout #backDrop class="backdrop"></GridLayout>
@@ -21,8 +21,8 @@
     <AbsoluteLayout #absolute row="1" width="100%" height="100%">
         <!-- SIDE DRAWER -->
         <GridLayout #sideDrawer left="-130" class="side-drawer app-color-secondary">
-            <ScrollView>
-                <StackLayout marginTop="1">
+            <ScrollView automationText="sideDrawer">
+                <StackLayout marginTop="1" automationText="menuButtons">
                     <!-- CATEGORY -->
                     <StackLayout *ngFor="let category of sideDrawerCategories">
                         <!-- ITEM -->
@@ -30,7 +30,8 @@
                             <Label [text]="category.name" class="left"></Label>
                         </GridLayout>
                         <!-- SUB-ITEM -->
-                            <GridLayout [id]="subItem.name.toLowerCase()" columns="*,4*" height="40" rows="*,auto" *ngFor="let subItem of category.subItems; let i=index" (tap)="subItemTap($event,subItem.page)">
+                            <GridLayout *ngFor="let subItem of category.subItems; let i=index" [id]="subItem.name.toLowerCase()" columns="*,4*" height="40" rows="*,auto" 
+                                        (tap)="subItemTap($event,subItem.page)" [automationText]="subItem.page + 'Button'">
                                 <Label [text]="subItem.icon" class="material-icon center"></Label>
                                 <Label row="0" col="1" [text]="subItem.name" class="left"></Label>
                                 <GridLayout row="1" col="1" *ngIf="category.subItems.length > i+1" class="h-spacer app-color-primary"></GridLayout>

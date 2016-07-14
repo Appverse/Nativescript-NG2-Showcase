@@ -108,7 +108,7 @@ export class AppComponent {
     public navigationTransition(page){
         this.router.animate({
             opacity: 0,
-            duration: this.animationDuration
+            duration: this.animationDuration + 50
         }).then(()=>{
             this._router.navigate([page]);
             this.router.animate({

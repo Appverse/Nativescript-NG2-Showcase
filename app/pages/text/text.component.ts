@@ -1,5 +1,6 @@
 import {Component} from "@angular/core";
 import {ContentService} from "../../common/services/content.service";
+import {Page} from "ui/page";
 
 @Component({
     selector: "TextPage",
@@ -17,11 +18,16 @@ export class TextPage {
     private opening: string;
     private rounded: boolean = false;
 
-    public constructor(private _contentService: ContentService){
+    public constructor(private _contentService: ContentService, private page: Page){
         this.colors = _contentService.getColors();
         this.opening = _contentService.getOpening();
         this.styles = _contentService.getStyles();
         this.textStyles = _contentService.getTextStyles();
+    }
+
+    public textFieldLoaded(args){
+        console.log("loaded")
+        args.object.dismissSoftInput()
     }
     
     public switchChange(args){

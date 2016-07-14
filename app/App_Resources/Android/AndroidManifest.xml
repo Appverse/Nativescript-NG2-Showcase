@@ -30,7 +30,7 @@
 			android:label="@string/title_activity_kimera"
 			android:screenOrientation="portrait"
 			android:configChanges="keyboardHidden|orientation|screenSize"
-			android:windowSoftInputMode="stateHidden|adjustPan">
+			android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
 
 				<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
