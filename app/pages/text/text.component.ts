@@ -26,7 +26,6 @@ export class TextPage {
     }
 
     public textFieldLoaded(args){
-        console.log("loaded")
         args.object.dismissSoftInput()
     }
     
@@ -36,11 +35,9 @@ export class TextPage {
 
     public selectedIndexChanged(args){
         this.styleSelected = args.object.selectedIndex;
-        console.log("style selected", this.styleSelected)
     }
 
     public selectedColorChanged(args){
         this.colorSelected = args.object.selectedIndex;
-        console.log("style selected", this.style);        
     }
 }

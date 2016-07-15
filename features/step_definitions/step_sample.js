@@ -22,6 +22,12 @@ module.exports = function () {
       .should.eventually.notify(callback);
   });
 
+  this.When(/^I tap back button$/, function (callback) {
+    this.driver
+      .back()
+      .should.eventually.notify(callback);
+  });
+
   this.When(/^I hide keyboard$/, function (callback) {
     this.driver
       .hideKeyboard('Return')

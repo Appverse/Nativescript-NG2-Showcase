@@ -22,7 +22,6 @@ export class ContactsPage {
     }
     //Opens detail modal
     public itemTap(args){
-        console.log(args.index)
         this.selected = args.index;
         this.openModal();
     }

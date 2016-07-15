@@ -20,6 +20,5 @@ export class ListsPage {
 
     public selectedColorChanged(args){
         this.colorSelected = args.object.selectedIndex;
-        console.log("style selected", this.style);        
     }
 }

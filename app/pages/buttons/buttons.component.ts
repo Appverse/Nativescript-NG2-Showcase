@@ -21,7 +21,6 @@ export class ButtonsPage {
     //Changes tyle selected
     public selectedIndexChanged(args){
         this.styleSelected = args.object.selectedIndex;
-        console.log("style selected", this.styleSelected)
     }
 
 }
