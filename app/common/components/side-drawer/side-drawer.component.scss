@@ -1,0 +1,39 @@
+.openSideDrawer {
+        animation-name: openSideDrawer;
+        animation-duration: 0.2s;
+        animation-fill-mode: forwards;
+}
+.closeSideDrawer {
+        animation-name: openSideDrawer;
+        animation-duration: 0.2s;
+        animation-fill-mode: forwards;
+        animation-direction: reverse;
+}
+@keyframes openSideDrawer {
+    	from{
+                    transform: translate(0,0)
+        }
+        100%{
+                    transform: translate(130,0)
+        }
+}
+//sub side drawer animations arent used because a promise is needed
+.openSubSideDrawer {
+        animation-name: openSubSideDrawer;
+        animation-duration: 0.2s;
+        animation-fill-mode: forwards;
+}
+.closeSubSideDrawer {
+        animation-name: openSubSideDrawer;
+        animation-duration: 0.2s;
+        animation-fill-mode: forwards;
+        animation-direction: reverse;
+}
+@keyframes openSubSideDrawer {
+    	from{
+                    transform: translate(0,0)
+        }
+        100%{
+                    transform: translate(260,0)
+        }
+}

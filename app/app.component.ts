@@ -4,6 +4,7 @@ import {RouteConfig, RouterOutlet, Router} from "@angular/router-deprecated";
 import {NS_ROUTER_DIRECTIVES, NS_ROUTER_PROVIDERS} from "nativescript-angular/router";
 import {ContentService} from "./common/services/content.service";
 import {SideDrawerComponent} from './common/components/side-drawer/side-drawer.component'
+import {SplashScreenComponent} from './common/components/splash-screen/splash-screen.component'
 //PAGE CLASSES IMPORT
 import {AccelerometerPage} from "./pages/accelerometer/accelerometer.component";
 import {SignaturePadPage} from "./pages/signaturepad/signaturepad.component";
@@ -37,7 +38,7 @@ require( "nativescript-master-technology" );
 
 @Component({
     selector: "my-app",
-    directives: [NS_ROUTER_DIRECTIVES, RouterOutlet, SideDrawerComponent],
+    directives: [NS_ROUTER_DIRECTIVES, RouterOutlet, SideDrawerComponent, SplashScreenComponent],
     providers: [NS_ROUTER_PROVIDERS, ContentService],
     templateUrl: "./app.html"
 })
@@ -71,7 +72,6 @@ require( "nativescript-master-technology" );
 
 export class AppComponent {
     private toggled: boolean = false;
-    private animationDuration: number = 200;
     
     constructor(private page: Page, private _router: Router){
         this.page.actionBarHidden = true;
@@ -96,40 +96,26 @@ export class AppComponent {
     public navigationTransition(page){
         this.router.animate({
             opacity: 0,
-            duration: this.animationDuration + 50
+            duration: 250
         }).then(()=>{
             this._router.navigate([page]);
             this.router.animate({
                 opacity: 1,
-                duration: this.animationDuration
+                duration: 250
             })
         });
     }
 
     //Open side drawer animation
     public openSideDrawer(){
-        this.backDrop.animate({
-            duration:this.animationDuration,
-            opacity: .3,
-        })
-        this.menuIcon.animate({
-            duration: this.animationDuration,
-            rotate: 90,
-            curve: "easeIn"
-        });
+        this.backDrop.className = "backdrop opacityZeroToPointThree";
+        this.menuIcon.className = "material-icon icon rotate90right";
     }
 
     //Close side drawer animation
     public closeSideDrawer(){
-        this.backDrop.animate({
-            duration:this.animationDuration,
-            opacity: 0,
-        })
-        this.menuIcon.animate({
-            duration:this.animationDuration,
-            rotate: 0,
-            curve: "easeIn"
-        })
+        this.backDrop.className = "backdrop opacityPointThreeToZero";
+        this.menuIcon.className = "material-icon icon rotate90left";
     }
 
     // Native elements set

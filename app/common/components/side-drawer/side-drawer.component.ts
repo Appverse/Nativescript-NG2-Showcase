@@ -5,7 +5,8 @@ import {Page} from "ui/page";
 
 @Component({
     selector: 'side-drawer',
-    templateUrl: 'common/components/side-drawer/side-drawer.component.html'
+    templateUrl: 'common/components/side-drawer/side-drawer.component.html',
+    styleUrls: ['common/components/side-drawer/side-drawer.component.css']
 })
 export class SideDrawerComponent implements OnChanges{
 
@@ -41,8 +42,6 @@ export class SideDrawerComponent implements OnChanges{
                     if(this.subItems != subItems){
                         this.subItems = subItems;
                         this.openSubSideDrawer();
-                        
-                        
                     }
                 })
             } else{
@@ -57,7 +56,8 @@ export class SideDrawerComponent implements OnChanges{
     //Menu sub item tap
     public navItemTap(args,pageName: string){
         if(pageName!="Exit"){
-            let lastButton = this.page.getViewById(this._router.currentInstruction.urlPath)
+            let lastButton = this.page.getViewById(this._router.currentInstruction.urlPath.toLocaleLowerCase())
+            console.log("lastButton",lastButton,"pageName",this._router.currentInstruction.urlPath.toLocaleLowerCase())
             if(lastButton){
                 lastButton.className = lastButton.parent.id == "menuButton"? "app-color-secondary" : "app-color-tertiary";
             }
@@ -74,24 +74,14 @@ export class SideDrawerComponent implements OnChanges{
 
     //Open side drawer animation
     public openSideDrawer(){
-        this.sideDrawer.animate({
-            duration: this.animationDuration,
-            translate: {x: 130, y: 0},
-            curve: "easeIn"
-        });
+        this.sideDrawer.className = "side-drawer app-color-secondary openSideDrawer"
     }
 
     //Close side drawer animation
     public closeSideDrawer(){
         this.closeSubSideDrawer();
-        this.sideDrawer.animate({
-            duration: this.animationDuration,
-            translate: {x: 0, y: 0},
-            curve: "easeIn"
-        }).then(()=>{
-            this.sideDrawer.translateX = 0;
-            this.subToggled = false;
-        }); 
+        this.sideDrawer.className = "side-drawer app-color-secondary closeSideDrawer"
+        this.subToggled = false;
     }
 
     //Close sub side drawer animation
@@ -118,7 +108,7 @@ export class SideDrawerComponent implements OnChanges{
             curve: "easeOut"
         });
         setTimeout(()=>{
-            let lastButton = this.page.getViewById(this._router.currentInstruction.urlPath)
+            let lastButton = this.page.getViewById(this._router.currentInstruction.urlPath.toLocaleLowerCase())
             if(lastButton){
                 lastButton.className = "app-color-quaternary";
             }

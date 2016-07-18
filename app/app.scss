@@ -91,6 +91,10 @@
    font-family: 'Material-Design-Iconic-Font';
 }
 
+.alte-font {
+   font-family: 'AlteHaasGroteskBold';
+}
+
 /* COMPONENTS */
 
 .button{
@@ -525,6 +529,10 @@ search-bar{
 
     /* COLOR */
 
+.lightest-font{
+    color: $light-primary;
+}
+
 .light-font{
     color: $light-secondary;
 }
@@ -555,4 +563,46 @@ search-bar{
 
 .danger-font{
     color: $danger-secondary;
+}
+
+//ANIMATIONS
+
+.rotate90left {
+        animation-name: rotate90right;
+        animation-duration: 0.2s;
+        animation-fill-mode: forwards;
+        animation-direction: reverse;
+}
+.rotate90right {
+        animation-name: rotate90right;
+        animation-duration: 0.2s;
+        animation-fill-mode: forwards;
+}
+@keyframes rotate90right {
+        from{
+            transform: rotate(0)
+        }
+        100%{
+            transform: rotate(90)
+        }
+}
+
+.opacityZeroToPointThree {
+        animation-name: opacityZeroToPointThree;
+        animation-duration: 0.2s;
+        animation-fill-mode: forwards;
+}
+.opacityPointThreeToZero {
+        animation-name: opacityZeroToPointThree;
+        animation-duration: 0.2s;
+        animation-fill-mode: forwards;
+        animation-direction: reverse;
+}
+@keyframes opacityZeroToPointThree {
+        from{
+            opacity: 0
+        }
+        100%{
+            opacity: .3
+        }
 }

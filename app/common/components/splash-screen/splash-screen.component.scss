@@ -1,0 +1,74 @@
+.labelOne {
+        animation-name: labelOne;
+        animation-duration: 0.8s;
+        animation-fill-mode: forwards;
+        animation-timing-function: spring
+}
+@keyframes labelOne {
+    	from{
+                    transform: translate(-300,0)
+        }
+        to{
+                    transform: translate(-30,0);
+        }
+}
+
+.labelOneExit {
+        animation-name: labelOneExit;
+        animation-duration: 0.15s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-out
+}
+@keyframes labelOneExit {
+    	from{
+                    transform: translate(-30,0)
+        }
+        to{
+                    transform: translate(300,0);
+        }
+}
+
+.labelTwo {
+        animation-name: labelTwo;
+        animation-duration: 0.8s;
+        animation-fill-mode: forwards;
+        animation-timing-function: spring
+}
+@keyframes labelTwo {
+    	from{
+                    transform: translate(300,0)
+        }
+        to{
+                    transform: translate(30,0);
+        }
+}
+
+.labelTwoExit {
+        animation-name: labelTwoExit;
+        animation-duration: 0.15s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-out
+}
+@keyframes labelTwoExit {
+    	from{
+                    transform: translate(30,0)
+        }
+        to{
+                    transform: translate(-300,0);
+        }
+}
+
+.background {
+        animation-name: background;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-out
+}
+@keyframes background {
+    	from{
+                    transform: translate(0,0)
+        }
+        to{
+                    transform: translate(0,-600);
+        }
+}
