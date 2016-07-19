@@ -9,22 +9,7 @@
                     transform: translate(-300,0)
         }
         to{
-                    transform: translate(-30,0);
-        }
-}
-
-.labelOneExit {
-        animation-name: labelOneExit;
-        animation-duration: 0.15s;
-        animation-fill-mode: forwards;
-        animation-timing-function: ease-out
-}
-@keyframes labelOneExit {
-    	from{
-                    transform: translate(-30,0)
-        }
-        to{
-                    transform: translate(300,0);
+                    transform: translate(0,0);
         }
 }
 
@@ -39,36 +24,21 @@
                     transform: translate(300,0)
         }
         to{
-                    transform: translate(30,0);
+                    transform: translate(0,0);
         }
 }
 
-.labelTwoExit {
-        animation-name: labelTwoExit;
-        animation-duration: 0.15s;
+.exit {
+        animation-name: exit;
+        animation-duration: 0.6s;
         animation-fill-mode: forwards;
-        animation-timing-function: ease-out
 }
-@keyframes labelTwoExit {
-    	from{
-                    transform: translate(30,0)
+@keyframes exit {
+        from{
+                transform: scale(1,1)
         }
-        to{
-                    transform: translate(-300,0);
-        }
-}
-
-.background {
-        animation-name: background;
-        animation-duration: 1s;
-        animation-fill-mode: forwards;
-        animation-timing-function: ease-out
-}
-@keyframes background {
-    	from{
-                    transform: translate(0,0)
-        }
-        to{
-                    transform: translate(0,-600);
+        100%{
+                transform: scale(100,100);
+                opacity: 0;
         }
 }

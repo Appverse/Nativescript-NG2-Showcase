@@ -19,8 +19,9 @@
             <GridLayout #backDrop class="backdrop"></GridLayout>
         </GridLayout>
         <!-- SIDE DRAWER-->
-        <side-drawer [toggled]="toggled" (close)="toggleSideDrawer()" (navigate)="navigationTransition($event)"></side-drawer>
+        <side-drawer [toggled]="toggled" (close)="toggleSideDrawer()" (navigate)="navigationTransition($event)" (exit)="toggleExitModal()"></side-drawer>
     </GridLayout>
     <!-- SPLASH SCREEN -->
-    <splash-screen></splash-screen>
+    <splash-screen *ngIf="splashScreen"></splash-screen>
+    <exit-modal *ngIf="exit" (close)="toggleExitModal()"></exit-modal>
 </GridLayout>

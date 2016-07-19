@@ -15,6 +15,7 @@ export class SideDrawerComponent implements OnChanges{
     private subItems: Array<any> = [];
     @Input() public toggled: boolean;
     @Output() close = new EventEmitter();
+    @Output() exit = new EventEmitter();
     @Output() navigate = new EventEmitter();
 
     constructor(private _router: Router, private page: Page) { }
@@ -68,7 +69,7 @@ export class SideDrawerComponent implements OnChanges{
                 this.navigate.emit(pageName);
             }
         } else {
-            global.process.exit();
+            this.exit.emit(false);
         }
     }
 
@@ -163,5 +164,4 @@ export class SideDrawerComponent implements OnChanges{
     private subSideDrawer;
     @ViewChild('absolute') absoluteRef: ElementRef;
     private absolute;
-
 }

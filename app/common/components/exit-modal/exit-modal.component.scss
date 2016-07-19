@@ -1,0 +1,34 @@
+@import 'themes/app_var.scss';
+
+.modal{
+        width: 80%;
+        height: 30%;
+        border-radius: 20;
+        padding: 20;
+}
+
+.button {
+        height: 40;        
+}
+
+.openModal {
+        animation-name: openModal;
+        animation-duration: 0.3s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in
+}
+.closeModal {
+        animation-name: openModal;
+        animation-duration: 0.3s;
+        animation-fill-mode: forwards;
+        animation-direction: reverse;
+        animation-timing-function: ease-in;
+}
+@keyframes openModal {
+    	from{
+                    transform: scale(0,0)
+        }
+        to{
+                    transform: scale(1,1);
+        }
+}

@@ -1,10 +1,11 @@
-import {Component, ViewChild, ElementRef} from "@angular/core";
+import {Component, ViewChild, ElementRef, NgZone} from "@angular/core";
 import {Page} from "ui/page";
 import {RouteConfig, RouterOutlet, Router} from "@angular/router-deprecated";
 import {NS_ROUTER_DIRECTIVES, NS_ROUTER_PROVIDERS} from "nativescript-angular/router";
 import {ContentService} from "./common/services/content.service";
 import {SideDrawerComponent} from './common/components/side-drawer/side-drawer.component'
 import {SplashScreenComponent} from './common/components/splash-screen/splash-screen.component'
+import {ExitModalComponent} from './common/components/exit-modal/exit-modal.component'
 //PAGE CLASSES IMPORT
 import {AccelerometerPage} from "./pages/accelerometer/accelerometer.component";
 import {SignaturePadPage} from "./pages/signaturepad/signaturepad.component";
@@ -33,12 +34,14 @@ import {OCRPage} from "./pages/ocr/ocr.component";
 
 let themes = require( "nativescript-themes" );
 let absoluteLayout = require("ui/layouts/absolute-layout");
+var application = require('application');
+
 //USING PLUGIN: NATIVESCRIPT-MASTER-TECHNOLOGY (FOR APP EXIT BUTTON)
 require( "nativescript-master-technology" );
 
 @Component({
     selector: "my-app",
-    directives: [NS_ROUTER_DIRECTIVES, RouterOutlet, SideDrawerComponent, SplashScreenComponent],
+    directives: [NS_ROUTER_DIRECTIVES, RouterOutlet, SideDrawerComponent, SplashScreenComponent, ExitModalComponent],
     providers: [NS_ROUTER_PROVIDERS, ContentService],
     templateUrl: "./app.html"
 })
@@ -71,15 +74,22 @@ require( "nativescript-master-technology" );
 ])
 
 export class AppComponent {
+
+    private exit: boolean = false;
     private toggled: boolean = false;
+    private splashScreen: boolean = true;
     
-    constructor(private page: Page, private _router: Router){
+    constructor(private page: Page, private _router: Router, private _ngZone: NgZone){
         this.page.actionBarHidden = true;
+        if (application.android) {
+            application.android.on(application.AndroidApplication.activityBackPressedEvent, this.backEvent.bind(this))
+        }
     }
     
     ngAfterViewInit(){
         this.setNativeElements();
         this.backDrop.opacity = 0;
+        setTimeout(()=>{this.splashScreen = false}, 3000)
     }
 
     //Toggle side drawer
@@ -116,6 +126,15 @@ export class AppComponent {
     public closeSideDrawer(){
         this.backDrop.className = "backdrop opacityPointThreeToZero";
         this.menuIcon.className = "material-icon icon rotate90left";
+    }
+
+    public toggleExitModal(){
+        this.exit = !this.exit;
+    }
+
+    public backEvent(args) {
+        this._ngZone.run(this.toggleExitModal.bind(this));
+        args.cancel = true;
     }
 
     // Native elements set

@@ -1,6 +1,8 @@
 import {Component, ViewChild, ElementRef, EventEmitter} from "@angular/core";
 import dialogs = require("ui/dialogs");
 
+var validator = require("email-validator");
+
 @Component({
     selector: "LoginPage",
     templateUrl: 'pages/login/login.html',
@@ -8,25 +10,20 @@ import dialogs = require("ui/dialogs");
 })
 export class LoginPage {
 
-    private username: string;
     private email: string;
     private password: string;
     private passwordCheck: string;
     private isLogin: boolean = true;
-    private usernameEmitter = new EventEmitter<string>();
     private emailEmitter = new EventEmitter<string>();
     private passwordEmitter = new EventEmitter<string>();
     private passwordCheckEmitter = new EventEmitter<string>();
+    private loginSuccess: boolean = false;
 
     public constructor(){
     }
 
     ngOnInit() {
         let instance = this;
-        this.usernameEmitter
-            .subscribe(v=>{
-                instance.username = v;
-            });
         this.emailEmitter
             .subscribe(v=>{
                 instance.email = v;
@@ -46,10 +43,18 @@ export class LoginPage {
     }
 
     public login(){
-        //CHECK CREDENTIALS HERE
-        dialogs.alert("Username: " + this.username + " Password: " + this.password).then(result => {
-            console.log("Dialog result: " + result);
-        });
+        if(validator.validate(this.email)){
+            //CHECK CREDENTIALS HERE
+            this.loginSuccess = true;
+            dialogs.alert("Email: " + this.email + " Password: " + this.password).then(result => {
+                console.log("Dialog result: " + result);
+            });
+        } else{
+            dialogs.alert("Email is not valid").then(result => {
+                console.log("Dialog result: " + result);
+            });
+        }
+        
     }
 
     public signin(){
@@ -74,13 +79,31 @@ export class LoginPage {
     }
 
     public register(){
+        let isEmailValid: boolean = validator.validate(this.email);
+        let isPassValid: boolean = this.password.length > 7;
+        let isPassDoubleChecked: boolean = this.password === this.passwordCheck; 
         //CHECK FIELD RULES HERE
-        dialogs.confirm("Username: " + this.username + " Email: " + this.email + " Password: " + this.password + " Password check: " + this.passwordCheck).then(result => {
-            console.log("Dialog result: " + result);
-            if(result){
-                this.toogle();
-            }
-        });
+        if(isEmailValid && isPassDoubleChecked && isPassValid){
+            dialogs.confirm("Email: " + this.email + " Password: " + this.password + " Password check: " + this.passwordCheck).then(result => {
+                console.log("Dialog result: " + result);
+                if(result){
+                    this.toogle();
+                }
+            });
+        } else{
+            dialogs.alert(this.alertMessage(isEmailValid, isPassValid, isPassDoubleChecked)).then(result => {
+                console.log("Dialog result: " + result);
+            });
+        }
+        
+    }
+
+    public alertMessage(isEmailValid: boolean, isPassValid: boolean, isPassDoubleChecked: boolean): string{
+        let msg = "";
+        !isEmailValid ? msg += "Email is not valid. " : null;
+        !isPassValid ? msg += "Password is too short. " : null;
+        !isPassDoubleChecked ? msg += "Passwords don't match." : null;
+        return msg;
     }
 
     public setNativeElements(){

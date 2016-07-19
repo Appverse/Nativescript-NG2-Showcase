@@ -13,9 +13,10 @@ export class SplashScreenComponent{
         this.setNativeElements();
         //Closing splash screen
         setTimeout(()=>{
-            this.background.className = "app-color-primary background"
-            this.labelOne.className = "alte-font lightest-font bottom h2 labelOneExit"
-            this.labelTwo.className = "alte-font lightest-font top h2 labelTwoExit"
+            this.background.className = "app-color-primary exit"
+            this.labelOne.className = "alte-font lightest-font bottom-left h2"
+            this.labelTwo.className = "alte-font lightest-font top-right h2"
+            this.labels.className = "center exit"
         },1500)
     }
     // Native elements set
@@ -23,6 +24,7 @@ export class SplashScreenComponent{
         this.background=this.backgroundRef.nativeElement;
         this.labelOne=this.labelOneRef.nativeElement;
         this.labelTwo=this.labelTwoRef.nativeElement;
+        this.labels=this.labelsRef.nativeElement;
     }
 
     //VIEW CHILDS
@@ -32,5 +34,7 @@ export class SplashScreenComponent{
     private labelOne;
     @ViewChild('labelTwo') labelTwoRef: ElementRef;
     private labelTwo;
+    @ViewChild('labels') labelsRef: ElementRef;
+    private labels;
 
 }
