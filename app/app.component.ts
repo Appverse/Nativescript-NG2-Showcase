@@ -35,6 +35,7 @@ import {OCRPage} from "./pages/ocr/ocr.component";
 let themes = require( "nativescript-themes" );
 let absoluteLayout = require("ui/layouts/absolute-layout");
 var application = require('application');
+var appSettings = require("application-settings");
 
 //USING PLUGIN: NATIVESCRIPT-MASTER-TECHNOLOGY (FOR APP EXIT BUTTON)
 require( "nativescript-master-technology" );
@@ -120,6 +121,7 @@ export class AppComponent {
     public openSideDrawer(){
         this.backDrop.className = "backdrop opacityZeroToPointThree";
         this.menuIcon.className = "material-icon icon rotate90right";
+        appSettings.setBoolean("firstLaunch", false);
     }
 
     //Close side drawer animation

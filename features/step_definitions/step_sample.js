@@ -1,5 +1,45 @@
 var wd = require("wd");
+
 module.exports = function () {
+
+  function openSideDrawer(driver){
+      return new Promise((resolve, reject) => {
+        driver
+            .elementByAccessibilityId("toggleSDButton")
+            .should.eventually.exist
+            .tap()
+            .then(()=>{
+                resolve(r);
+            })
+        });
+  }
+
+  function openSubSideDrawer(driver, buttonID){
+    return new Promise((resolve, reject) => {
+        driver
+            .elementByAccessibilityId("sideDrawer")
+            .should.eventually.exist
+            .elementByAccessibilityId(buttonID)
+            .should.eventually.exist
+            .tap()
+            .then(driver=>{
+                resolve(driver);
+            })
+        });
+  }
+
+  function tapButton(driver, buttonID){
+    return new Promise((resolve, reject) => {
+        driver
+            .elementByAccessibilityId(buttonID)
+            .should.eventually.exist
+            .tap()
+            .then(()=>{
+                resolve();
+            })
+        });
+  }
+
   this.Given(/^I am on the main page$/, function (callback) {
     this.driver
       .elementByAccessibilityId('router')
@@ -19,6 +59,19 @@ module.exports = function () {
       .elementByAccessibilityId(button)
       .should.eventually.exist
       .tap()
+      .should.eventually.notify(callback);
+  });
+
+  this.When(/^I navigate to "(.*)" of "(.*)"$/, function (callback, subitem, item) {
+    this.driver
+            .elementByAccessibilityId("toggleSDButton")
+            .should.eventually.exist
+            .tap()
+            .elementByAccessibilityId("sideDrawer")
+            .should.eventually.exist
+            .elementByAccessibilityId(item)
+            .should.eventually.exist
+            .tap()
       .should.eventually.notify(callback);
   });
 

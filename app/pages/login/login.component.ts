@@ -17,7 +17,6 @@ export class LoginPage {
     private emailEmitter = new EventEmitter<string>();
     private passwordEmitter = new EventEmitter<string>();
     private passwordCheckEmitter = new EventEmitter<string>();
-    private loginSuccess: boolean = false;
 
     public constructor(){
     }
@@ -42,30 +41,32 @@ export class LoginPage {
         this.setNativeElements();
     }
 
-    public login(){
-        if(validator.validate(this.email)){
+    public login(email: string, password: string){
+        let loginSuccess: boolean;
+        if(validator.validate(email)){
             //CHECK CREDENTIALS HERE
-            this.loginSuccess = true;
-            dialogs.alert("Email: " + this.email + " Password: " + this.password).then(result => {
+            dialogs.alert("Email: " + email + " Password: " + password).then(result => {
                 console.log("Dialog result: " + result);
             });
+            loginSuccess = true;
         } else{
             dialogs.alert("Email is not valid").then(result => {
                 console.log("Dialog result: " + result);
             });
+            loginSuccess = false;
         }
-        
+        return loginSuccess;
     }
 
     public signin(){
         if(this.isLogin){
-            this.toogle();
+            this.toggle();
         } else {
-            this.register();
+            this.register(this.email, this.password, this.passwordCheck);
         }
     }
 
-    public toogle(){
+    public toggle(){
         this.modal.animate({
             opacity: 0,
             duration: 350,
@@ -78,24 +79,27 @@ export class LoginPage {
         })
     }
 
-    public register(){
-        let isEmailValid: boolean = validator.validate(this.email);
-        let isPassValid: boolean = this.password.length > 7;
-        let isPassDoubleChecked: boolean = this.password === this.passwordCheck; 
+    public register(email: string, password: string, passwordCheck: string){
+        let isEmailValid: boolean = validator.validate(email);
+        let isPassValid: boolean = password.length > 7;
+        let isPassDoubleChecked: boolean = password === passwordCheck;
+        let registerSuccess: boolean; 
         //CHECK FIELD RULES HERE
         if(isEmailValid && isPassDoubleChecked && isPassValid){
-            dialogs.confirm("Email: " + this.email + " Password: " + this.password + " Password check: " + this.passwordCheck).then(result => {
+            dialogs.confirm("Email: " + email + " Password: " + password + " Password check: " + passwordCheck).then(result => {
                 console.log("Dialog result: " + result);
                 if(result){
-                    this.toogle();
+                    this.toggle();
                 }
             });
+            registerSuccess = true;
         } else{
             dialogs.alert(this.alertMessage(isEmailValid, isPassValid, isPassDoubleChecked)).then(result => {
                 console.log("Dialog result: " + result);
             });
+            registerSuccess = false;
         }
-        
+        return registerSuccess;
     }
 
     public alertMessage(isEmailValid: boolean, isPassValid: boolean, isPassDoubleChecked: boolean): string{

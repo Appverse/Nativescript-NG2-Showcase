@@ -4,6 +4,16 @@ Feature: Router navigation
 # HOME PAGE TEST
   Scenario: Text after init
     Given I am on the main page
+    Then I should see "toggleSDButton"
+  
+  Scenario: Open side drawer
+    Given I am on the main page
+    When I Select the button "toggleSDButton"
+    Then I should see "sideDrawer"
+# HOME PAGE TEST
+  Scenario: Page after menu button tap
+    Given I can see "sideDrawer"
+    When I Select the button "HomeButton"
     Then I should read "Welcome to GFT's NativeScript Showcase" in "welcomeMessage"
  
   Scenario: Open side drawer
