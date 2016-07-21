@@ -62,16 +62,11 @@ module.exports = function () {
       .should.eventually.notify(callback);
   });
 
-  this.When(/^I navigate to "(.*)" of "(.*)"$/, function (callback, subitem, item) {
+  this.When(/^I type "(.*)" in "(.*)"$/, function (text, field, callback) {
     this.driver
-            .elementByAccessibilityId("toggleSDButton")
-            .should.eventually.exist
-            .tap()
-            .elementByAccessibilityId("sideDrawer")
-            .should.eventually.exist
-            .elementByAccessibilityId(item)
-            .should.eventually.exist
-            .tap()
+      .elementByAccessibilityId(field)
+      .should.eventually.exist
+      .sendKeys(text)
       .should.eventually.notify(callback);
   });
 

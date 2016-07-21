@@ -10,3 +10,20 @@ Feature: Login test
       And I Select the button "LoginButton"
     Then I should read "LOGIN" in "title"
 
+  Scenario: Sign in
+    Given I can see "loginModal"
+    When I Select the button "signInButton"
+      And I type "sample@mail.com" in "emailField"
+      And I type "mypassword" in "passField"
+      And I type "mypassword" in "passCheckField"
+      And I Select the button "signInButton"
+      And I tap back button
+      And I Select the button "goBackButton"
+    Then I should read "LOG IN" in "modalTitle"
+
+  Scenario: Log in
+    Given I can see "loginModal"
+    When I Select the button "loginButton"
+      And I tap back button
+    Then I should read "LOG IN" in "modalTitle"
+

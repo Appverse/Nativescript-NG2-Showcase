@@ -17,7 +17,7 @@ export class SplashScreenComponent{
             this.labelOne.className = "alte-font lightest-font bottom-left h2"
             this.labelTwo.className = "alte-font lightest-font top-right h2"
             this.labels.className = "center exit"
-        },1500)
+        },2000)
     }
     // Native elements set
     public setNativeElements(){

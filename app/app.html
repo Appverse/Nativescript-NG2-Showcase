@@ -15,8 +15,6 @@
         <!-- ROUTER -->
         <GridLayout #router row="1" automationText="router">
             <router-outlet></router-outlet>
-            <GridLayout *ngIf="toggled" (tap)="toggleSideDrawer()"></GridLayout>
-            <GridLayout #backDrop class="backdrop"></GridLayout>
         </GridLayout>
         <!-- SIDE DRAWER-->
         <side-drawer [toggled]="toggled" (close)="toggleSideDrawer()" (navigate)="navigationTransition($event)" (exit)="toggleExitModal()"></side-drawer>

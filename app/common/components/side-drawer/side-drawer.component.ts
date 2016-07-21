@@ -75,13 +75,20 @@ export class SideDrawerComponent implements OnChanges{
 
     //Open side drawer animation
     public openSideDrawer(){
+        console.log("before open sideDrawerClassName", this.sideDrawer.className)
+        this.backDrop.className = "backdrop opacityZeroToPointThree";
         this.sideDrawer.className = "side-drawer app-color-secondary openSideDrawer"
+        
+        console.log("after open sideDrawerClassName", this.sideDrawer.className)
     }
 
     //Close side drawer animation
     public closeSideDrawer(){
+        console.log("before close sideDrawerClassName", this.sideDrawer.className)
         this.closeSubSideDrawer();
+        this.backDrop.className = "backdrop opacityPointThreeToZero";
         this.sideDrawer.className = "side-drawer app-color-secondary closeSideDrawer"
+        console.log("after close sideDrawerClassName", this.sideDrawer.className)
         this.subToggled = false;
     }
 
@@ -153,6 +160,7 @@ export class SideDrawerComponent implements OnChanges{
     // Native elements set
     public setNativeElements(){
         this.absolute=this.absoluteRef.nativeElement;
+        this.backDrop=this.backDropRef.nativeElement;
         this.sideDrawer=this.sideDrawerRef.nativeElement;
         this.subSideDrawer=this.subSideDrawerRef.nativeElement;
     }
@@ -164,4 +172,6 @@ export class SideDrawerComponent implements OnChanges{
     private subSideDrawer;
     @ViewChild('absolute') absoluteRef: ElementRef;
     private absolute;
+    @ViewChild('backDrop') backDropRef: ElementRef;
+    private backDrop;
 }
