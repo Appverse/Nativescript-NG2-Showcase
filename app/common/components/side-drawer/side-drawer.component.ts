@@ -6,7 +6,6 @@ import {Page} from "ui/page";
 @Component({
     selector: 'side-drawer',
     templateUrl: 'common/components/side-drawer/side-drawer.component.html',
-    styleUrls: ['common/components/side-drawer/side-drawer.component.css']
 })
 export class SideDrawerComponent implements OnChanges{
 

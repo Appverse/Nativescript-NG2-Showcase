@@ -3,7 +3,6 @@ import { Component, ViewChild, ElementRef} from '@angular/core';
 @Component({
     selector: 'splash-screen',
     templateUrl: 'common/components/splash-screen/splash-screen.component.html',
-    styleUrls: ['common/components/splash-screen/splash-screen.component.css']
 })
 export class SplashScreenComponent{
 
