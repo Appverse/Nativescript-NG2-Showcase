@@ -330,6 +330,7 @@ Feature: Router navigation
   Scenario: Page after menu button tap
     Given I can see "sideDrawer"
     When I Select the button "ChartsButton"
+      And I wait "3000"
       And I tap back button
     Then I should read "CHARTS" in "title"
 

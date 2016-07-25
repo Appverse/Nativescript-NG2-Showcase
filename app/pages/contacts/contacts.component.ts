@@ -1,15 +1,28 @@
-import {Component, ViewChild, ElementRef} from "@angular/core";
+import {Component, ViewChild, ElementRef, animate, trigger, state, style, transition} from "@angular/core";
 import {ContentService} from "../../common/services/content.service";
 
 @Component({
     selector: "ContactsPage",
     templateUrl: 'pages/contacts/contacts.html',
-    styleUrls: ['pages/contacts/contacts.css']
+    styleUrls: ['pages/contacts/contacts.css'],
+    animations: [
+        trigger('state', [
+            state('inactiveModal', style({ opacity: '0' })),
+            state('activeModal', style({ opacity: '1' })),
+            transition('inactiveModal => activeModal', [ animate('300ms ease-out') ]),
+            transition('activeModal => inactiveModal', [ animate('300ms ease-out') ]),
+            state('inactiveBD', style({ opacity: '0' })),
+            state('activeBD', style({ opacity: '.3' })),
+            transition('inactiveBD => activeBD', [ animate('300ms ease-out') ]),
+            transition('activeBD => inactiveBD', [ animate('300ms ease-out') ]),
+        ])
+    ]
 })
 export class ContactsPage {
 
     private contacts: any[];
-    private modalToogled: boolean = false;
+    private modalToggled: boolean = false;
+    private toggled: boolean = false;
     private selected: number = 0;
 
     public constructor(private _contentService: ContentService){
@@ -23,41 +36,18 @@ export class ContactsPage {
     //Opens detail modal
     public itemTap(args){
         this.selected = args.index;
-        this.openModal();
+        this.toggled = true;
+        this.modalToggled = true;
     }
-    //Open modal animation
-    public openModal(){
-        this.modalToogled = true;
-        this.backdrop.animate({
-            opacity: .3,
-            duration: 300
-        })
-        this.modal.animate({
-            opacity: 1,
-            duration: 300
-        })
-    }
-    //Close modal animation
+    //Closes detail modal
     public closeModal(){
-        this.backdrop.animate({
-            opacity: 0,
-            duration: 300
-        })
-        this.modal.animate({
-            opacity: 0,
-            duration: 300
-        }).then(()=>{
-            this.modalToogled = false;
-        })
+        this.modalToggled = false;
+        setTimeout(()=>{this.toggled = false},400)
     }
     //Get elements from the UI
     public setNativeElements(){
-        this.backdrop=this.backdropRef.nativeElement;
         this.modal=this.modalRef.nativeElement;
     }
-
-    @ViewChild('backdrop') backdropRef: ElementRef;
-    private backdrop;
     @ViewChild('modal') modalRef: ElementRef;
     private modal;
 }

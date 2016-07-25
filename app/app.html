@@ -4,7 +4,7 @@
         <GridLayout row="0" columns="*,8*,*" class="action-bar app-color-primary">
             <!-- LEFT ICON -->
             <GridLayout col="0" (tap)="toggleSideDrawer()" automationText="toggleSDButton">
-                <Label #menuIcon text="&#xf197;" class="material-icon icon"></Label>
+                <Label #menuIcon text="&#xf197;" class="material-icon icon" @state=" toggled ? 'active' : 'inactive' "></Label>
             </GridLayout>
             <!-- TITLE -->
             <Label col="1" text="GFT &#xf15e; NativeScript" class="title center material-icon bold"></Label>

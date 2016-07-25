@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, ViewChild, ElementRef, OnChanges} from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild, ElementRef, OnChanges, animate, trigger, state, style, transition} from '@angular/core';
 import {RouteConfig, RouterOutlet, Router} from "@angular/router-deprecated";
 import {NS_ROUTER_DIRECTIVES, NS_ROUTER_PROVIDERS} from "nativescript-angular/router";
 import {Page} from "ui/page";
@@ -6,6 +6,22 @@ import {Page} from "ui/page";
 @Component({
     selector: 'side-drawer',
     templateUrl: 'common/components/side-drawer/side-drawer.component.html',
+    animations: [
+        trigger('state', [
+            state('inactiveSD', style({ transform: 'translateX(0)' })),
+            state('activeSD', style({ transform: 'translateX(130)' })),
+            transition('inactiveSD => activeSD', [ animate('200ms ease-out') ]),
+            transition('activeSD => inactiveSD', [ animate('200ms ease-out') ]),
+            state('inactiveBD', style({ opacity: '0' })),
+            state('activeBD', style({ opacity: '.3' })),
+            transition('inactiveBD => activeBD', [ animate('200ms ease-out') ]),
+            transition('activeBD => inactiveBD', [ animate('200ms ease-out') ]),
+            state('inactiveSSD', style({ transform: 'translateX(0)' })),
+            state('activeSSD', style({ transform: 'translateX(260)' })),
+            transition('inactiveSSD => activeSSD', [ animate('200ms ease-out') ]),
+            transition('activeSSD => inactiveSSD', [ animate('200ms ease-out') ]),
+        ])
+    ]
 })
 export class SideDrawerComponent implements OnChanges{
 
@@ -25,9 +41,7 @@ export class SideDrawerComponent implements OnChanges{
     }
 
     ngOnChanges(){
-        if(this.toggled){
-            this.openSideDrawer()
-        } else{
+        if(!this.toggled){
             if(this.sideDrawer){
                 this.closeSideDrawer();
             }
@@ -72,22 +86,9 @@ export class SideDrawerComponent implements OnChanges{
         }
     }
 
-    //Open side drawer animation
-    public openSideDrawer(){
-        console.log("before open sideDrawerClassName", this.sideDrawer.className)
-        this.backDrop.className = "backdrop opacityZeroToPointThree";
-        this.sideDrawer.className = "side-drawer app-color-secondary openSideDrawer"
-        
-        console.log("after open sideDrawerClassName", this.sideDrawer.className)
-    }
-
     //Close side drawer animation
     public closeSideDrawer(){
-        console.log("before close sideDrawerClassName", this.sideDrawer.className)
         this.closeSubSideDrawer();
-        this.backDrop.className = "backdrop opacityPointThreeToZero";
-        this.sideDrawer.className = "side-drawer app-color-secondary closeSideDrawer"
-        console.log("after close sideDrawerClassName", this.sideDrawer.className)
         this.subToggled = false;
     }
 

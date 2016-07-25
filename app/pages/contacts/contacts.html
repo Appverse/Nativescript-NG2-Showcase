@@ -17,20 +17,30 @@
                 </template>
             </ListView>
         <!-- MODAL -->
-        <AbsoluteLayout #backdrop class="backdrop">
+        <AbsoluteLayout #backdrop class="backdrop" @state=" modalToggled ? 'activeBD' : 'inactiveBD' ">
         </AbsoluteLayout>
-        <AbsoluteLayout #modal class="fill-width fill-heigth">
-            <GridLayout class="fill-width fill-height" *ngIf="modalToogled" (tap)="closeModal()">
-                <GridLayout rows="3*,auto,*,*,*,*,*,*" columns="*,*" class="light center threequarters-width threequarters-height medium-rounded s-padding">
-                    <Image row="0" [src]="contacts[selected].icon" class="s-margin"></Image>
-                    <Label col="1" row="0" [text]=" contacts[selected].name" class="center bold"></Label>
-                    <GridLayout row="1" colSpan="2" class="h-spacer s-margin app-color-primary"></GridLayout>
-                    <Label row="2" colSpan="2" text="Number" class="left"></Label>
-                    <Label row="3" colSpan="2" [text]="contacts[selected].number" class="center h4"></Label>
-                    <Label row="4" colSpan="2" text="Planet" class="left"></Label>
-                    <Label row="5" colSpan="2" [text]="contacts[selected].from" class="center h4"></Label>
-                    <Label row="6" colSpan="2" text="Race" class="left"></Label>
-                    <Label row="7" colSpan="2" [text]="contacts[selected].race" class="center h4"></Label>
+        <AbsoluteLayout #modal class="fill-width fill-heigth" @state=" modalToggled ? 'activeModal' : 'inactiveModal' ">
+            <GridLayout class="fill-width fill-height" *ngIf="toggled" (tap)="closeModal()">
+                <GridLayout rows="auto,auto,auto" class="light center threequarters-width medium-rounded" (tap)="null">
+                    <GridLayout row="0" columns="auto, *" rows="auto">
+                        <Image col="0" class="left" width="120" height="120" [src]="contacts[selected].icon"></Image>
+                        <Label col="1" [text]=" contacts[selected].name" class="center bold h3"></Label>
+                    </GridLayout>
+                    <GridLayout row="1" colSpan="2" class="h-spacer app-color-primary"></GridLayout>
+                    <StackLayout row="2" class="s-margin">
+                        <GridLayout class="s-margin">
+                            <Label text="Phone number" class="left"></Label>
+                            <Label [text]="contacts[selected].number" class="right h4"></Label>
+                        </GridLayout>
+                        <GridLayout class="s-margin">
+                            <Label text="Origin planet" class="left"></Label>
+                            <Label [text]="contacts[selected].from" class="right h4"></Label>
+                        </GridLayout>
+                        <GridLayout class="s-margin">
+                            <Label text="Race" class="left"></Label>
+                            <Label [text]="contacts[selected].race" class="right h4"></Label>
+                        </GridLayout>
+                    </StackLayout>
                 </GridLayout>
             </GridLayout>
         </AbsoluteLayout>

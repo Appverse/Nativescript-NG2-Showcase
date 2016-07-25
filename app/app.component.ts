@@ -1,8 +1,9 @@
-import {Component, ViewChild, ElementRef, NgZone} from "@angular/core";
+import {Component, ViewChild, ElementRef, NgZone, animate, trigger, state, style, transition} from "@angular/core";
 import {Page} from "ui/page";
 import {RouteConfig, ROUTER_PROVIDERS, ROUTER_DIRECTIVES, ComponentInstruction, RouteParams, RouterOutlet, Router} from '@angular/router-deprecated';
 import {NS_ROUTER_DIRECTIVES, NS_ROUTER_PROVIDERS} from "nativescript-angular/router-deprecated/ns-router-deprecated";
 import {ContentService} from "./common/services/content.service";
+//COMPONENTS IMPORT
 import {SideDrawerComponent} from './common/components/side-drawer/side-drawer.component'
 import {SplashScreenComponent} from './common/components/splash-screen/splash-screen.component'
 import {ExitModalComponent} from './common/components/exit-modal/exit-modal.component'
@@ -44,7 +45,15 @@ require( "nativescript-master-technology" );
     selector: "my-app",
     directives: [NS_ROUTER_DIRECTIVES, RouterOutlet, SideDrawerComponent, SplashScreenComponent, ExitModalComponent],
     providers: [NS_ROUTER_PROVIDERS, ContentService],
-    templateUrl: "./app.html"
+    templateUrl: "./app.html",
+    animations: [
+        trigger('state', [
+            state('inactive', style({ transform: 'rotate(0)' })),
+            state('active', style({ transform: 'rotate(90)' })),
+            transition('inactive => active', [ animate('200ms ease-out') ]),
+            transition('active => inactive', [ animate('200ms ease-out') ]),
+        ])
+    ]
 })
 //RouteConfig containing the route for all pages
 @RouteConfig([
@@ -94,9 +103,7 @@ export class AppComponent {
 
     //Toggle side drawer
     public toggleSideDrawer(){
-        if(this.toggled){
-            this.closeSideDrawer();
-        } else {
+        if(!this.toggled) {
             this.openSideDrawer();
         }
         this.toggled = !this.toggled;
@@ -118,13 +125,7 @@ export class AppComponent {
 
     //Open side drawer animation
     public openSideDrawer(){
-        this.menuIcon.className = "material-icon icon rotate90right";
         appSettings.setBoolean("firstLaunch", false);
-    }
-
-    //Close side drawer animation
-    public closeSideDrawer(){
-        this.menuIcon.className = "material-icon icon rotate90left";
     }
 
     public toggleExitModal(){

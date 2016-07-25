@@ -82,6 +82,12 @@ module.exports = function () {
       .should.eventually.notify(callback);
   });
 
+  this.When(/^I wait "(.*)"$/, function (duration,callback) {
+    this.driver
+      .sleep(duration)
+      .should.eventually.notify(callback);
+  });
+
   this.Then(/^I should read "(.*)" in "(.*)"$/, function (text, element, callback) {
     this.driver
       .elementByAccessibilityId(element)

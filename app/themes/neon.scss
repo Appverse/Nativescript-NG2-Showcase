@@ -567,65 +567,65 @@ search-bar{
 
 //ANIMATIONS
 
-.rotate90left {
-        animation-name: rotate90right;
-        animation-duration: 0.2s;
-        animation-fill-mode: forwards;
-        animation-direction: reverse;
-}
-.rotate90right {
-        animation-name: rotate90right;
-        animation-duration: 0.2s;
-        animation-fill-mode: forwards;
-}
-@keyframes rotate90right {
-        from{
-            transform: rotate(0)
-        }
-        100%{
-            transform: rotate(90)
-        }
-}
+// .rotate90left {
+//         animation-name: rotate90right;
+//         animation-duration: 0.2s;
+//         animation-fill-mode: forwards;
+//         animation-direction: reverse;
+// }
+// .rotate90right {
+//         animation-name: rotate90right;
+//         animation-duration: 0.2s;
+//         animation-fill-mode: forwards;
+// }
+// @keyframes rotate90right {
+//         from{
+//             transform: rotate(0)
+//         }
+//         100%{
+//             transform: rotate(90)
+//         }
+// }
 
-.opacityZeroToPointThree {
-        animation-name: opacityZeroToPointThree;
-        animation-duration: 0.2s;
-        animation-fill-mode: forwards;
-}
-.opacityPointThreeToZero {
-        animation-name: opacityZeroToPointThree;
-        animation-duration: 0.2s;
-        animation-fill-mode: forwards;
-        animation-direction: reverse;
-}
-@keyframes opacityZeroToPointThree {
-        from{
-            opacity: 0
-        }
-        100%{
-            opacity: .3
-        }
-}
+// .opacityZeroToPointThree {
+//         animation-name: opacityZeroToPointThree;
+//         animation-duration: 0.2s;
+//         animation-fill-mode: forwards;
+// }
+// .opacityPointThreeToZero {
+//         animation-name: opacityZeroToPointThree;
+//         animation-duration: 0.2s;
+//         animation-fill-mode: forwards;
+//         animation-direction: reverse;
+// }
+// @keyframes opacityZeroToPointThree {
+//         from{
+//             opacity: 0
+//         }
+//         100%{
+//             opacity: .3
+//         }
+// }
 
-.openSideDrawer {
-        animation-name: openSideDrawer;
-        animation-duration: 0.2s;
-        animation-fill-mode: forwards;
-}
-.closeSideDrawer {
-        animation-name: openSideDrawer;
-        animation-duration: 0.2s;
-        animation-fill-mode: forwards;
-        animation-direction: reverse;
-}
-@keyframes openSideDrawer {
-    	from{
-                    transform: translate(0,0)
-        }
-        100%{
-                    transform: translate(130,0)
-        }
-}
+// .openSideDrawer {
+//         animation-name: openSideDrawer;
+//         animation-duration: 0.2s;
+//         animation-fill-mode: forwards;
+// }
+// .closeSideDrawer {
+//         animation-name: openSideDrawer;
+//         animation-duration: 0.2s;
+//         animation-fill-mode: forwards;
+//         animation-direction: reverse;
+// }
+// @keyframes openSideDrawer {
+//     	from{
+//                     transform: translate(0,0)
+//         }
+//         100%{
+//                     transform: translate(130,0)
+//         }
+// }
 //sub side drawer animations arent used because a promise is needed
 .openSubSideDrawer {
         animation-name: openSubSideDrawer;
