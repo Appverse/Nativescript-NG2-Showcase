@@ -116,6 +116,19 @@ search-bar{
     height: $medium-search-bar-height;
 }
 
+.tasks-item{
+    margin: 5;
+    border-radius: 10;
+    background-color: $secondary-color;
+}
+
+.input-task{
+    background-color: transparent;
+    border-radius: 10;
+    border-width: 2;
+    border-color: $primary-color; 
+}
+
 /* ROUNDED COMPONENTS */
 
 .small-rounded{

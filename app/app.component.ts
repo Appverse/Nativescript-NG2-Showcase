@@ -29,9 +29,9 @@ import {ViewsPage} from "./pages/views/views.component";
 import {LoginPage} from "./pages/login/login.component";
 import {TablePage} from "./pages/table/table.component";
 import {ListsPage} from "./pages/lists/lists.component";
+import {TasksPage} from "./pages/tasks/tasks.component";
 import {HomePage} from "./pages/home/home.component";
 import {TextPage} from "./pages/text/text.component";
-import {OCRPage} from "./pages/ocr/ocr.component";
 
 let themes = require( "nativescript-themes" );
 let absoluteLayout = require("ui/layouts/absolute-layout");
@@ -76,11 +76,11 @@ require( "nativescript-master-technology" );
     { path: "/camera", component: CameraPage, name: "Camera" },
     { path: "/codescanner", component:CodeScannerPage, name: "CodeScanner" },
     { path: "/signaturepad", component:SignaturePadPage, name: "SignaturePad" },
-    { path: "/ocr", component:OCRPage, name: "OCR" },
     { path: "/location", component:LocationPage, name: "Location" },
     { path: "/Charts", component:ChartsPage, name: "Charts" },
     { path: "/accelerometer", component:AccelerometerPage, name: "Accelerometer" },
-    { path: "/animations", component: AnimationsPage, name: "Animations" }
+    { path: "/animations", component: AnimationsPage, name: "Animations" },
+    { path: "/tasks", component: TasksPage, name: "Tasks" }
 ])
 
 export class AppComponent {

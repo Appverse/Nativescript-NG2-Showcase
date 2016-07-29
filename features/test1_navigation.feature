@@ -281,21 +281,6 @@ Feature: Router navigation
     Given I can see "sideDrawer"
     When I Select the button "ExamplesButton"
     Then I should see "subSideDrawer"
-# OCR PAGE TEST
-  Scenario: Page after menu button tap
-    Given I can see "sideDrawer"
-    When I Select the button "OCRButton"
-    Then I should read "OPTICAL CHARACTER RECOGNITION" in "title"
-
-  Scenario: Open side drawer
-    Given I am on the main page
-    When I Select the button "toggleSDButton"
-    Then I should see "sideDrawer"
- 
-  Scenario: Open examples sub side drawer
-    Given I can see "sideDrawer"
-    When I Select the button "ExamplesButton"
-    Then I should see "subSideDrawer"
 # DATABASE PAGE TEST
   Scenario: Page after menu button tap
     Given I can see "sideDrawer"
@@ -333,6 +318,21 @@ Feature: Router navigation
       And I wait "3000"
       And I tap back button
     Then I should read "CHARTS" in "title"
+
+  Scenario: Open side drawer
+    Given I am on the main page
+    When I Select the button "toggleSDButton"
+    Then I should see "sideDrawer"
+ 
+  Scenario: Open examples sub side drawer
+    Given I can see "sideDrawer"
+    When I Select the button "ExamplesButton"
+    Then I should see "subSideDrawer"
+# TASKS PAGE TEST
+  Scenario: Page after menu button tap
+    Given I can see "sideDrawer"
+    When I Select the button "TasksButton"
+    Then I should read "TASKS" in "title"
 
   Scenario: Open side drawer
     Given I am on the main page

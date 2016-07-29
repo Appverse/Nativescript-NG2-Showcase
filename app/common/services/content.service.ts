@@ -38,6 +38,10 @@ export class ContentService {
         return this.contacts;
     }
 
+    public getTasks(): any[]{
+        return this.tasks;
+    }
+
     public getThemes(): any[]{
         return this.themes;
     }
@@ -52,6 +56,15 @@ export class ContentService {
         {ep: "Episode VII", name: "The Force Awakens", year: "2015"},
         {ep: "Episode VIII", name: "", year: "2017"},
         {ep: "Episode IX", name: "", year: "2019"}
+    ]
+
+    private tasks: any[] = [
+        {isDone: false, text: "Go shopping"},
+        {isDone: true, text: "Eat tacos"},
+        {isDone: false, text: "Meet Mike"},
+        {isDone: true, text: "Procrastinate"},
+        {isDone: true, text: "Drink coffee"},
+        {isDone: false, text: "Work"}
     ]
 
     private contacts: any[] = [

@@ -148,10 +148,10 @@ export class SideDrawerComponent implements OnChanges{
             {name: "Table", page: "Table", icon: "\uf22b"},
             {name: "Contacts", page: "Contacts", icon: "\uf20b"},
             {name: "CodeScanner", page: "CodeScanner", icon: "\uf16d"},
-            {name: "OCR", page: "OCR", icon: "\uf15c"},
             {name: "Database", page: "Database", icon: "\uf18c"},
             {name: "Animations", page: "Animations", icon: "\uf1e1"},
             {name: "Charts", page: "Charts", icon: "\uf131"},
+            {name: "Tasks", page: "Tasks", icon: "\uf269"},
             {name: "SignaturePad", page: "SignaturePad", icon: "\uf11f"}
         ]},
         {name: "Settings", icon: "\uf1c6"},
