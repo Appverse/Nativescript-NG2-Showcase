@@ -4,14 +4,13 @@
     "**/*.js": {
       "when": "$(basename).ts"
     },
-    // "**/*.css": {
-    //   "when": "$(basename).scss"
-    // },
+    "**/*.css": {
+      "when": "$(basename).scss"
+    },
     "**/*.js.map": true,
     "platforms": true,
     "lib": true,
     "node_modules": true,
-    "hooks": true,
-    "data": true
+    "hooks": true
   }
 }
