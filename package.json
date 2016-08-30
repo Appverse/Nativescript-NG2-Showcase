@@ -14,7 +14,7 @@
     },
     "dependencies": {
         "tns-core-modules": "next",
-        "nativescript-angular": "next",
+        "nativescript-angular": "0.3.1-2016-08-08-788",
         "@angular/core": "2.0.0-rc.4",
         "@angular/common": "2.0.0-rc.4",
         "@angular/compiler": "2.0.0-rc.4",
