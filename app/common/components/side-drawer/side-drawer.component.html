@@ -23,7 +23,7 @@
                 <!-- ITEM -->
                 <StackLayout *ngFor="let item of sideDrawerCategories; let i=index" id="menuButton">
                     <GridLayout columns="*,5*,*" rows="*,auto" [id]="item.name.toLowerCase()" height="40" 
-                                (tap)="itemTap($event,item.subItems,item.name)" [automationText]="item.name + 'Button'">
+                                (tap)="itemTap($event,item.subItems,item.page)" [automationText]="item.name + 'Button'">
                         <Label row="0" col="0" [text]="item.icon" class="material-icon center"></Label>
                         <Label row="0" col="1" [text]="item.name" class="left"></Label>
                         <Label *ngIf="item.subItems" row="0" col="2" [text]="(subItems == item.subItems && subToggled) ? '&#xf2fa;' : '&#xf2fb;'" class="material-icon center"></Label>

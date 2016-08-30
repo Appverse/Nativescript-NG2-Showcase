@@ -1,51 +1,26 @@
-import {Component, ViewChild, ElementRef, NgZone, animate, trigger, state, style, transition} from "@angular/core";
-import {Page} from "ui/page";
-import {RouteConfig, ROUTER_PROVIDERS, ROUTER_DIRECTIVES, ComponentInstruction, RouteParams, RouterOutlet, Router} from '@angular/router-deprecated';
-import {NS_ROUTER_DIRECTIVES, NS_ROUTER_PROVIDERS} from "nativescript-angular/router-deprecated/ns-router-deprecated";
-import {ContentService} from "./common/services/content.service";
-//COMPONENTS IMPORT
-import {SideDrawerComponent} from './common/components/side-drawer/side-drawer.component'
-import {SplashScreenComponent} from './common/components/splash-screen/splash-screen.component'
-import {ExitModalComponent} from './common/components/exit-modal/exit-modal.component'
-//PAGE CLASSES IMPORT
-import {AccelerometerPage} from "./pages/accelerometer/accelerometer.component";
-import {SignaturePadPage} from "./pages/signaturepad/signaturepad.component";
-import {CodeScannerPage} from "./pages/codescanner/codescanner.component";
-import {IndicatorsPage} from "./pages/indicators/indicators.component";
-import {AnimationsPage} from "./pages/animations/animations.component";
-import {SelectorsPage} from "./pages/selectors/selectors.component";
-import {ContactsPage} from "./pages/contacts/contacts.component";
-import {SettingsPage} from "./pages/settings/settings.component";
-import {DatabasePage} from "./pages/database/database.component";
-import {LocationPage} from "./pages/location/location.component";
-import {ButtonsPage} from "./pages/buttons/buttons.component";
-import {PickersPage} from "./pages/pickers/pickers.component";
-import {LayoutsPage} from "./pages/layouts/layouts.component";
-import {DialogsPage} from "./pages/dialogs/dialogs.component";
-import {ImagesPage} from "./pages/images/images.component";
-import {CameraPage} from "./pages/camera/camera.component";
-import {ChartsPage} from "./pages/charts/charts.component";
-import {ViewsPage} from "./pages/views/views.component";
-import {LoginPage} from "./pages/login/login.component";
-import {TablePage} from "./pages/table/table.component";
-import {ListsPage} from "./pages/lists/lists.component";
-import {TasksPage} from "./pages/tasks/tasks.component";
-import {HomePage} from "./pages/home/home.component";
-import {TextPage} from "./pages/text/text.component";
+import {Component, ViewChild, ElementRef, NgZone, animate, trigger, state, style, transition, AfterViewInit} from '@angular/core';
+import {RouterExtensions} from 'nativescript-angular/router';
+import {Page} from 'ui/page';
 
-let themes = require( "nativescript-themes" );
-let absoluteLayout = require("ui/layouts/absolute-layout");
+import {ContentService} from './common/services/content.service';
+//COMPONENTS IMPORT
+import {SideDrawerComponent} from './common/components/side-drawer/side-drawer.component';
+import {SplashScreenComponent} from './common/components/splash-screen/splash-screen.component';
+import {ExitModalComponent} from './common/components/exit-modal/exit-modal.component';
+
+let themes = require( 'nativescript-themes' );
+let absoluteLayout = require('ui/layouts/absolute-layout');
 var application = require('application');
-var appSettings = require("application-settings");
+var appSettings = require('application-settings');
 
 //USING PLUGIN: NATIVESCRIPT-MASTER-TECHNOLOGY (FOR APP EXIT BUTTON)
-require( "nativescript-master-technology" );
+require( 'nativescript-master-technology' );
 
 @Component({
-    selector: "my-app",
-    directives: [NS_ROUTER_DIRECTIVES, RouterOutlet, SideDrawerComponent, SplashScreenComponent, ExitModalComponent],
-    providers: [NS_ROUTER_PROVIDERS, ContentService],
-    templateUrl: "./app.html",
+    selector: 'my-app',
+    directives: [SideDrawerComponent, SplashScreenComponent, ExitModalComponent],
+    providers: [ContentService],
+    templateUrl: './app.html',
     animations: [
         trigger('state', [
             state('inactive', style({ transform: 'rotate(0)' })),
@@ -55,54 +30,27 @@ require( "nativescript-master-technology" );
         ])
     ]
 })
-//RouteConfig containing the route for all pages
-@RouteConfig([
-    { path: "/home", component: HomePage, name: "Home", useAsDefault: true },
-    { path: "/buttons", component: ButtonsPage, name: "Buttons" },
-    { path: "/text", component: TextPage, name: "Text" },
-    { path: "/lists", component: ListsPage, name: "Lists" },
-    { path: "/pickers", component: PickersPage, name: "Pickers" },
-    { path: "/layouts", component: LayoutsPage, name: "Layouts" },
-    { path: "/selectors", component: SelectorsPage, name: "Selectors" },
-    { path: "/indicators", component: IndicatorsPage, name: "Indicators" },
-    { path: "/images", component: ImagesPage, name: "Images" },
-    { path: "/views", component: ViewsPage, name: "Views" },
-    { path: "/dialogs", component: DialogsPage, name: "Dialogs" },
-    { path: "/login", component: LoginPage, name: "Login" },
-    { path: "/contacts", component: ContactsPage, name: "Contacts" },
-    { path: "/table", component: TablePage, name: "Table" },
-    { path: "/settings", component: SettingsPage, name: "Settings" },
-    { path: "/database", component: DatabasePage, name: "Database" },
-    { path: "/camera", component: CameraPage, name: "Camera" },
-    { path: "/codescanner", component:CodeScannerPage, name: "CodeScanner" },
-    { path: "/signaturepad", component:SignaturePadPage, name: "SignaturePad" },
-    { path: "/location", component:LocationPage, name: "Location" },
-    { path: "/Charts", component:ChartsPage, name: "Charts" },
-    { path: "/accelerometer", component:AccelerometerPage, name: "Accelerometer" },
-    { path: "/animations", component: AnimationsPage, name: "Animations" },
-    { path: "/tasks", component: TasksPage, name: "Tasks" }
-])
 
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
 
     private exit: boolean = false;
     private toggled: boolean = false;
     private splashScreen: boolean = true;
-    
-    constructor(private page: Page, private _router: Router, private _ngZone: NgZone){
+
+    constructor(private page: Page, private nav: RouterExtensions) {
         this.page.actionBarHidden = true;
         if (application.android) {
-            application.android.on(application.AndroidApplication.activityBackPressedEvent, this.backEvent.bind(this))
+            application.android.on(application.AndroidApplication.activityBackPressedEvent, zonedCallback(this.backEvent.bind(this)));
         }
     }
-    
-    ngAfterViewInit(){
+
+    ngAfterViewInit() {
         this.setNativeElements();
-        setTimeout(()=>{this.splashScreen = false}, 4000)
+        setTimeout(()=> {this.splashScreen = false;}, 4000);
     }
 
     //Toggle side drawer
-    public toggleSideDrawer(){
+    public toggleSideDrawer() {
         if(!this.toggled) {
             this.openSideDrawer();
         }
@@ -110,35 +58,35 @@ export class AppComponent {
     }
 
     //Router navigation transition
-    public navigationTransition(page){
+    public navigationTransition(page) {
         this.router.animate({
             opacity: 0,
             duration: 250
-        }).then(()=>{
-            this._router.navigate([page]);
+        }).then(()=> {
+            this.nav.navigate([page]);
             this.router.animate({
                 opacity: 1,
                 duration: 250
-            })
+            });
         });
     }
 
     //Open side drawer animation
-    public openSideDrawer(){
-        appSettings.setBoolean("firstLaunch", false);
+    public openSideDrawer() {
+        appSettings.setBoolean('firstLaunch', false);
     }
 
-    public toggleExitModal(){
+    public toggleExitModal() {
         this.exit = !this.exit;
     }
 
     public backEvent(args) {
-        this._ngZone.run(this.toggleExitModal.bind(this));
+        this.toggleExitModal.apply(this);
         args.cancel = true;
     }
 
     // Native elements set
-    public setNativeElements(){
+    public setNativeElements() {
         this.router=this.routerRef.nativeElement;
         this.menuIcon=this.menuIconRef.nativeElement;
     }
