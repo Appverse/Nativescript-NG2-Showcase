@@ -16,7 +16,7 @@
         <!-- DATE PICKER -->
         <StackLayout *tabItem="{title: 'DATE'}" >
             <GridLayout rows="*,*">
-                <DatePicker class="s-margin" (propertyChange)="selectedDateChange($event)"></DatePicker>
+                <DatePicker class="s-margin" (propertyChange)="selectedDateChange($event)" (loaded)="datePickerLoaded($event)"></DatePicker>
                 <Label row="1" [text]="'Selected: ' + date" class="h3 center"></Label>
             </GridLayout>
         </StackLayout>
