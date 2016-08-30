@@ -4,7 +4,7 @@ import {RouterExtensions} from 'nativescript-angular/router';
 import {Page} from 'ui/page';
 
 @Component({
-    selector: 'side-drawer',
+    selector: 'sc-side-drawer',
     templateUrl: 'common/components/side-drawer/side-drawer.component.html',
     animations: [
         trigger('state', [
@@ -31,7 +31,7 @@ export class SideDrawerComponent implements OnChanges, AfterViewInit {
     @Output() navigate = new EventEmitter();
 
     //Menu categories
-    public sideDrawerCategories: Array<any> = [
+    private sideDrawerCategories: Array<any> = [
         { name: 'Home', icon: '\uf175' , page: 'home'},
         {
             name: 'Components', icon: '\uf328', subItems: [
@@ -67,8 +67,8 @@ export class SideDrawerComponent implements OnChanges, AfterViewInit {
                 { name: 'SignaturePad', page: 'signaturepad', icon: '\uf11f' }
             ]
         },
-        { name: 'Settings', icon: '\uf1c6', page: 'settings' },
-        { name: 'Exit', icon: '\uf136', page: 'exit'},
+        { name: 'Settings', icon: '\uf1c6' },
+        { name: 'Exit', icon: '\uf136' },
     ];
     private subToggled: boolean = false;
     private animationDuration: number = 200;
@@ -82,11 +82,7 @@ export class SideDrawerComponent implements OnChanges, AfterViewInit {
     }
 
     ngOnChanges() {
-        if (!this.toggled) {
-            if (this.sideDrawer) {
-                this.closeSideDrawer();
-            }
-        }
+        
     }
 
     //Menu item tap
@@ -94,7 +90,7 @@ export class SideDrawerComponent implements OnChanges, AfterViewInit {
         if (subItems) {
             if (this.subToggled) {
                 this.closeSubSideDrawer().then(() => {
-                    if (this.subItems !== subItems) {
+                    if (this.subItems != subItems) {
                         this.subItems = subItems;
                         this.openSubSideDrawer();
                     }
@@ -110,18 +106,8 @@ export class SideDrawerComponent implements OnChanges, AfterViewInit {
 
     //Menu sub item tap
     public navItemTap(args, pageName: string) {
-        if (pageName !== 'exit') {
-            let lastButton = this.page.getViewById(this.router.url.toLocaleLowerCase());
-            console.log('lastButton', lastButton, 'pageName', this.router.url.toLocaleLowerCase());
-            if (lastButton) {
-                lastButton.className = lastButton.parent.id === 'menuButton' ? 'app-color-secondary' : 'app-color-tertiary';
-            }
-            args.object.className = 'app-color-quaternary';
-            this.close.emit(false);
-            console.log('from', this.router.url, 'to', pageName);
-            if (pageName.toLocaleLowerCase() !== this.router.url.toLocaleLowerCase()) {
-                this.navigate.emit(pageName);
-            }
+        if (pageName != 'Exit') {
+            this.router.navigate(['home/', pageName]);
         } else {
             this.exit.emit(false);
         }
@@ -153,7 +139,7 @@ export class SideDrawerComponent implements OnChanges, AfterViewInit {
         this.subToggled = true;
         this.subSideDrawer.animate({
             duration: this.animationDuration,
-            translate: { x: 260, y: 0 },
+            translate: { x: 130, y: 0 },
             curve: 'easeOut'
         });
         setTimeout(() => {
@@ -167,7 +153,6 @@ export class SideDrawerComponent implements OnChanges, AfterViewInit {
     // Native elements set
     public setNativeElements() {
         this.absolute = this.absoluteRef.nativeElement;
-        this.backDrop = this.backDropRef.nativeElement;
         this.sideDrawer = this.sideDrawerRef.nativeElement;
         this.subSideDrawer = this.subSideDrawerRef.nativeElement;
     }
@@ -179,6 +164,4 @@ export class SideDrawerComponent implements OnChanges, AfterViewInit {
     private subSideDrawer;
     @ViewChild('absolute') absoluteRef: ElementRef;
     private absolute;
-    @ViewChild('backDrop') backDropRef: ElementRef;
-    private backDrop;
 }
