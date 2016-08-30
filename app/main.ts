@@ -10,6 +10,7 @@ import {NS_HTTP_PROVIDERS} from 'nativescript-angular/http';
 import {TranslateLoader, TranslateService, TranslatePipe} from 'ng2-translate/ng2-translate';
 import {TNSTranslateLoader} from 'nativescript-ng2-translate/nativescript-ng2-translate';
 import { CHART_PROVIDERS } from 'nativescript-telerik-ui-pro/chart/angular';
+import {SIDEDRAWER_PROVIDERS} from 'nativescript-telerik-ui-pro/sidedrawer/angular';
 
 import {AppComponent} from './app.component';
 import {APP_ROUTER_PROVIDERS} from './app.routes';
@@ -23,7 +24,7 @@ const APP_PROVIDERS = [
     TranslateService,
     CHART_PROVIDERS,
     provide(PLATFORM_PIPES, { useValue: TranslatePipe, multi: true }),
-    // provide(PLATFORM_DIRECTIVES, { useValue: SampleComponent, multi: true })
+    SIDEDRAWER_PROVIDERS
 ];
 
 nativeScriptBootstrap(AppComponent, [
@@ -32,4 +33,5 @@ nativeScriptBootstrap(AppComponent, [
     NS_HTTP_PROVIDERS,
     APP_PROVIDERS,
     APP_ROUTER_PROVIDERS
-]);
+], { startPageActionBarHidden: false }); // https://github.com/NativeScript/nativescript-angular/issues/121
+

@@ -1,9 +1,5 @@
 <AbsoluteLayout #absolute row="1" width="100%" height="100%">
-    <!-- BACKDROP -->
-    <GridLayout *ngIf="toggled" (tap)="close.emit(false)" width="100%" height="100%"></GridLayout>
-    <GridLayout #backDrop class="backdrop" @state=" toggled ? 'activeBD' : 'inactiveBD' "></GridLayout>
-    <!-- SIDE DRAWER -->
-    <GridLayout #subSideDrawer left="-130" class="side-drawer app-color-tertiary">
+    <GridLayout #subSideDrawer class="side-drawer app-color-tertiary">
         <ScrollView automationText="subSideDrawer">
             <StackLayout marginTop="1" automationText="subMenuButtons" id="subMenuButton">
                 <StackLayout *ngFor="let subItem of subItems; let i=index">
@@ -17,7 +13,7 @@
             </StackLayout>
         </ScrollView>
     </GridLayout>
-    <GridLayout #sideDrawer left="-130" class="side-drawer app-color-secondary" @state=" toggled ? 'activeSD' : 'inactiveSD' ">
+    <GridLayout #sideDrawer  class="side-drawer app-color-secondary" @state=" toggled ? 'activeSD' : 'inactiveSD' ">
         <ScrollView automationText="sideDrawer">
             <StackLayout marginTop="1" automationText="menuButtons">
                 <!-- ITEM -->
