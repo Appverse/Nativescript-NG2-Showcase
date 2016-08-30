@@ -31,7 +31,7 @@ export class SideDrawerComponent implements OnChanges, AfterViewInit {
     @Output() navigate = new EventEmitter();
 
     //Menu categories
-    private sideDrawerCategories: Array<any> = [
+    public sideDrawerCategories: Array<any> = [
         { name: 'Home', icon: '\uf175' , page: 'home'},
         {
             name: 'Components', icon: '\uf328', subItems: [
@@ -67,8 +67,8 @@ export class SideDrawerComponent implements OnChanges, AfterViewInit {
                 { name: 'SignaturePad', page: 'signaturepad', icon: '\uf11f' }
             ]
         },
-        { name: 'Settings', icon: '\uf1c6' },
-        { name: 'Exit', icon: '\uf136' },
+        { name: 'Settings', icon: '\uf1c6', page: 'settings' },
+        { name: 'Exit', icon: '\uf136', page: 'exit'},
     ];
     private subToggled: boolean = false;
     private animationDuration: number = 200;
@@ -94,7 +94,7 @@ export class SideDrawerComponent implements OnChanges, AfterViewInit {
         if (subItems) {
             if (this.subToggled) {
                 this.closeSubSideDrawer().then(() => {
-                    if (this.subItems != subItems) {
+                    if (this.subItems !== subItems) {
                         this.subItems = subItems;
                         this.openSubSideDrawer();
                     }
@@ -110,11 +110,11 @@ export class SideDrawerComponent implements OnChanges, AfterViewInit {
 
     //Menu sub item tap
     public navItemTap(args, pageName: string) {
-        if (pageName != 'Exit') {
+        if (pageName !== 'exit') {
             let lastButton = this.page.getViewById(this.router.url.toLocaleLowerCase());
             console.log('lastButton', lastButton, 'pageName', this.router.url.toLocaleLowerCase());
             if (lastButton) {
-                lastButton.className = lastButton.parent.id == 'menuButton' ? 'app-color-secondary' : 'app-color-tertiary';
+                lastButton.className = lastButton.parent.id === 'menuButton' ? 'app-color-secondary' : 'app-color-tertiary';
             }
             args.object.className = 'app-color-quaternary';
             this.close.emit(false);

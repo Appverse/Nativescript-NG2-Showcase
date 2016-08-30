@@ -28,7 +28,7 @@ Feature: Router navigation
 # BUTTONS PAGE TEST
   Scenario: Page after menu button tap
     Given I can see "subSideDrawer"
-    When I Select the button "ButtonsButton"
+    When I Select the button "buttonsButton"
     Then I should read "BUTTONS" in "title"
 
   Scenario: Open side drawer
@@ -43,7 +43,7 @@ Feature: Router navigation
 # TEXT PAGE TEST
   Scenario: Page after menu button tap
     Given I can see "sideDrawer"
-    When I Select the button "TextButton"
+    When I Select the button "textButton"
     Then I should read "TEXT" in "title"
 
   Scenario: Open side drawer
@@ -59,7 +59,7 @@ Feature: Router navigation
 # LISTS PAGE TEST
   Scenario: Page after menu button tap
     Given I can see "sideDrawer"
-    When I Select the button "ListsButton"
+    When I Select the button "listsButton"
     Then I should read "LISTS" in "title"
 
   Scenario: Open side drawer
@@ -74,7 +74,7 @@ Feature: Router navigation
 # PICKERS PAGE TEST
   Scenario: Page after menu button tap
     Given I can see "sideDrawer"
-    When I Select the button "PickersButton"
+    When I Select the button "pickersButton"
     Then I should read "PICKERS" in "title"
 
   Scenario: Open side drawer
@@ -89,7 +89,7 @@ Feature: Router navigation
 # LAYOUTS PAGE TEST
   Scenario: Page after menu button tap
     Given I can see "sideDrawer"
-    When I Select the button "LayoutsButton"
+    When I Select the button "layoutsButton"
     Then I should read "LAYOUTS" in "title"
 
   Scenario: Open side drawer
@@ -104,7 +104,7 @@ Feature: Router navigation
 # SELECTORS PAGE TEST
   Scenario: Page after menu button tap
     Given I can see "sideDrawer"
-    When I Select the button "SelectorsButton"
+    When I Select the button "selectorsButton"
     Then I should read "SELECTORS" in "title"
 
   Scenario: Open side drawer
@@ -119,7 +119,7 @@ Feature: Router navigation
 # INDICATORS PAGE TEST
   Scenario: Page after menu button tap
     Given I can see "sideDrawer"
-    When I Select the button "IndicatorsButton"
+    When I Select the button "indicatorsButton"
     Then I should read "INDICATORS" in "title"
 
   Scenario: Open side drawer
@@ -134,7 +134,7 @@ Feature: Router navigation
 # IMAGES PAGE TEST
   Scenario: Page after menu button tap
     Given I can see "sideDrawer"
-    When I Select the button "ImagesButton"
+    When I Select the button "imagesButton"
     Then I should read "IMAGES" in "title"
 
   Scenario: Open side drawer
@@ -149,7 +149,7 @@ Feature: Router navigation
 # VIEWS PAGE TEST
   Scenario: Page after menu button tap
     Given I can see "sideDrawer"
-    When I Select the button "ViewsButton"
+    When I Select the button "viewsButton"
     Then I should read "VIEWS" in "title"
 
   Scenario: Open side drawer
@@ -164,7 +164,7 @@ Feature: Router navigation
 # DIALOGS PAGE TEST
   Scenario: Page after menu button tap
     Given I can see "sideDrawer"
-    When I Select the button "DialogsButton"
+    When I Select the button "dialogsButton"
     Then I should read "DIALOGS" in "title"
 
   Scenario: Open side drawer
@@ -179,7 +179,7 @@ Feature: Router navigation
 # CAMERA PAGE TEST
   Scenario: Page after menu button tap
     Given I can see "sideDrawer"
-    When I Select the button "CameraButton"
+    When I Select the button "cameraButton"
     Then I should read "CAMERA" in "title"
 
   Scenario: Open side drawer
@@ -194,7 +194,7 @@ Feature: Router navigation
 # ACCELEROMETER PAGE TEST
   Scenario: Page after menu button tap
     Given I can see "sideDrawer"
-    When I Select the button "AccelerometerButton"
+    When I Select the button "accelerometerButton"
     Then I should read "ACCELEROMETER" in "title"
 
   Scenario: Open side drawer
@@ -209,7 +209,7 @@ Feature: Router navigation
 # LOCATION PAGE TEST
   Scenario: Page after menu button tap
     Given I can see "sideDrawer"
-    When I Select the button "LocationButton"
+    When I Select the button "locationButton"
     Then I should read "LOCATION" in "title"
 
   Scenario: Open side drawer
@@ -224,7 +224,7 @@ Feature: Router navigation
 # LOGIN PAGE TEST
   Scenario: Page after menu button tap
     Given I can see "sideDrawer"
-    When I Select the button "LoginButton"
+    When I Select the button "loginButton"
     Then I should read "LOGIN" in "title"
 
   Scenario: Open side drawer
@@ -239,7 +239,7 @@ Feature: Router navigation
 # TABLE PAGE TEST
   Scenario: Page after menu button tap
     Given I can see "sideDrawer"
-    When I Select the button "TableButton"
+    When I Select the button "tableButton"
     Then I should read "TABLE" in "title"
 
   Scenario: Open side drawer
@@ -254,7 +254,7 @@ Feature: Router navigation
 # CONTACTS PAGE TEST
   Scenario: Page after menu button tap
     Given I can see "sideDrawer"
-    When I Select the button "ContactsButton"
+    When I Select the button "contactsButton"
     Then I should read "CONTACTS" in "title"
 
   Scenario: Open side drawer
@@ -269,7 +269,7 @@ Feature: Router navigation
 # CODESCANNER PAGE TEST
   Scenario: Page after menu button tap
     Given I can see "sideDrawer"
-    When I Select the button "CodeScannerButton"
+    When I Select the button "codescannerButton"
     Then I should read "BARCODE SCANNER" in "title"
 
   Scenario: Open side drawer
@@ -284,7 +284,7 @@ Feature: Router navigation
 # DATABASE PAGE TEST
   Scenario: Page after menu button tap
     Given I can see "sideDrawer"
-    When I Select the button "DatabaseButton"
+    When I Select the button "databaseButton"
     Then I should read "DATABASE" in "title"
 
   Scenario: Open side drawer
@@ -299,7 +299,7 @@ Feature: Router navigation
 # ANIMATIONS PAGE TEST
   Scenario: Page after menu button tap
     Given I can see "sideDrawer"
-    When I Select the button "AnimationsButton"
+    When I Select the button "animationsButton"
     Then I should read "ANIMATIONS" in "title"
 
   Scenario: Open side drawer
@@ -314,7 +314,7 @@ Feature: Router navigation
 # CHARTS PAGE TEST
   Scenario: Page after menu button tap
     Given I can see "sideDrawer"
-    When I Select the button "ChartsButton"
+    When I Select the button "chartsButton"
       And I wait "3000"
       And I tap back button
     Then I should read "CHARTS" in "title"
@@ -331,7 +331,7 @@ Feature: Router navigation
 # TASKS PAGE TEST
   Scenario: Page after menu button tap
     Given I can see "sideDrawer"
-    When I Select the button "TasksButton"
+    When I Select the button "tasksButton"
     Then I should read "TASKS" in "title"
 
   Scenario: Open side drawer
@@ -346,7 +346,7 @@ Feature: Router navigation
 # SIGNATURE PAD PAGE TEST
   Scenario: Page after menu button tap
     Given I can see "sideDrawer"
-    When I Select the button "SignaturePadButton"
+    When I Select the button "signaturepadButton"
     Then I should read "SIGNATURE PAD" in "title"
 
   Scenario: Open side drawer

@@ -4,10 +4,11 @@ Feature: Login test
   #GO TO LOGIN
 
   Scenario: Open login page
-    Given I am on the main page
+    Given I wait "3000"
+      And I am on the main page
     When I Select the button "toggleSDButton"
       And I Select the button "ExamplesButton"
-      And I Select the button "LoginButton"
+      And I Select the button "loginButton"
     Then I should read "LOGIN" in "title"
 
   Scenario: Sign in

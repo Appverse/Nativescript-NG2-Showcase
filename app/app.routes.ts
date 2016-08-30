@@ -48,7 +48,7 @@ const APP_ROUTES: RouterConfig = [
     { path: 'codescanner', component: CodeScannerPage },
     { path: 'signaturepad', component: SignaturePadPage },
     { path: 'location', component: LocationPage },
-    { path: 'Charts', component: ChartsPage },
+    { path: 'charts', component: ChartsPage },
     { path: 'accelerometer', component: AccelerometerPage },
     { path: 'animations', component: AnimationsPage },
     { path: 'tasks', component: TasksPage }
