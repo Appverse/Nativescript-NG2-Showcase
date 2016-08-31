@@ -1,31 +1,33 @@
-<StackLayout class="app-color-tertiary">
-    <!-- TITLE -->
-    <GridLayout rows="auto" class="app-color-secondary">
-        <Label text="ANIMATIONS" class="h4 center s-margin app-color-secondary" automationText="title"></Label>
-            <StackLayout orientation="horizontal" class="right">
-                <Button text="START" (tap)="startAnimations()" class="app-color-primary center"></Button>
+<GridLayout class="app-color-tertiary fill-all">
+    <StackLayout>
+        <!-- TITLE -->
+        <GridLayout rows="auto" class="app-color-secondary">
+            <Label text="ANIMATIONS" class="h4 center s-margin app-color-secondary" automationText="title"></Label>
+                <StackLayout orientation="horizontal" class="right">
+                    <Button text="START" (tap)="startAnimations()" class="app-color-primary center"></Button>
+                </StackLayout>
+        </GridLayout>
+        <GridLayout class="h-spacer app-color-primary bottom"></GridLayout>
+        <!-- ANIMATIONS -->
+        <ScrollView>
+            <StackLayout>
+                <GridLayout #background height="100" width="100" class="s-margin app-color-primary">
+                    <Label text="background" class="center"></Label>
+                </GridLayout>
+                <GridLayout #opacity height="100" width="100" class="s-margin app-color-primary">
+                    <Label text="opacity" class="center"></Label>
+                </GridLayout>
+                <GridLayout #translation height="100" width="100" class="s-margin app-color-primary">
+                    <Label text="translate" class="center"></Label>
+                </GridLayout>
+                <GridLayout #scale height="100" width="100" class="s-margin app-color-primary">
+                    <Label text="scale" class="center"></Label>
+                </GridLayout>
+                <GridLayout #rotation height="100" width="100" class="s-margin app-color-primary">
+                    <Label text="rotate" class="center"></Label>
+                </GridLayout>
             </StackLayout>
-    </GridLayout>
-    <GridLayout class="h-spacer app-color-primary bottom"></GridLayout>
-    <!-- ANIMATIONS -->
-    <ScrollView>
-        <StackLayout>
-            <GridLayout #background height="100" width="100" class="s-margin app-color-primary">
-                <Label text="background" class="center"></Label>
-            </GridLayout>
-            <GridLayout #opacity height="100" width="100" class="s-margin app-color-primary">
-                <Label text="opacity" class="center"></Label>
-            </GridLayout>
-            <GridLayout #translation height="100" width="100" class="s-margin app-color-primary">
-                <Label text="translate" class="center"></Label>
-            </GridLayout>
-            <GridLayout #scale height="100" width="100" class="s-margin app-color-primary">
-                <Label text="scale" class="center"></Label>
-            </GridLayout>
-            <GridLayout #rotation height="100" width="100" class="s-margin app-color-primary">
-                <Label text="rotate" class="center"></Label>
-            </GridLayout>
-        </StackLayout>
-    </ScrollView>
-</StackLayout>
+        </ScrollView>
+    </StackLayout>
+</GridLayout>
 
