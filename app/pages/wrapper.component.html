@@ -6,19 +6,17 @@
                 <Label #menuIcon text="&#xf197;" class="material-icon icon" @state=" toggled ? 'active' : 'inactive' "></Label>
             </GridLayout>
             <!-- TITLE -->
-            <Label col="1" text="GFT &#xf15e; NativeScript" class="title center material-icon bold"></Label>
+            <Label col="1" text="GFT <3 NativeScript" class="title center material-icon bold"></Label>
             <!-- RIGHT ICON -->
             <GridLayout col="2">
             </GridLayout>
         </GridLayout>
     </ActionBar>
-    <RadSideDrawer #drawer [transition]="sideDrawerTransition" selectionBehavior="None">
+    <RadSideDrawer #drawer [transition]="sideDrawerTransition" selectionBehavior="None" height="100%">
         <StackLayout tkDrawerContent>
             <sc-side-drawer></sc-side-drawer>
         </StackLayout>
-        <!--<Button text="Home" [nsRouterLink]="['/home']" nsRouterLinkActive="active" [nsRouterLinkActiveOptions]="{exact:true}"></Button>
-    <Button text="Other Page" [nsRouterLink]="['/home/otherPath']" nsRouterLinkActive="active"></Button>-->
-        <StackLayout tkMainContent>
+        <StackLayout tkMainContent height="100%">
             <router-outlet></router-outlet>
         </StackLayout>
     </RadSideDrawer>

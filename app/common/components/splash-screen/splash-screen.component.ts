@@ -1,12 +1,18 @@
 import { Component, AfterViewInit} from '@angular/core';
 import {RouterExtensions} from 'nativescript-angular/router';
+import {Page} from 'ui/page';
+
 @Component({
+    moduleId: module.id,
     selector: 'sc-splash-screen',
-    templateUrl: 'common/components/splash-screen/splash-screen.component.html',
+    templateUrl: 'splash-screen.component.html',
+    styleUrls: ['splash-screen.component.css'],
 })
 export class SplashScreenComponent implements AfterViewInit {
 
-    constructor(private nav: RouterExtensions) { }
+    constructor(private nav: RouterExtensions, page: Page) {
+        page.className = 'app-color-primary';
+    }
 
     ngAfterViewInit() {
         //Closing splash screen

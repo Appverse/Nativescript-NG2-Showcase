@@ -1,0 +1,30 @@
+
+.labelOne {
+        animation-name: labelOne;
+        animation-duration: 0.8s;
+        animation-fill-mode: forwards;
+        animation-timing-function: spring
+}
+@keyframes labelOne {
+    	from{
+                    transform: translate(-300,0)
+        }
+        to{
+                    transform: translate(0,0);
+        }
+}
+
+.labelTwo {
+        animation-name: labelTwo;
+        animation-duration: 0.8s;
+        animation-fill-mode: forwards;
+        animation-timing-function: spring
+}
+@keyframes labelTwo {
+    	from{
+                    transform: translate(300,0)
+        }
+        to{
+                    transform: translate(0,0);
+        }
+}

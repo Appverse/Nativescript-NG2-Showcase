@@ -1,5 +1,5 @@
-import { Component, Input, Output, EventEmitter, ViewChild, ElementRef, OnChanges, AfterViewInit, animate, trigger, state, style, transition} from '@angular/core';
-import {Router} from '@angular/router';
+import { Component, Input, Output, EventEmitter, ViewChild, ElementRef, OnInit, AfterViewInit, animate, trigger, state, style, transition} from '@angular/core';
+import {Router, NavigationEnd} from '@angular/router';
 import {RouterExtensions} from 'nativescript-angular/router';
 import {Page} from 'ui/page';
 
@@ -23,7 +23,7 @@ import {Page} from 'ui/page';
         ])
     ]
 })
-export class SideDrawerComponent implements OnChanges, AfterViewInit {
+export class SideDrawerComponent implements OnInit, AfterViewInit {
 
     @Input() public toggled: boolean;
     @Output() close = new EventEmitter();
@@ -31,8 +31,8 @@ export class SideDrawerComponent implements OnChanges, AfterViewInit {
     @Output() navigate = new EventEmitter();
 
     //Menu categories
-    private sideDrawerCategories: Array<any> = [
-        { name: 'Home', icon: '\uf175' , page: 'home'},
+    sideDrawerCategories: Array<any> = [
+        { name: 'Home', icon: '\uf175', page: '' },
         {
             name: 'Components', icon: '\uf328', subItems: [
                 { name: 'Buttons', page: 'buttons', icon: '\uf155' },
@@ -67,8 +67,8 @@ export class SideDrawerComponent implements OnChanges, AfterViewInit {
                 { name: 'SignaturePad', page: 'signaturepad', icon: '\uf11f' }
             ]
         },
-        { name: 'Settings', icon: '\uf1c6' },
-        { name: 'Exit', icon: '\uf136' },
+        { name: 'Settings', icon: '\uf1c6', page: 'settings' },
+        { name: 'Exit', icon: '\uf136', page: 'exit' },
     ];
     private subToggled: boolean = false;
     private animationDuration: number = 200;
@@ -76,13 +76,17 @@ export class SideDrawerComponent implements OnChanges, AfterViewInit {
 
     constructor(private router: Router, private page: Page) { }
 
-    ngAfterViewInit() {
-        this.setNativeElements();
-        this.page.getViewById('home').className = 'app-color-quaternary';
+
+    ngOnInit() {
+        this.router.events.subscribe((e) => {
+            if (e instanceof NavigationEnd) {
+                this.closeSubSideDrawer();
+            }
+        });
     }
 
-    ngOnChanges() {
-        
+    ngAfterViewInit() {
+        this.setNativeElements();
     }
 
     //Menu item tap
@@ -90,7 +94,7 @@ export class SideDrawerComponent implements OnChanges, AfterViewInit {
         if (subItems) {
             if (this.subToggled) {
                 this.closeSubSideDrawer().then(() => {
-                    if (this.subItems != subItems) {
+                    if (this.subItems !== subItems) {
                         this.subItems = subItems;
                         this.openSubSideDrawer();
                     }
@@ -106,7 +110,7 @@ export class SideDrawerComponent implements OnChanges, AfterViewInit {
 
     //Menu sub item tap
     public navItemTap(args, pageName: string) {
-        if (pageName != 'Exit') {
+        if (pageName !== 'exit') {
             this.router.navigate(['home/', pageName]);
         } else {
             this.exit.emit(false);
@@ -152,7 +156,6 @@ export class SideDrawerComponent implements OnChanges, AfterViewInit {
 
     // Native elements set
     public setNativeElements() {
-        this.absolute = this.absoluteRef.nativeElement;
         this.sideDrawer = this.sideDrawerRef.nativeElement;
         this.subSideDrawer = this.subSideDrawerRef.nativeElement;
     }
@@ -162,6 +165,4 @@ export class SideDrawerComponent implements OnChanges, AfterViewInit {
     private sideDrawer;
     @ViewChild('subSideDrawer') subSideDrawerRef: ElementRef;
     private subSideDrawer;
-    @ViewChild('absolute') absoluteRef: ElementRef;
-    private absolute;
 }

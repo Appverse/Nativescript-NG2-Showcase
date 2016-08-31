@@ -1,10 +1,11 @@
-<AbsoluteLayout #absolute row="1" width="100%" height="100%">
+<AbsoluteLayout width="100%" height="100%">
     <GridLayout #subSideDrawer class="side-drawer app-color-tertiary">
         <ScrollView automationText="subSideDrawer">
             <StackLayout marginTop="1" automationText="subMenuButtons" id="subMenuButton">
                 <StackLayout *ngFor="let subItem of subItems; let i=index">
                     <GridLayout [id]="subItem.name.toLowerCase()" columns="*,4*" rows="*,auto" height="40" 
-                                (tap)="navItemTap($event,subItem.page)" [automationText]="subItem.page + 'Button'">
+                                 [automationText]="subItem.page + 'Button'"
+                                [nsRouterLink]="['/home', subItem.page]" nsRouterLinkActive="active" [nsRouterLinkActiveOptions]="{exact:true}">
                         <Label row="0" col="0" [text]="subItem.icon" class="material-icon center"></Label>
                         <Label row="0" col="1" [text]="subItem.name" class="left"></Label>
                         <GridLayout row="1" col="1" *ngIf="subItems.length > i+1" class="h-spacer app-color-primary"></GridLayout>
@@ -23,7 +24,7 @@
                         <Label row="0" col="0" [text]="item.icon" class="material-icon center"></Label>
                         <Label row="0" col="1" [text]="item.name" class="left"></Label>
                         <Label *ngIf="item.subItems" row="0" col="2" [text]="(subItems == item.subItems && subToggled) ? '&#xf2fa;' : '&#xf2fb;'" class="material-icon center"></Label>
-                        <GridLayout row="1" col="1" colSpan="2" *ngIf="sideDrawerCategories.length > i+1" class="h-spacer app-color-primary"></GridLayout>
+                        <GridLayout row="1" col="0" colSpan="3" *ngIf="sideDrawerCategories.length > i+1" class="h-spacer app-color-primary"></GridLayout>
                     </GridLayout>
                 </StackLayout>
             </StackLayout>

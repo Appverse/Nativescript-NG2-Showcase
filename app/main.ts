@@ -33,5 +33,5 @@ nativeScriptBootstrap(AppComponent, [
     NS_HTTP_PROVIDERS,
     APP_PROVIDERS,
     APP_ROUTER_PROVIDERS
-], { startPageActionBarHidden: false }); // https://github.com/NativeScript/nativescript-angular/issues/121
+], { startPageActionBarHidden: true }); // https://github.com/NativeScript/nativescript-angular/issues/121
 

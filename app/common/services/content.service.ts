@@ -68,7 +68,7 @@ export class ContentService {
     ]
 
     private contacts: any[] = [
-        {name: "Yoda", race: "Unknown", number: "689574123", icon: "res://yoda", from: "Dagobah"},
+        {name: "Yoda", race: "Unknown", number: "689574123", icon: "~/images/yoda.png", from: "Dagobah"},
         {name: "Chewbacca", race: " Wookie", number: "654321987", icon: "http://www.highpants.net/wp-content/uploads/2016/01/Highpants-Chewbacca-200x200.jpg", from: "Kashyyyk"},
         {name: "Han", race: "Human", number: "684521478", icon: "http://www.technobuffalo.com/wp-content/uploads/2015/06/grumpy-harrison-ford-roles-han-solo-3-1088594-TwoByOne-200x200.jpg", from: "Corellia"},
         {name: "Jabba", race: "Hutt", number: "625895478", icon: "http://images.forbes.com/media/lists/fictional/2008/jabbathehutt.jpg", from: "Tatooine"},
