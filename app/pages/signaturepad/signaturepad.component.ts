@@ -8,7 +8,6 @@ import fs = require('file-system');
 import enums = require('ui/enums');
 import platform = require('platform');
 
-
 //USING PLUGIN: NATIVESCRIPT-DRAWINGPAD
 
 @Component({
