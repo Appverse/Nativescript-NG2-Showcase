@@ -4,11 +4,11 @@
         <StackLayout *tabItem="{title: 'BAR'}">
             <GridLayout class="fill-all">
                 <RadCartesianChart selectionMode="single">
-                    <CategoricalAxis cartesianHorizontalAxis verticalLocation="top"></CategoricalAxis>
+                    <CategoricalAxis tkCartesianHorizontalAxis></CategoricalAxis>
                     <!-- >> chart-line-axis -->
-                    <LinearAxis cartesianVerticalAxis minimum="5" horizontalLocation="left"></LinearAxis>
+                    <LinearAxis tkCartesianVerticalAxis></LinearAxis>
                     <!-- << chart-line-axis -->
-                    <BarSeries cartesianSeries [items]="categoricalSource" categoryProperty="Country" valueProperty="Amount" selectionMode="DataPoint" seriesName="Lines" stackMode="Stack">
+                    <BarSeries tkCartesianSeries [items]="categoricalSource" categoryProperty="Country" valueProperty="Amount" seriesName="Lines" stackMode="Stack">
                     </BarSeries>
                 </RadCartesianChart>
             </GridLayout>
@@ -17,13 +17,13 @@
         <StackLayout *tabItem="{title: 'LINE'}">
             <GridLayout class="fill-all">
                 <RadCartesianChart selectionMode="single">
-                    <CategoricalAxis cartesianHorizontalAxis verticalLocation="top"></CategoricalAxis>
+                    <CategoricalAxis tkCartesianHorizontalAxis></CategoricalAxis>
                     <!-- >> chart-line-axis -->
-                    <LinearAxis cartesianVerticalAxis minimum="5" horizontalLocation="left"></LinearAxis>
+                    <LinearAxis tkCartesianVerticalAxis></LinearAxis>
                     <!-- << chart-line-axis -->
-                    <LineSeries cartesianSeries [items]="categoricalSource" categoryProperty="Country" valueProperty="Amount" selectionMode="DataPoint">
+                    <LineSeries tkCartesianSeries [items]="categoricalSource" categoryProperty="Country" valueProperty="Amount">
                     </LineSeries>
-                    <LineSeries cartesianSeries [items]="categoricalSource2" categoryProperty="Country" valueProperty="Amount" selectionMode="DataPoint">
+                    <LineSeries tkCartesianSeries [items]="categoricalSource2" categoryProperty="Country" valueProperty="Amount">
                     </LineSeries>
                 </RadCartesianChart>
             </GridLayout>
@@ -32,9 +32,9 @@
         <StackLayout *tabItem="{title: 'RANGE'}">
             <GridLayout class="fill-all">
                 <RadCartesianChart>
-                    <CategoricalAxis cartesianHorizontalAxis verticalLocation="Bottom" labelSize="11"></CategoricalAxis>
-                    <LinearAxis cartesianVerticalAxis horizontalLocation="Left" labelSize="11"></LinearAxis>
-                    <RangeBarSeries cartesianSeries [items]="rangeBarSource" showLabels="true" legendTitle="Ranges" categoryProperty="Name" lowPropertyName="Low" highPropertyName="High"></RangeBarSeries>
+                    <CategoricalAxis tkCartesianHorizontalAxis verticalLocation="Bottom" labelSize="11"></CategoricalAxis>
+                    <LinearAxis tkCartesianVerticalAxis horizontalLocation="Left" labelSize="11"></LinearAxis>
+                    <RangeBarSeries tkCartesianSeries [items]="rangeBarSource" showLabels="true" legendTitle="Ranges" categoryProperty="Name" lowPropertyName="Low" highPropertyName="High"></RangeBarSeries>
                 </RadCartesianChart>
             </GridLayout>
         </StackLayout>
@@ -42,10 +42,10 @@
         <StackLayout *tabItem="{title: 'SPLINE'}">
             <GridLayout class="fill-all">
                 <RadCartesianChart>
-                    <CategoricalAxis cartesianHorizontalAxis></CategoricalAxis>
-                    <LinearAxis cartesianVerticalAxis></LinearAxis>
-                    <SplineSeries cartesianSeries [items]="categoricalSource" categoryProperty="Country" valueProperty="Amount"></SplineSeries>
-                    <SplineSeries cartesianSeries [items]="categoricalSource2" categoryProperty="Country" valueProperty="Amount"></SplineSeries>
+                    <CategoricalAxis tkCartesianHorizontalAxis></CategoricalAxis>
+                    <LinearAxis tkCartesianVerticalAxis></LinearAxis>
+                    <SplineSeries tkCartesianSeries [items]="categoricalSource" categoryProperty="Country" valueProperty="Amount"></SplineSeries>
+                    <SplineSeries tkCartesianSeries [items]="categoricalSource2" categoryProperty="Country" valueProperty="Amount"></SplineSeries>
                 </RadCartesianChart>
             </GridLayout>
         </StackLayout>
@@ -53,10 +53,10 @@
         <StackLayout *tabItem="{title: 'AREA'}">
             <GridLayout class="fill-all">
                 <RadCartesianChart>
-                    <CategoricalAxis cartesianHorizontalAxis></CategoricalAxis>
-                    <LinearAxis cartesianVerticalAxis></LinearAxis>
-                    <AreaSeries cartesianSeries [items]="categoricalSource" categoryProperty="Country" valueProperty="Amount"></AreaSeries>
-                    <AreaSeries cartesianSeries [items]="categoricalSource2" categoryProperty="Country" valueProperty="Amount"></AreaSeries>
+                    <CategoricalAxis tkCartesianHorizontalAxis></CategoricalAxis>
+                    <LinearAxis tkCartesianVerticalAxis></LinearAxis>
+                    <AreaSeries tkCartesianSeries [items]="categoricalSource" categoryProperty="Country" valueProperty="Amount"></AreaSeries>
+                    <AreaSeries tkCartesianSeries [items]="categoricalSource2" categoryProperty="Country" valueProperty="Amount"></AreaSeries>
                 </RadCartesianChart>
             </GridLayout>
         </StackLayout>
@@ -64,11 +64,11 @@
         <StackLayout *tabItem="{title: 'BUBBLE'}">
             <GridLayout class="fill-all">
                 <RadCartesianChart id="bubbleChart">
-                    <CategoricalAxis cartesianHorizontalAxis verticalLocation="Bottom" labelFitMode="Rotate" labelRotationAngle="1.2"></CategoricalAxis>
-                    <LinearAxis cartesianVerticalAxis></LinearAxis>
-                    <BubbleSeries cartesianSeries [items]="highDataModel" bubbleScale="5" categoryProperty="Year" valueProperty="Amount" bubbleSizeProperty="Impact"></BubbleSeries>
-                    <BubbleSeries cartesianSeries [items]="middleDataModel" bubbleScale="5" categoryProperty="Year" valueProperty="Amount" bubbleSizeProperty="Impact"></BubbleSeries>
-                    <BubbleSeries cartesianSeries [items]="lowDataModel" bubbleScale="5" categoryProperty="Year" valueProperty="Amount" bubbleSizeProperty="Impact"></BubbleSeries>
+                    <CategoricalAxis tkCartesianHorizontalAxis verticalLocation="Bottom" labelFitMode="Rotate" labelRotationAngle="1.2"></CategoricalAxis>
+                    <LinearAxis tkCartesianVerticalAxis></LinearAxis>
+                    <BubbleSeries tkCartesianSeries [items]="highDataModel" bubbleScale="5" categoryProperty="Year" valueProperty="Amount" bubbleSizeProperty="Impact"></BubbleSeries>
+                    <BubbleSeries tkCartesianSeries [items]="middleDataModel" bubbleScale="5" categoryProperty="Year" valueProperty="Amount" bubbleSizeProperty="Impact"></BubbleSeries>
+                    <BubbleSeries tkCartesianSeries [items]="lowDataModel" bubbleScale="5" categoryProperty="Year" valueProperty="Amount" bubbleSizeProperty="Impact"></BubbleSeries>
                 </RadCartesianChart>
             </GridLayout>
         </StackLayout>
