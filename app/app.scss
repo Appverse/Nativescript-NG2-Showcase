@@ -118,6 +118,7 @@ ActionBar {
 .list-view, text-field, text-view, search-bar{
     border-radius: $small-radius;
     border-width: 1;
+    background-color: transparent;
 }
 
 text-field{

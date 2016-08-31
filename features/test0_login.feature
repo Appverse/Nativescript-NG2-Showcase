@@ -4,7 +4,7 @@ Feature: Login test
   #GO TO LOGIN
 
   Scenario: Open login page
-    Given I wait "3000"
+    Given I wait "5000"
       And I am on the main page
     When I Select the button "toggleSDButton"
       And I Select the button "ExamplesButton"

@@ -1,4 +1,6 @@
 import {Component, EventEmitter, OnInit} from '@angular/core';
+import colorModule = require('color');
+import platform = require('platform');
 
 //USING PLUGIN: NATIVESCRIPT-SQLITE
 var Sqlite = require('nativescript-sqlite');
@@ -18,10 +20,12 @@ export class DatabasePage implements OnInit {
     private age: string;
     private nameEmitter = new EventEmitter<string>();
     private ageEmitter = new EventEmitter<string>();
+    private isAndroid: boolean = platform.isAndroid;
 
     constructor() {
         let instance = this;
         //Create the database (DB)
+        console.log('creating database...');
         let db_promise = new Sqlite('MyDB', (err, db) => {
             if (err) {
                 console.error('We failed to open database', err);
@@ -52,7 +56,7 @@ export class DatabasePage implements OnInit {
             /* To execute non-SELECT SQL statements  */
             this.db.execSQL('INSERT INTO tests (name, age) VALUES (?,?)', [this.name, this.age], (err, id) => {
                 console.log('The new record id is:', id);
-                instance.info = 'Row added';
+                instance.info = 'Row added: ' + id;
             });
         } else {
             console.log('DB is closed!');
@@ -167,5 +171,12 @@ export class DatabasePage implements OnInit {
             });
         });
         this.db.close();
+    }
+
+    public changeCellBackground(args) {
+        if (!this.isAndroid) {
+            var cell = args.ios; //return UITableViewCell
+            cell.backgroundColor = new colorModule.Color('0,0,0,0').ios;
+        }
     }
 }
