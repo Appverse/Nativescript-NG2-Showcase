@@ -28,34 +28,6 @@ import {TasksPage} from './pages/tasks/tasks.component';
 import {HomePage} from './pages/home/home.component';
 import {TextPage} from './pages/text/text.component';
 
-// const APP_ROUTES: RouterConfig = [
-//     { path: '', redirectTo: '/home', terminal: true },
-//     { path: 'home', component: HomePage },
-//     { path: 'buttons', component: ButtonsPage },
-//     { path: 'text', component: TextPage },
-//     { path: 'lists', component: ListsPage },
-//     { path: 'pickers', component: PickersPage },
-//     { path: 'layouts', component: LayoutsPage },
-//     { path: 'selectors', component: SelectorsPage },
-//     { path: 'indicators', component: IndicatorsPage },
-//     { path: 'images', component: ImagesPage },
-//     { path: 'views', component: ViewsPage },
-//     { path: 'dialogs', component: DialogsPage },
-//     { path: 'login', component: LoginPage },
-//     { path: 'contacts', component: ContactsPage },
-//     { path: 'table', component: TablePage },
-//     { path: 'settings', component: SettingsPage },
-//     { path: 'database', component: DatabasePage },
-//     { path: 'camera', component: CameraPage },
-//     { path: 'codescanner', component: CodeScannerPage },
-//     { path: 'signaturepad', component: SignaturePadPage },
-//     { path: 'location', component: LocationPage },
-//     { path: 'Charts', component: ChartsPage },
-//     { path: 'accelerometer', component: AccelerometerPage },
-//     { path: 'animations', component: AnimationsPage },
-//     { path: 'tasks', component: TasksPage }
-// ];
-
 const APP_ROUTES: RouterConfig = [
     { path: '', redirectTo: '/splash', pathMatch: 'full' },
     {

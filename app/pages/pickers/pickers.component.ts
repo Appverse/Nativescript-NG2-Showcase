@@ -2,9 +2,10 @@ import {Component} from '@angular/core';
 import {ContentService} from '../../common/services/content.service';
 
 @Component({
-    selector: 'PickersPage',
-    templateUrl: 'pages/pickers/pickers.html',
-    styleUrls: ['pages/pickers/pickers.css']
+    moduleId: module.id,
+    selector: 'sc-pickers-page',
+    templateUrl: 'pickers.html',
+    styleUrls: ['pickers.css']
 })
 export class PickersPage {
 
@@ -13,7 +14,7 @@ export class PickersPage {
     private date: string;
     private time: string;
 
-    public constructor(private _contentService: ContentService) {
+    constructor(private _contentService: ContentService) {
         this.jedis = _contentService.getJedis();
     }
 
@@ -35,7 +36,7 @@ export class PickersPage {
         args.object.year = new Date(Date.now()).getFullYear();
     }
 
-    public padTwo(n: number) {
+    private padTwo(n: number) {
         return (n<10 ? '0' : '') + n;
     }
 

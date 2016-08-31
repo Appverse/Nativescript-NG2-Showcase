@@ -1,89 +1,76 @@
-<GridLayout class="app-color-tertiary fill-all">
-    <StackLayout>
-        <!-- TITLE -->
-        <GridLayout rows="auto" class="app-color-secondary">
-            <Label text="CHARTS" class="h4 center s-margin app-color-secondary" automationText="title"></Label>
-        </GridLayout>
-        <GridLayout class="h-spacer app-color-primary bottom"></GridLayout>
-        <!-- CHART SELECTOR -->
-        <TabView selectedColor="#1B3C80" tabsBackgroundColor="#FFFFFF">
-            <!-- BAR -->
-            <StackLayout *tabItem="{title: 'BAR'}">
-                <GridLayout class="fill-all">
-                    <RadCartesianChart selectionMode="single">
-                        <CategoricalAxis cartesianHorizontalAxis verticalLocation="top"></CategoricalAxis>
-                        <!-- >> chart-line-axis -->
-                        <LinearAxis cartesianVerticalAxis minimum="5" horizontalLocation="left"></LinearAxis>
-                        <!-- << chart-line-axis -->
-                        <BarSeries cartesianSeries [items]="categoricalSource" categoryProperty="Country" valueProperty="Amount" 
-                                    selectionMode="DataPoint" seriesName="Lines" stackMode="Stack">
-                        </BarSeries>
-                    </RadCartesianChart>
-                </GridLayout>
-            </StackLayout>
-            <!-- LINE -->
-            <StackLayout *tabItem="{title: 'LINE'}">
-                <GridLayout class="fill-all">
-                    <RadCartesianChart selectionMode="single">
-                        <CategoricalAxis cartesianHorizontalAxis verticalLocation="top"></CategoricalAxis>
-                        <!-- >> chart-line-axis -->
-                        <LinearAxis cartesianVerticalAxis minimum="5" horizontalLocation="left"></LinearAxis>
-                        <!-- << chart-line-axis -->
-                        <LineSeries cartesianSeries [items]="categoricalSource" categoryProperty="Country" valueProperty="Amount" 
-                                    selectionMode="DataPoint">
-                        </LineSeries>
-                        <LineSeries cartesianSeries [items]="categoricalSource2" categoryProperty="Country" valueProperty="Amount" 
-                                    selectionMode="DataPoint">
-                        </LineSeries>
-                    </RadCartesianChart>
-                </GridLayout>
-            </StackLayout>
-            <!-- RANGE -->
-            <StackLayout *tabItem="{title: 'RANGE'}">
-                <GridLayout class="fill-all">
-                    <RadCartesianChart>
-                        <CategoricalAxis cartesianHorizontalAxis verticalLocation="Bottom" labelSize="11"></CategoricalAxis>
-                        <LinearAxis cartesianVerticalAxis horizontalLocation="Left" labelSize="11"></LinearAxis>
-                        <RangeBarSeries cartesianSeries [items]="rangeBarSource" showLabels="true" legendTitle="Ranges" categoryProperty="Name" lowPropertyName="Low"
-                            highPropertyName="High"></RangeBarSeries>
-                    </RadCartesianChart>
-                </GridLayout>
-            </StackLayout>
-            <!-- SPLINE -->
-            <StackLayout *tabItem="{title: 'SPLINE'}">
-                <GridLayout class="fill-all">
-                    <RadCartesianChart>
-                        <CategoricalAxis cartesianHorizontalAxis></CategoricalAxis>
-                        <LinearAxis cartesianVerticalAxis></LinearAxis>
-                        <SplineSeries cartesianSeries [items]="categoricalSource" categoryProperty="Country" valueProperty="Amount"></SplineSeries>
-                        <SplineSeries cartesianSeries [items]="categoricalSource2" categoryProperty="Country" valueProperty="Amount"></SplineSeries>
-                    </RadCartesianChart>
-                </GridLayout>
-            </StackLayout>
-            <!-- AREA -->
-            <StackLayout *tabItem="{title: 'AREA'}">
-                <GridLayout class="fill-all">
-                    <RadCartesianChart>
-                        <CategoricalAxis cartesianHorizontalAxis></CategoricalAxis>
-                        <LinearAxis cartesianVerticalAxis></LinearAxis>
-                        <AreaSeries cartesianSeries [items]="categoricalSource" categoryProperty="Country" valueProperty="Amount"></AreaSeries>
-                        <AreaSeries cartesianSeries [items]="categoricalSource2" categoryProperty="Country" valueProperty="Amount"></AreaSeries>
-                    </RadCartesianChart>
-                </GridLayout>
-            </StackLayout>
-            <!-- BUBBLE -->
-            <StackLayout *tabItem="{title: 'BUBBLE'}">
-                <GridLayout class="fill-all">
-                    <RadCartesianChart id="bubbleChart">
-                        <CategoricalAxis cartesianHorizontalAxis verticalLocation="Bottom" labelFitMode="Rotate" labelRotationAngle="1.2"></CategoricalAxis>
-                        <LinearAxis cartesianVerticalAxis></LinearAxis>
-                        <BubbleSeries cartesianSeries [items]="highDataModel" bubbleScale="5" categoryProperty="Year" valueProperty="Amount" bubbleSizeProperty="Impact"></BubbleSeries>
-                        <BubbleSeries cartesianSeries [items]="middleDataModel" bubbleScale="5" categoryProperty="Year" valueProperty="Amount" bubbleSizeProperty="Impact"></BubbleSeries>
-                        <BubbleSeries cartesianSeries [items]="lowDataModel" bubbleScale="5" categoryProperty="Year" valueProperty="Amount" bubbleSizeProperty="Impact"></BubbleSeries>
-                    </RadCartesianChart>
-                </GridLayout>
-            </StackLayout>
-        </TabView>
-    </StackLayout>
-</GridLayout>
-
+<sc-showcase-layout title="CHARTS">
+    <TabView selectedColor="#1B3C80" tabsBackgroundColor="#FFFFFF">
+        <!-- BAR -->
+        <StackLayout *tabItem="{title: 'BAR'}">
+            <GridLayout class="fill-all">
+                <RadCartesianChart selectionMode="single">
+                    <CategoricalAxis cartesianHorizontalAxis verticalLocation="top"></CategoricalAxis>
+                    <!-- >> chart-line-axis -->
+                    <LinearAxis cartesianVerticalAxis minimum="5" horizontalLocation="left"></LinearAxis>
+                    <!-- << chart-line-axis -->
+                    <BarSeries cartesianSeries [items]="categoricalSource" categoryProperty="Country" valueProperty="Amount" selectionMode="DataPoint" seriesName="Lines" stackMode="Stack">
+                    </BarSeries>
+                </RadCartesianChart>
+            </GridLayout>
+        </StackLayout>
+        <!-- LINE -->
+        <StackLayout *tabItem="{title: 'LINE'}">
+            <GridLayout class="fill-all">
+                <RadCartesianChart selectionMode="single">
+                    <CategoricalAxis cartesianHorizontalAxis verticalLocation="top"></CategoricalAxis>
+                    <!-- >> chart-line-axis -->
+                    <LinearAxis cartesianVerticalAxis minimum="5" horizontalLocation="left"></LinearAxis>
+                    <!-- << chart-line-axis -->
+                    <LineSeries cartesianSeries [items]="categoricalSource" categoryProperty="Country" valueProperty="Amount" selectionMode="DataPoint">
+                    </LineSeries>
+                    <LineSeries cartesianSeries [items]="categoricalSource2" categoryProperty="Country" valueProperty="Amount" selectionMode="DataPoint">
+                    </LineSeries>
+                </RadCartesianChart>
+            </GridLayout>
+        </StackLayout>
+        <!-- RANGE -->
+        <StackLayout *tabItem="{title: 'RANGE'}">
+            <GridLayout class="fill-all">
+                <RadCartesianChart>
+                    <CategoricalAxis cartesianHorizontalAxis verticalLocation="Bottom" labelSize="11"></CategoricalAxis>
+                    <LinearAxis cartesianVerticalAxis horizontalLocation="Left" labelSize="11"></LinearAxis>
+                    <RangeBarSeries cartesianSeries [items]="rangeBarSource" showLabels="true" legendTitle="Ranges" categoryProperty="Name" lowPropertyName="Low" highPropertyName="High"></RangeBarSeries>
+                </RadCartesianChart>
+            </GridLayout>
+        </StackLayout>
+        <!-- SPLINE -->
+        <StackLayout *tabItem="{title: 'SPLINE'}">
+            <GridLayout class="fill-all">
+                <RadCartesianChart>
+                    <CategoricalAxis cartesianHorizontalAxis></CategoricalAxis>
+                    <LinearAxis cartesianVerticalAxis></LinearAxis>
+                    <SplineSeries cartesianSeries [items]="categoricalSource" categoryProperty="Country" valueProperty="Amount"></SplineSeries>
+                    <SplineSeries cartesianSeries [items]="categoricalSource2" categoryProperty="Country" valueProperty="Amount"></SplineSeries>
+                </RadCartesianChart>
+            </GridLayout>
+        </StackLayout>
+        <!-- AREA -->
+        <StackLayout *tabItem="{title: 'AREA'}">
+            <GridLayout class="fill-all">
+                <RadCartesianChart>
+                    <CategoricalAxis cartesianHorizontalAxis></CategoricalAxis>
+                    <LinearAxis cartesianVerticalAxis></LinearAxis>
+                    <AreaSeries cartesianSeries [items]="categoricalSource" categoryProperty="Country" valueProperty="Amount"></AreaSeries>
+                    <AreaSeries cartesianSeries [items]="categoricalSource2" categoryProperty="Country" valueProperty="Amount"></AreaSeries>
+                </RadCartesianChart>
+            </GridLayout>
+        </StackLayout>
+        <!-- BUBBLE -->
+        <StackLayout *tabItem="{title: 'BUBBLE'}">
+            <GridLayout class="fill-all">
+                <RadCartesianChart id="bubbleChart">
+                    <CategoricalAxis cartesianHorizontalAxis verticalLocation="Bottom" labelFitMode="Rotate" labelRotationAngle="1.2"></CategoricalAxis>
+                    <LinearAxis cartesianVerticalAxis></LinearAxis>
+                    <BubbleSeries cartesianSeries [items]="highDataModel" bubbleScale="5" categoryProperty="Year" valueProperty="Amount" bubbleSizeProperty="Impact"></BubbleSeries>
+                    <BubbleSeries cartesianSeries [items]="middleDataModel" bubbleScale="5" categoryProperty="Year" valueProperty="Amount" bubbleSizeProperty="Impact"></BubbleSeries>
+                    <BubbleSeries cartesianSeries [items]="lowDataModel" bubbleScale="5" categoryProperty="Year" valueProperty="Amount" bubbleSizeProperty="Impact"></BubbleSeries>
+                </RadCartesianChart>
+            </GridLayout>
+        </StackLayout>
+    </TabView>
+</sc-showcase-layout>

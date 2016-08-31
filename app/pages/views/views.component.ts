@@ -1,31 +1,31 @@
-import {Component, ViewChild, ElementRef} from "@angular/core";
+import {Component, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
 
 @Component({
-    selector: "ViewsPage",
-    templateUrl: 'pages/views/views.html',
-    styleUrls: ['pages/views/views.css']
+    moduleId: module.id,
+    selector: 'sc-views-page',
+    templateUrl: 'views.html',
+    styleUrls: ['views.css']
 })
-export class ViewsPage {
+export class ViewsPage implements AfterViewInit {
 
-    public constructor(){
-    }
 
-    ngAfterViewInit(){
-        this.setNativeElements()
+    @ViewChild('htmlCode') private htmlCodeRef: ElementRef;
+    private htmlCode;
+    @ViewChild('htmlView') private htmlViewRef: ElementRef;
+    private htmlView;
+
+    ngAfterViewInit() {
+        this.setNativeElements();
         this.setHtmlCode();
     }
 
-    public setHtmlCode(){
-        this.htmlView.html =this.htmlCode.text;
+    public setHtmlCode() {
+        this.htmlView.html = this.htmlCode.text;
     }
 
-    public setNativeElements(){
-        this.htmlCode=this.htmlCodeRef.nativeElement;
-        this.htmlView=this.htmlViewRef.nativeElement;
+    private setNativeElements() {
+        this.htmlCode = this.htmlCodeRef.nativeElement;
+        this.htmlView = this.htmlViewRef.nativeElement;
     }
-    
-    @ViewChild('htmlCode') htmlCodeRef: ElementRef;
-    private htmlCode;
-    @ViewChild('htmlView') htmlViewRef: ElementRef;
-    private htmlView;
+
 }

@@ -1,12 +1,10 @@
-import {Component} from "@angular/core";
+import {Component} from '@angular/core';
 
 @Component({
-    selector: "LayoutsPage",
-    templateUrl: 'pages/layouts/layouts.html',
-    styleUrls: ['pages/layouts/layouts.css']
+    moduleId: module.id,
+    selector: 'sc-layouts-page',
+    templateUrl: 'layouts.html',
+    styleUrls: ['layouts.css']
 })
 export class LayoutsPage {
-    public constructor(){
-        
-    }
 }

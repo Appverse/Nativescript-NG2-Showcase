@@ -5,9 +5,10 @@ import colorModule = require('color');
 import platform = require('platform');
 
 @Component({
-    selector: 'ListsPage',
-    templateUrl: 'pages/lists/lists.html',
-    styleUrls: ['pages/lists/lists.css']
+    moduleId: module.id,
+    selector: 'sc-lists-page',
+    templateUrl: 'lists.html',
+    styleUrls: ['lists.css']
 })
 export class ListsPage {
     public style: string = 'light';
@@ -27,7 +28,7 @@ export class ListsPage {
             var cell = args.ios; //return UITableViewCell
             cell.backgroundColor = new colorModule.Color('0,0,0,0').ios;
         }
-}
+    }
 
     public selectedColorChanged(args) {
         this.colorSelected = args.object.selectedIndex;

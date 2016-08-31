@@ -1,35 +1,25 @@
-<GridLayout class="app-color-tertiary fill-all">
-    <StackLayout>
-        <!-- TITLE -->
-        <StackLayout class="app-color-secondary">
-            <Label text="PICKERS" class="h4 center s-margin app-color-secondary" automationText="title"></Label>
-            <GridLayout class="h-spacer app-color-primary bottom"></GridLayout>
+<sc-showcase-layout title="PICKERS">
+    <TabView selectedColor="#1B3C80" tabsBackgroundColor="#FFFFFF">
+        <!-- LIST PICKER -->
+        <StackLayout *tabItem="{title: 'LIST'}">
+            <GridLayout rows="*,*">
+                <ListPicker (selectedIndexChange)="selectedJediChange($event)" [items]="jedis" class="s-margin"></ListPicker>
+                <Label row="1" [text]="'Selected: ' + jediSelected" class="h3 center"></Label>
+            </GridLayout>
         </StackLayout>
-        <!-- COMPONENTS SELECTOR -->
-        <TabView selectedColor="#1B3C80" tabsBackgroundColor="#FFFFFF">
-            <!-- LIST PICKER -->
-            <StackLayout *tabItem="{title: 'LIST'}" >
-                <GridLayout rows="*,*">
-                    <ListPicker (selectedIndexChange)="selectedJediChange($event)" [items]="jedis" class="s-margin"></ListPicker>
-                    <Label row="1" [text]="'Selected: ' + jediSelected" class="h3 center"></Label>
-                </GridLayout>
-            </StackLayout>
-            <!-- DATE PICKER -->
-            <StackLayout *tabItem="{title: 'DATE'}" >
-                <GridLayout rows="*,*">
-                    <DatePicker class="s-margin" (propertyChange)="selectedDateChange($event)" (loaded)="datePickerLoaded($event)"></DatePicker>
-                    <Label row="1" [text]="'Selected: ' + date" class="h3 center"></Label>
-                </GridLayout>
-            </StackLayout>
-            <!-- TIME PICKER -->
-            <StackLayout *tabItem="{title: 'TIME'}" >
-                <GridLayout rows="*,*">
-                    <TimePicker class="s-margin" (propertyChange)="selectedTimeChange($event)"></TimePicker>
-                    <Label row="1" [text]="'Selected: ' + time" class="h3 center"></Label>
-                </GridLayout>
-            </StackLayout>
-        </TabView>
-    </StackLayout>
-</GridLayout>
-
-
+        <!-- DATE PICKER -->
+        <StackLayout *tabItem="{title: 'DATE'}">
+            <GridLayout rows="*,*">
+                <DatePicker class="s-margin" (propertyChange)="selectedDateChange($event)" (loaded)="datePickerLoaded($event)"></DatePicker>
+                <Label row="1" [text]="'Selected: ' + date" class="h3 center"></Label>
+            </GridLayout>
+        </StackLayout>
+        <!-- TIME PICKER -->
+        <StackLayout *tabItem="{title: 'TIME'}">
+            <GridLayout rows="*,*">
+                <TimePicker class="s-margin" (propertyChange)="selectedTimeChange($event)"></TimePicker>
+                <Label row="1" [text]="'Selected: ' + time" class="h3 center"></Label>
+            </GridLayout>
+        </StackLayout>
+    </TabView>
+</sc-showcase-layout>

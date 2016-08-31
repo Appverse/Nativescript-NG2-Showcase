@@ -1,25 +1,22 @@
 <GridLayout class="fill-all">
-    <StackLayout>
-        <ActionBar title="" class="action-bar app-color-primary">
-            <GridLayout row="0" columns="*,8*,*" >
-                <!-- LEFT ICON -->
-                <GridLayout col="0" (tap)="toggle()" automationText="toggleSDButton">
-                    <Label #menuIcon text="&#xf197;" class="material-icon icon" @state=" toggled ? 'active' : 'inactive' "></Label>
-                </GridLayout>
-                <!-- TITLE -->
-                <Label col="1" text="GFT &#xf15e; NativeScript" class="title center material-icon bold"></Label>
-                <!-- RIGHT ICON -->
-                <GridLayout col="2">
-                </GridLayout>
+    <ActionBar title="" class="action-bar app-color-primary">
+        <GridLayout row="0" columns="*,8*,*">
+            <!-- LEFT ICON -->
+            <GridLayout col="0" (tap)="toggle()" automationText="toggleSDButton">
+                <Label #menuIcon text="&#xf197;" class="material-icon icon" @state=" toggled ? 'active' : 'inactive' "></Label>
             </GridLayout>
-        </ActionBar>
-        <RadSideDrawer #drawer [transition]="sideDrawerTransition" selectionBehavior="None">
-            <StackLayout tkDrawerContent>
-                <sc-side-drawer></sc-side-drawer>
-            </StackLayout>
-            <StackLayout tkMainContent>
-                <router-outlet></router-outlet>
-            </StackLayout>
-        </RadSideDrawer>
-    </StackLayout>
+            <!-- TITLE -->
+            <Label col="1" text="GFT &#xf15e; NativeScript" class="title center material-icon bold"></Label>
+            <!-- RIGHT ICON -->
+            <GridLayout col="2"></GridLayout>
+        </GridLayout>
+    </ActionBar>
+    <RadSideDrawer #drawer [transition]="sideDrawerTransition" selectionBehavior="None">
+        <GridLayout tkDrawerContent>
+            <sc-side-drawer></sc-side-drawer>
+        </GridLayout>
+        <StackLayout tkMainContent>
+            <router-outlet></router-outlet>
+        </StackLayout>
+    </RadSideDrawer>
 </GridLayout>

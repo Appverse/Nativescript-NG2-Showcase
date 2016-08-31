@@ -1,47 +1,37 @@
-<GridLayout class="app-color-tertiary fill-all">
-    <StackLayout>
-        <!-- TITLE -->
-        <GridLayout rows="auto" class="app-color-secondary">
-            <Label text="SELECTORS" class="h4 center s-margin app-color-secondary" automationText="title"></Label>
-        </GridLayout>
-        <GridLayout class="h-spacer app-color-primary bottom"></GridLayout>
-        <!-- COMPONENT SELECTOR -->
-        <TabView selectedColor="#1B3C80" tabsBackgroundColor="#FFFFFF">
-            <!-- SWITCH -->
-            <StackLayout *tabItem="{title: 'SWITCH'}">
-                <GridLayout class="fill-all">
-                    <ScrollView>
-                        <StackLayout>
-                            <Switch *ngFor="let switch of styles[3].styles" [class]="'center s-margin ' + switch.style"></Switch>
+<sc-showcase-layout title="SELECTORS">
+    <TabView selectedColor="#1B3C80" tabsBackgroundColor="#FFFFFF">
+        <!-- SWITCH -->
+        <StackLayout *tabItem="{title: 'SWITCH'}">
+            <GridLayout class="fill-all">
+                <ScrollView>
+                    <StackLayout>
+                        <Switch *ngFor="let switch of styles[3].styles" [class]="'center s-margin ' + switch.style"></Switch>
+                    </StackLayout>
+                </ScrollView>
+            </GridLayout>
+        </StackLayout>
+        <!-- SLIDER -->
+        <StackLayout *tabItem="{title: 'SLIDER'}">
+            <GridLayout class="fill-all">
+                <ScrollView>
+                    <StackLayout>
+                        <Slider maxValue="100" *ngFor="let slider of styles[3].styles; let i=index" [class]="'s-margin ' + slider.style" [value]="i*10"></Slider>
+                    </StackLayout>
+                </ScrollView>
+            </GridLayout>
+        </StackLayout>
+        <!-- SEGMENTED BAR -->
+        <StackLayout *tabItem="{title: 'SEGMENTED BAR'}">
+            <GridLayout class="fill-all">
+                <ScrollView>
+                    <StackLayout>
+                        <StackLayout *ngFor="let segmented of styles[0].styles">
+                            <Label [text]="segmented.name" class="s-margin h5"></Label>
+                            <SegmentedBar [class]="'s-margin ' + segmented.style" selectedBackgroundColor="#e0e0e0" [items]="[{title: 'DARK SIDE'}, {title: 'LIGHT SIDE'}]"></SegmentedBar>
                         </StackLayout>
-                    </ScrollView>
-                </GridLayout>
-            </StackLayout>
-            <!-- SLIDER -->
-            <StackLayout *tabItem="{title: 'SLIDER'}">
-                <GridLayout class="fill-all">
-                    <ScrollView>
-                        <StackLayout>
-                            <Slider maxValue="100" *ngFor="let slider of styles[3].styles; let i=index" [class]="'s-margin ' + slider.style" [value]="i*10"></Slider>
-                        </StackLayout>
-                    </ScrollView>
-                </GridLayout>
-            </StackLayout>
-            <!-- SEGMENTED BAR -->
-            <StackLayout *tabItem="{title: 'SEGMENTED BAR'}">
-                <GridLayout class="fill-all">
-                    <ScrollView>
-                        <StackLayout>
-                            <StackLayout *ngFor="let segmented of styles[0].styles">
-                                <Label [text]="segmented.name" class="s-margin h5"></Label>
-                                <SegmentedBar [class]="'s-margin ' + segmented.style" selectedBackgroundColor="#e0e0e0" [items]="[{title: 'DARK SIDE'}, {title: 'LIGHT SIDE'}]"></SegmentedBar>
-                            </StackLayout>
-                        </StackLayout>
-                    </ScrollView>
-                </GridLayout>
-            </StackLayout>
-        </TabView>
-    </StackLayout>
-</GridLayout>
-
-
+                    </StackLayout>
+                </ScrollView>
+            </GridLayout>
+        </StackLayout>
+    </TabView>
+</sc-showcase-layout>

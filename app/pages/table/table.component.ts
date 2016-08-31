@@ -1,12 +1,10 @@
-import {Component} from "@angular/core";
+import {Component} from '@angular/core';
 
 @Component({
-    selector: "TablePage",
-    templateUrl: 'pages/table/table.html',
-    styleUrls: ['pages/table/table.css']
+    moduleId: module.id,
+    selector: 'sc-table-page',
+    templateUrl: 'table.html',
+    styleUrls: ['table.css']
 })
 export class TablePage {
-
-    public constructor(){
-    }
 }

@@ -1,30 +1,21 @@
-<GridLayout class="app-color-tertiary fill-all">
-    <StackLayout>
-        <!-- TITLE -->
-        <GridLayout rows="auto" class="app-color-secondary">
-            <Label text="DATABASE" class="h4 center s-margin app-color-secondary" automationText="title"></Label>
-        </GridLayout>
-        <GridLayout class="h-spacer app-color-primary bottom"></GridLayout>
-        <!-- DATABASE -->
-        <GridLayout columns="*,*" rows="*,*,*,*,3*,*">
-            <Button row="0" col="0" text="OPEN DB" (tap)="openDB()" class="button s-margin primary"></Button>
-            <Button row="0" col="1" text="CLOSE DB" (tap)="closeDB()" class="button s-margin danger"></Button>
-            <Button row="1" col="0" text="GET ALL" (tap)="getAll()" class="button s-margin primary"></Button>
-            <Button row="1" col="1" text="DELETE ALL" (tap)="deleteAll()" class="button s-margin warning"></Button>
-            <TextField [ngModel]="name" (ngModelChange)="nameEmitter.emit($event)" row="2" col="0" hint="Name" class="s-margin text-field app-color-secondary"></TextField>
-            <TextField [ngModel]="age" (ngModelChange)="ageEmitter.emit($event)" row="2" col="1" hint="Age" class="s-margin text-field app-color-secondary"></TextField>
-            <Button row="3" col="0" colSpan="2" text="INSERT" (tap)="insert()" class="button s-margin primary"></Button>
-            <ListView row="4" col="0" colSpan="2" [items]="results" class="s-margin list-view">
-                <!-- LIST TEMPLATE -->
-                <template let-item="item">
+<sc-showcase-layout title="DATABASE">
+    <GridLayout columns="*,*" rows="*,*,*,*,3*,*">
+        <Button row="0" col="0" text="OPEN DB" (tap)="openDB()" class="button s-margin primary"></Button>
+        <Button row="0" col="1" text="CLOSE DB" (tap)="closeDB()" class="button s-margin danger"></Button>
+        <Button row="1" col="0" text="GET ALL" (tap)="getAll()" class="button s-margin primary"></Button>
+        <Button row="1" col="1" text="DELETE ALL" (tap)="deleteAll()" class="button s-margin warning"></Button>
+        <TextField [ngModel]="name" (ngModelChange)="nameEmitter.emit($event)" row="2" col="0" hint="Name" class="s-margin text-field app-color-secondary"></TextField>
+        <TextField [ngModel]="age" (ngModelChange)="ageEmitter.emit($event)" row="2" col="1" hint="Age" class="s-margin text-field app-color-secondary"></TextField>
+        <Button row="3" col="0" colSpan="2" text="INSERT" (tap)="insert()" class="button s-margin primary"></Button>
+        <ListView row="4" col="0" colSpan="2" [items]="results" class="s-margin list-view">
+            <!-- LIST TEMPLATE -->
+            <template let-item="item">
                     <GridLayout rows="auto" columns="*,auto">
                         <Label row="0" col="0" [text]="item.name" class="s-margin"></Label>
                         <Label row="0" col="1" [text]="item.age" class="center s-margin"></Label>
                     </GridLayout>
                 </template>
-            </ListView>
-            <TextField row="5" col="0" colSpan="2" [text]="info" class="center"></TextField>
-        </GridLayout>
-    </StackLayout>
-</GridLayout>
-
+        </ListView>
+        <TextField row="5" col="0" colSpan="2" [text]="info" class="center"></TextField>
+    </GridLayout>
+</sc-showcase-layout>

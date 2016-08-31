@@ -14,6 +14,7 @@ import {SIDEDRAWER_PROVIDERS} from 'nativescript-telerik-ui-pro/sidedrawer/angul
 
 import {AppComponent} from './app.component';
 import {APP_ROUTER_PROVIDERS} from './app.routes';
+import {ShowcaseLayout} from './common/components/showcase-layout/showcase-layout.component';
 
 const APP_PROVIDERS = [
     provide(TranslateLoader, {
@@ -22,8 +23,9 @@ const APP_PROVIDERS = [
         }
     }),
     TranslateService,
-    CHART_PROVIDERS,
     provide(PLATFORM_PIPES, { useValue: TranslatePipe, multi: true }),
+    provide(PLATFORM_DIRECTIVES, { useValue: ShowcaseLayout, multi: true }),
+    CHART_PROVIDERS,
     SIDEDRAWER_PROVIDERS
 ];
 

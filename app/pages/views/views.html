@@ -1,10 +1,4 @@
-<StackLayout class="app-color-tertiary">
-    <!-- TITLE -->
-    <GridLayout rows="auto" class="app-color-secondary">
-        <Label text="VIEWS" class="h4 center s-margin app-color-secondary" automationText="title"></Label>
-    </GridLayout>
-    <GridLayout class="h-spacer app-color-primary bottom"></GridLayout>
-    <!-- COMPONENT SELECTOR -->
+<sc-showcase-layout title="VIEWS">
     <TabView selectedColor="#1B3C80" tabsBackgroundColor="#FFFFFF">
         <!-- TAB VIEW -->
         <StackLayout *tabItem="{title: 'TAB VIEW'}">
@@ -12,19 +6,37 @@
                 <StackLayout>
                     <!-- TAB VIEW SELECTED COLOR AND BACKGROUND COLOR CAN ONLY BE SET HERE (HTML) OR PROGRAMATICALLY (TYPESCRIPT/JAVASCRIPT), IT CAN'T BE STYLED THROUGH CSS -->
                     <TabView selectedColor="#FFFFFF" tabsBackgroundColor="#f44336" class="s-margin quarter-height">
-                        <StackLayout *tabItem="{title: 'VIEW 1'}"><Label text="First view"></Label></StackLayout>
-                        <StackLayout *tabItem="{title: 'VIEW 2'}"><Label text="Second view"></Label></StackLayout>
-                        <StackLayout *tabItem="{title: 'VIEW 3'}"><Label text="Third view"></Label></StackLayout>
+                        <StackLayout *tabItem="{title: 'VIEW 1'}">
+                            <Label text="First view"></Label>
+                        </StackLayout>
+                        <StackLayout *tabItem="{title: 'VIEW 2'}">
+                            <Label text="Second view"></Label>
+                        </StackLayout>
+                        <StackLayout *tabItem="{title: 'VIEW 3'}">
+                            <Label text="Third view"></Label>
+                        </StackLayout>
                     </TabView>
                     <TabView selectedColor="#FFFFFF" tabsBackgroundColor="#673ab7" class="s-margin quarter-height">
-                        <StackLayout *tabItem="{title: 'VIEW 1'}"><Label text="First view"></Label></StackLayout>
-                        <StackLayout *tabItem="{title: 'VIEW 2'}"><Label text="Second view"></Label></StackLayout>
-                        <StackLayout *tabItem="{title: 'VIEW 3'}"><Label text="Third view"></Label></StackLayout>
+                        <StackLayout *tabItem="{title: 'VIEW 1'}">
+                            <Label text="First view"></Label>
+                        </StackLayout>
+                        <StackLayout *tabItem="{title: 'VIEW 2'}">
+                            <Label text="Second view"></Label>
+                        </StackLayout>
+                        <StackLayout *tabItem="{title: 'VIEW 3'}">
+                            <Label text="Third view"></Label>
+                        </StackLayout>
                     </TabView>
                     <TabView selectedColor="#FFFFFF" tabsBackgroundColor="#03a9f4" class="s-margin quarter-height">
-                        <StackLayout *tabItem="{title: 'VIEW 1'}"><Label text="First view"></Label></StackLayout>
-                        <StackLayout *tabItem="{title: 'VIEW 2'}"><Label text="Second view"></Label></StackLayout>
-                        <StackLayout *tabItem="{title: 'VIEW 3'}"><Label text="Third view"></Label></StackLayout>
+                        <StackLayout *tabItem="{title: 'VIEW 1'}">
+                            <Label text="First view"></Label>
+                        </StackLayout>
+                        <StackLayout *tabItem="{title: 'VIEW 2'}">
+                            <Label text="Second view"></Label>
+                        </StackLayout>
+                        <StackLayout *tabItem="{title: 'VIEW 3'}">
+                            <Label text="Third view"></Label>
+                        </StackLayout>
                     </TabView>
                 </StackLayout>
             </GridLayout>
@@ -46,6 +58,4 @@
             </GridLayout>
         </StackLayout>
     </TabView>
-</StackLayout>
-
-
+</sc-showcase-layout>

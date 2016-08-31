@@ -1,14 +1,15 @@
-import {Component, EventEmitter} from "@angular/core";
+import {Component, EventEmitter, OnInit} from '@angular/core';
 
 //USING PLUGIN: NATIVESCRIPT-SQLITE
-var Sqlite = require( "nativescript-sqlite" );
+var Sqlite = require('nativescript-sqlite');
 
 @Component({
-    selector: "DatabasePage",
-    templateUrl: 'pages/database/database.html',
-    styleUrls: ['pages/database/database.css']
+    moduleId: module.id,
+    selector: 'sc-database-page',
+    templateUrl: 'database.html',
+    styleUrls: ['database.css']
 })
-export class DatabasePage {
+export class DatabasePage implements OnInit {
 
     private db;
     private results;
@@ -18,153 +19,153 @@ export class DatabasePage {
     private nameEmitter = new EventEmitter<string>();
     private ageEmitter = new EventEmitter<string>();
 
-    public constructor(){
-        let instance= this;
+    constructor() {
+        let instance = this;
         //Create the database (DB)
-        var db_promise = new Sqlite("MyDB", (err, db)=>{
-            if (err) { 
-            console.error("We failed to open database", err);
-            instance.info = "We failed to open database: " + err;
+        let db_promise = new Sqlite('MyDB', (err, db) => {
+            if (err) {
+                console.error('We failed to open database', err);
+                instance.info = 'We failed to open database: ' + err;
             } else {
-            instance.db = db;
+                instance.db = db;
             }
         });
-        this.setupDB()
+        this.setupDB();
     }
 
     ngOnInit() {
         let instance = this;
         this.nameEmitter
-            .subscribe(v=>{
+            .subscribe(v => {
                 instance.name = v;
             });
         this.ageEmitter
-            .subscribe(v=>{
+            .subscribe(v => {
                 instance.age = v;
             });
     }
     // Inserts a new row executing SQL
-    public insert(){
+    public insert() {
         let instance = this;
         //CHECK IF ITS OPEN
-        if(this.db.isOpen()){
+        if (this.db.isOpen()) {
             /* To execute non-SELECT SQL statements  */
-            this.db.execSQL("INSERT INTO tests (name, age) VALUES (?,?)", [this.name, this.age], (err, id)=>{
-                console.log("The new record id is:", id);
-                instance.info = "Row added";
-                });
+            this.db.execSQL('INSERT INTO tests (name, age) VALUES (?,?)', [this.name, this.age], (err, id) => {
+                console.log('The new record id is:', id);
+                instance.info = 'Row added';
+            });
         } else {
-            console.log("DB is closed!");
-            instance.info = "DB is closed!";
+            console.log('DB is closed!');
+            instance.info = 'DB is closed!';
         }
     }
     //Gets all the rows
-    public getAll(){
+    public getAll() {
         let instance = this;
         //CHECK IF ITS OPEN
-        if(this.db.isOpen()){
+        if (this.db.isOpen()) {
             /* To execute SELECT SQL statements:
                     .get returns the first row as result in the callback
                     .all returns all the rows as result in the callback
                     .each returns each row as result in the callback (which is called as many times as the number of rows) */
-            this.db.all('SELECT * FROM tests', (err, r)=>{
-                console.log("Row of data was: ", r);
-                instance.info = "Data received";
+            this.db.all('SELECT * FROM tests', (err, r) => {
+                console.log('Row of data was: ', r);
+                instance.info = 'Data received';
                 this.results = r;
             });
         } else {
-            console.log("DB is closed!");
-            instance.info = "DB is closed!";
+            console.log('DB is closed!');
+            instance.info = 'DB is closed!';
         }
     }
     //Deletes tests rows
-    public deleteAll(){
-        let instance= this;
+    public deleteAll() {
+        let instance = this;
         //CHECK IF ITS OPEN
-        if(this.db.isOpen()){
-            this.db.execSQL("DELETE FROM tests", (err)=>{
-                if(err){
-                    console.log("There was an error:", err)
-                    instance.info = "There was an error: " + err;
+        if (this.db.isOpen()) {
+            this.db.execSQL('DELETE FROM tests', (err) => {
+                if (err) {
+                    console.log('There was an error:', err);
+                    instance.info = 'There was an error: ' + err;
                 } else {
-                    console.log("Data has been deleted")
-                    instance.info = "Data has been deleted";
+                    console.log('Data has been deleted');
+                    instance.info = 'Data has been deleted';
                 }
             });
         } else {
-            console.log("DB is closed!");
-            instance.info = "DB is closed!";
+            console.log('DB is closed!');
+            instance.info = 'DB is closed!';
         }
     }
     //To close DB
-    public closeDB(){
+    public closeDB() {
         let instance = this;
         //CHECK IF IT EXISTS AND IF ITS OPEN
-        if(Sqlite.exists("MyDB")){
-            if(this.db.isOpen()){
-                this.db.close((err)=>{
-                    if(err){
-                        console.log("We failed to close database");
+        if (Sqlite.exists('MyDB')) {
+            if (this.db.isOpen()) {
+                this.db.close((err) => {
+                    if (err) {
+                        console.log('We failed to close database');
                     } else {
-                        console.log("DB closed");
-                        instance.info = "DB closed";
+                        console.log('DB closed');
+                        instance.info = 'DB closed';
                     }
-                })
+                });
             } else {
-                console.log("DB is already closed!");
-                instance.info = "DB is already closed!";
+                console.log('DB is already closed!');
+                instance.info = 'DB is already closed!';
             }
-            
+
         } else {
-            console.log("DB doesn't exist");
-            instance.info = "DB doesn't exist";
+            console.log('DB doesn\'t exist');
+            instance.info = 'DB doesn\'t exist';
         }
     }
     //To open DB
-    public openDB(){
-        let instance= this;
+    public openDB() {
+        let instance = this;
         //CHECK IF IT EXISTS AND IF ITS OPEN
-        if(Sqlite.exists("MyDB")){
-            if(instance.db.isOpen()){
-                console.log("DB is already open!");
-                instance.info = "DB is already open!";
+        if (Sqlite.exists('MyDB')) {
+            if (instance.db.isOpen()) {
+                console.log('DB is already open!');
+                instance.info = 'DB is already open!';
             } else {
-                var db_promise = new Sqlite("MyDB", false, (err, db)=>{
-                    if (err) { 
-                    console.error("We failed to open database", err);
-                    instance.info = "We failed to open database " + err;
+                var db_promise = new Sqlite('MyDB', false, (err, db) => {
+                    if (err) {
+                        console.error('We failed to open database', err);
+                        instance.info = 'We failed to open database ' + err;
                     } else {
-                    console.log("Are we open yet (Inside Callback)? ", db.isOpen() ? "Yes" : "No"); // Yes
-                    instance.info = "DB opened";
-                    instance.db = db;
+                        console.log('Are we open yet (Inside Callback)? ', db.isOpen() ? 'Yes' : 'No'); // Yes
+                        instance.info = 'DB opened';
+                        instance.db = db;
                     }
                 });
             }
-            
+
         } else {
-            console.log("DB doesn't exist");
-            instance.info = "DB doesn't exist!";
+            console.log('DB doesn\'t exist');
+            instance.info = 'DB doesn\'t exist!';
         }
     }
     //Initial DB set up
     public setupDB() {
         this.db.resultType(Sqlite.RESULTSASOBJECT);
-        this.db.execSQL('DROP TABLE IF EXISTS tests;', (err)=>{
-            if (err) { console.log("!---- Drop Err", err); }
-            this.db.execSQL('CREATE TABLE tests (`name` TEXT, `age` NUMERIC)', (err)=>{
+        this.db.execSQL('DROP TABLE IF EXISTS tests;', (err) => {
+            if (err) { console.log('!---- Drop Err', err); }
+            this.db.execSQL('CREATE TABLE tests (`name` TEXT, `age` NUMERIC)', (err) => {
                 if (err) {
-                    console.log("!---- Create Table err", err);
+                    console.log('!---- Create Table err', err);
                     return;
                 }
-                this.db.execSQL('INSERT INTO tests (name, age) VALUES ("Nathan Drake",32)', (err, id)=>{
+                this.db.execSQL('INSERT INTO tests (name, age) VALUES ("Nathan Drake",32)', (err, id) => {
                     if (err) {
-                        console.log("!---- Insert err", err);
+                        console.log('!---- Insert err', err);
                         return;
                     }
-                this. db.execSQL('INSERT INTO tests (name, age) VALUES ("Elena Fisher",30)');
+                    this.db.execSQL('INSERT INTO tests (name, age) VALUES ("Elena Fisher",30)');
                 });
             });
         });
-        this.db.close()
+        this.db.close();
     }
 }

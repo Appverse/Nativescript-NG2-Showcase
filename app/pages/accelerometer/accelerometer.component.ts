@@ -3,9 +3,10 @@ import {Component, NgZone} from '@angular/core';
 import accelerometer = require('nativescript-accelerometer');
 
 @Component({
-    selector: 'AccelerometerPage',
-    templateUrl: 'pages/accelerometer/accelerometer.html',
-    styleUrls: ['pages/accelerometer/accelerometer.css']
+    moduleId: module.id,
+    selector: 'sc-accelerometer-page',
+    templateUrl: 'accelerometer.html',
+    styleUrls: ['accelerometer.css']
 })
 export class AccelerometerPage {
 
@@ -20,9 +21,12 @@ export class AccelerometerPage {
     */
     public startAccelerometer() {
         this.accelerometerActive = true;
-        accelerometer.startAccelerometerUpdates((data)=> {this._ngZone.run(() => {
-            this.axisData = data;
-        });});
+        accelerometer.startAccelerometerUpdates(
+            (data) => {
+                this._ngZone.run(() => {
+                    this.axisData = data;
+                });
+            });
 
     }
     //Stop accelerometer updates

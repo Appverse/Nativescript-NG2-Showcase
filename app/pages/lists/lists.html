@@ -1,10 +1,5 @@
-<GridLayout class="app-color-tertiary fill-all">
+<sc-showcase-layout title="LISTS">
     <StackLayout>
-        <!-- TITLE -->
-        <StackLayout class="app-color-secondary">
-            <Label text="LISTS" class="h4 center s-margin app-color-secondary" automationText="title"></Label>
-            <GridLayout class="h-spacer app-color-primary bottom"></GridLayout>
-        </StackLayout>
         <!-- COLOR SELECTOR -->
         <ScrollView orientation="horizontal">
             <SegmentedBar width="{{ 100 * colors.length}}" (selectedIndexChanged)="selectedColorChanged($event)" [items]="colors" class="app-color-secondary" selectedBackgroundColor="#1B3C80">
@@ -28,6 +23,4 @@
             </StackLayout>
         </ScrollView>
     </StackLayout>
-</GridLayout>
-
-
+</sc-showcase-layout>

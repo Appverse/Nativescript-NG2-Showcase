@@ -3,9 +3,10 @@ import {ContentService} from '../../common/services/content.service';
 import {Page} from 'ui/page';
 
 @Component({
-    selector: 'TextPage',
-    templateUrl: 'pages/text/text.html',
-    styleUrls: ['pages/text/text.css']
+    moduleId: module.id,
+    selector: 'sc-text-page',
+    templateUrl: 'text.html',
+    styleUrls: ['text.css']
 })
 export class TextPage {
 
@@ -28,9 +29,9 @@ export class TextPage {
     public textFieldLoaded(args) {
         args.object.dismissSoftInput();
         if (args.object.ios) {
-        args.object.ios.endEditing(true);
+            args.object.ios.endEditing(true);
         } else if (args.object.android) {
-        args.object.android.clearFocus();
+            args.object.android.clearFocus();
         }
     }
 

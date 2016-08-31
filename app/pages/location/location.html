@@ -1,22 +1,13 @@
-<GridLayout class="app-color-tertiary fill-all">
+<sc-showcase-layout title="LOCATION">
     <StackLayout>
-        <!-- TITLE -->
-        <GridLayout rows="auto" class="app-color-secondary">
-            <Label text="LOCATION" class="h4 center s-margin app-color-secondary" automationText="title"></Label>
-        </GridLayout>
-        <GridLayout class="h-spacer app-color-primary bottom"></GridLayout>
-        <!-- LOCATION -->
-        <StackLayout>
-            <Button text="ENABLE LOCATION" (tap)="enableLocation()" class="s-margin app-color-primary"></Button>
-            <Button text="GET CURRENT LOCATION" (tap)="getLocation()" class="s-margin app-color-primary"></Button>
-            <StackLayout *ngIf="isLocation">
-                <Label [text]="'Latitude: ' + currentLocation.latitude"></Label>
-                <Label [text]="'Longitude: ' + currentLocation.longitude"></Label>
-                <Label [text]="'Altitude: ' + currentLocation.altitude"></Label>
-                <Label [text]="'Direction: ' + currentLocation.direction"></Label>
-                <Label [text]="'Time: ' + currentLocation.timestamp"></Label>
-            </StackLayout>
+        <Button text="ENABLE LOCATION" (tap)="enableLocation()" class="s-margin app-color-primary"></Button>
+        <Button text="GET CURRENT LOCATION" (tap)="getLocation()" class="s-margin app-color-primary"></Button>
+        <StackLayout *ngIf="isLocation">
+            <Label [text]="'Latitude: ' + currentLocation.latitude"></Label>
+            <Label [text]="'Longitude: ' + currentLocation.longitude"></Label>
+            <Label [text]="'Altitude: ' + currentLocation.altitude"></Label>
+            <Label [text]="'Direction: ' + currentLocation.direction"></Label>
+            <Label [text]="'Time: ' + currentLocation.timestamp"></Label>
         </StackLayout>
     </StackLayout>
-</GridLayout>
-
+</sc-showcase-layout>

@@ -1,16 +1,10 @@
-<GridLayout class="app-color-tertiary fill-all">
+
+<sc-showcase-layout title="BUTTONS">
+    <StackLayout extra-header orientation="horizontal" class="right">
+        <Label text="ROUNDED" class="h6 center"></Label>
+        <Switch checked="false" (tap)="switchChange($event)" class="app-color-primary center"></Switch>
+    </StackLayout>
     <StackLayout>
-        <!-- TITLE -->
-        <StackLayout>
-            <GridLayout rows="auto" class="app-color-secondary">
-                <Label text="BUTTONS" class="h4 center s-margin app-color-secondary" automationText="title"></Label>
-                <StackLayout orientation="horizontal" class="right">
-                    <Label text="ROUNDED" class="h6 center"></Label>
-                    <Switch checked="false" (tap)="switchChange($event)" class="app-color-primary center"></Switch>
-                </StackLayout>
-            </GridLayout>
-            <GridLayout class="h-spacer app-color-primary bottom"></GridLayout>
-        </StackLayout>
         <!-- STYLE SELECTOR -->
         <SegmentedBar (selectedIndexChanged)="selectedIndexChanged($event)" [items]="styles" class="app-color-secondary" selectedBackgroundColor="#1B3C80">
         </SegmentedBar>
@@ -24,6 +18,4 @@
             </StackLayout>
         </ScrollView>
     </StackLayout>
-</GridLayout>
-
-
+</sc-showcase-layout>
