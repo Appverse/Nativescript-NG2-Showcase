@@ -1,26 +1,28 @@
-<StackLayout class="app-color-tertiary">
-    <!-- TITLE -->
-    <GridLayout rows="auto" class="app-color-secondary">
-        <Label text="TASKS" class="h4 center s-margin app-color-secondary" automationText="title"></Label>
-    </GridLayout>
-    <GridLayout class="h-spacer app-color-primary bottom"></GridLayout>
-    <GridLayout rows="auto,*">
-        <!-- INPUT -->
-            <GridLayout row="0" columns="*,auto" margin="3">
-                <TextField #input col="0" hint=" New Task" class="input-task"></TextField>
-                <Button col="1" text="ADD" class="app-color-primary" (tap)="add()"></Button>
-            </GridLayout>
-        <!-- TASK LIST -->
-            <ListView row="1" id="listview" [items]="tasks">
-                <template let-task="item" let-i="index">
-                    <GridLayout class="in-from-left">
-                        <GridLayout columns="auto,*,auto" class="tasks-item">
-                            <Label col="0" [text]="task.isDone ? '&#xf269;' : '&#xf26c;'" class="center s-margin material-icon icon" (tap)="checkTap(task, $event)"></Label>
-                            <Label col="1" [text]="task.text" class="left s-margin"></Label>
-                            <Label col="2" text="&#xf136;" class="center s-margin material-icon icon" (tap)="removeTap(i,$event)"></Label>
+<GridLayout class="app-color-tertiary fill-all">
+    <StackLayout>
+        <!-- TITLE -->
+        <GridLayout rows="auto" class="app-color-secondary">
+            <Label text="TASKS" class="h4 center s-margin app-color-secondary" automationText="title"></Label>
+        </GridLayout>
+        <GridLayout class="h-spacer app-color-primary bottom"></GridLayout>
+        <GridLayout rows="auto,*">
+            <!-- INPUT -->
+                <GridLayout row="0" columns="*,auto" margin="3">
+                    <TextField #input col="0" hint=" New Task" class="input-task"></TextField>
+                    <Button col="1" text="ADD" class="app-color-primary" (tap)="add()"></Button>
+                </GridLayout>
+            <!-- TASK LIST -->
+                <ListView row="1" id="listview" [items]="tasks">
+                    <template let-task="item" let-i="index">
+                        <GridLayout class="in-from-left">
+                            <GridLayout columns="auto,*,auto" class="tasks-item">
+                                <Label col="0" [text]="task.isDone ? '&#xf269;' : '&#xf26c;'" class="center s-margin material-icon icon" (tap)="checkTap(task, $event)"></Label>
+                                <Label col="1" [text]="task.text" class="left s-margin"></Label>
+                                <Label col="2" text="&#xf136;" class="center s-margin material-icon icon" (tap)="removeTap(i,$event)"></Label>
+                            </GridLayout>
                         </GridLayout>
-                    </GridLayout>
-                </template>
-            </ListView>
-    </GridLayout>
-</StackLayout>
+                    </template>
+                </ListView>
+        </GridLayout>
+    </StackLayout>
+</GridLayout>

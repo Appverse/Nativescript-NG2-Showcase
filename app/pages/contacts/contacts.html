@@ -1,48 +1,50 @@
-<StackLayout class="app-color-tertiary">
-    <!-- TITLE -->
-    <GridLayout rows="auto" class="app-color-secondary">
-        <Label text="CONTACTS" class="h4 center s-margin app-color-secondary" automationText="title"></Label>
-    </GridLayout>
-    <GridLayout class="h-spacer app-color-primary bottom"></GridLayout>
-    <GridLayout>
-        <!-- CONTACTS LIST -->
-            <ListView id="listview" [items]="contacts" (itemTap)="itemTap($event)">
-                <template let-contact="item" let-i="index">
-                    <GridLayout columns="auto,*,*" rows="auto,auto">
-                        <Image col="0" row="0" rowSpan="2" [src]="contact.icon" class="material-design-icon s-margin"></Image>
-                        <Label col="1" row="0" rowSpan="2" [text]="contact.name" class="left s-margin bold"></Label>
-                        <Label col="2" row="0" [text]="contact.number" class="right s-margin"></Label>
-                        <Label col="2" row="1" [text]="contact.from" class="right s-margin"></Label>
+<GridLayout class="app-color-tertiary fill-all">
+    <StackLayout>
+        <!-- TITLE -->
+        <GridLayout rows="auto" class="app-color-secondary">
+            <Label text="CONTACTS" class="h4 center s-margin app-color-secondary" automationText="title"></Label>
+        </GridLayout>
+        <GridLayout class="h-spacer app-color-primary bottom"></GridLayout>
+        <GridLayout>
+            <!-- CONTACTS LIST -->
+                <ListView id="listview" [items]="contacts" (itemTap)="itemTap($event)">
+                    <template let-contact="item" let-i="index">
+                        <GridLayout columns="auto,*,*" rows="auto,auto">
+                            <Image col="0" row="0" rowSpan="2" [src]="contact.icon" class="material-design-icon s-margin"></Image>
+                            <Label col="1" row="0" rowSpan="2" [text]="contact.name" class="left s-margin bold"></Label>
+                            <Label col="2" row="0" [text]="contact.number" class="right s-margin"></Label>
+                            <Label col="2" row="1" [text]="contact.from" class="right s-margin"></Label>
+                        </GridLayout>
+                    </template>
+                </ListView>
+            <!-- MODAL -->
+            <AbsoluteLayout #backdrop class="backdrop" @state=" modalToggled ? 'activeBD' : 'inactiveBD' ">
+            </AbsoluteLayout>
+            <AbsoluteLayout #modal class="fill-width fill-heigth" @state=" modalToggled ? 'activeModal' : 'inactiveModal' ">
+                <GridLayout class="fill-width fill-height" *ngIf="toggled" (tap)="closeModal()">
+                    <GridLayout rows="auto,auto,auto" class="light center threequarters-width medium-rounded" (tap)="null">
+                        <GridLayout row="0" columns="auto, *" rows="auto">
+                            <Image col="0" class="left" width="120" height="120" [src]="contacts[selected].icon"></Image>
+                            <Label col="1" [text]=" contacts[selected].name" class="center bold h3"></Label>
+                        </GridLayout>
+                        <GridLayout row="1" colSpan="2" class="h-spacer app-color-primary"></GridLayout>
+                        <StackLayout row="2" class="s-margin">
+                            <GridLayout class="s-margin">
+                                <Label text="Phone number" class="left"></Label>
+                                <Label [text]="contacts[selected].number" class="right h4"></Label>
+                            </GridLayout>
+                            <GridLayout class="s-margin">
+                                <Label text="Origin planet" class="left"></Label>
+                                <Label [text]="contacts[selected].from" class="right h4"></Label>
+                            </GridLayout>
+                            <GridLayout class="s-margin">
+                                <Label text="Race" class="left"></Label>
+                                <Label [text]="contacts[selected].race" class="right h4"></Label>
+                            </GridLayout>
+                        </StackLayout>
                     </GridLayout>
-                </template>
-            </ListView>
-        <!-- MODAL -->
-        <AbsoluteLayout #backdrop class="backdrop" @state=" modalToggled ? 'activeBD' : 'inactiveBD' ">
-        </AbsoluteLayout>
-        <AbsoluteLayout #modal class="fill-width fill-heigth" @state=" modalToggled ? 'activeModal' : 'inactiveModal' ">
-            <GridLayout class="fill-width fill-height" *ngIf="toggled" (tap)="closeModal()">
-                <GridLayout rows="auto,auto,auto" class="light center threequarters-width medium-rounded" (tap)="null">
-                    <GridLayout row="0" columns="auto, *" rows="auto">
-                        <Image col="0" class="left" width="120" height="120" [src]="contacts[selected].icon"></Image>
-                        <Label col="1" [text]=" contacts[selected].name" class="center bold h3"></Label>
-                    </GridLayout>
-                    <GridLayout row="1" colSpan="2" class="h-spacer app-color-primary"></GridLayout>
-                    <StackLayout row="2" class="s-margin">
-                        <GridLayout class="s-margin">
-                            <Label text="Phone number" class="left"></Label>
-                            <Label [text]="contacts[selected].number" class="right h4"></Label>
-                        </GridLayout>
-                        <GridLayout class="s-margin">
-                            <Label text="Origin planet" class="left"></Label>
-                            <Label [text]="contacts[selected].from" class="right h4"></Label>
-                        </GridLayout>
-                        <GridLayout class="s-margin">
-                            <Label text="Race" class="left"></Label>
-                            <Label [text]="contacts[selected].race" class="right h4"></Label>
-                        </GridLayout>
-                    </StackLayout>
                 </GridLayout>
-            </GridLayout>
-        </AbsoluteLayout>
-    </GridLayout>
-</StackLayout>
+            </AbsoluteLayout>
+        </GridLayout>
+    </StackLayout>
+</GridLayout>

@@ -1,16 +1,18 @@
-<StackLayout class="app-color-tertiary">
-    <!-- TITLE -->
-    <GridLayout rows="auto" class="app-color-secondary">
-        <Label text="ACCELEROMETER" class="h4 center s-margin app-color-secondary" automationText="title"></Label>
-    </GridLayout>
-    <GridLayout class="h-spacer app-color-primary bottom"></GridLayout>
-    <!-- ACCELEROMETER -->
+<GridLayout class="app-color-tertiary fill-all">
     <StackLayout>
-        <Button text="Start" (tap)="startAccelerometer()" class="button app-color-primary s-margin" [isEnabled]="!accelerometerActive"></Button>
-        <Button text="Stop" (tap)="stopAccelerometer()" class="button app-color-secondary s-margin" [isEnabled]="accelerometerActive"></Button>
-        <Label [text]="'X: ' + axisData.x" class="s-margin center"></Label>
-        <Label [text]="'Y: ' + axisData.y" class="s-margin center"></Label>
-        <Label [text]="'Z: ' + axisData.z" class="s-margin center"></Label>
+        <!-- TITLE -->
+        <GridLayout rows="auto" class="app-color-secondary">
+            <Label text="ACCELEROMETER" class="h4 center s-margin app-color-secondary" automationText="title"></Label>
+        </GridLayout>
+        <GridLayout class="h-spacer app-color-primary bottom"></GridLayout>
+        <!-- ACCELEROMETER -->
+        <StackLayout>
+            <Button text="Start" (tap)="startAccelerometer()" class="button app-color-primary s-margin" [isEnabled]="!accelerometerActive"></Button>
+            <Button text="Stop" (tap)="stopAccelerometer()" class="button app-color-secondary s-margin" [isEnabled]="accelerometerActive"></Button>
+            <Label [text]="'X: ' + axisData.x" class="s-margin center"></Label>
+            <Label [text]="'Y: ' + axisData.y" class="s-margin center"></Label>
+            <Label [text]="'Z: ' + axisData.z" class="s-margin center"></Label>
+        </StackLayout>
     </StackLayout>
-</StackLayout>
+</GridLayout>
 
