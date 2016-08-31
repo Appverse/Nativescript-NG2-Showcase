@@ -49,7 +49,6 @@ Feature: Router navigation
   Scenario: Open side drawer
     Given I am on the main page
     When I Select the button "toggleSDButton"
-       And I hide keyboard
     Then I should see "sideDrawer"
  
   Scenario: Open components sub side drawer
@@ -347,7 +346,7 @@ Feature: Router navigation
   Scenario: Page after menu button tap
     Given I can see "sideDrawer"
     When I Select the button "signaturepadButton"
-    Then I should read "SIGNATURE PAD" in "title"
+    Then I should read "SIGNATURE" in "title"
 
   Scenario: Open side drawer
     Given I am on the main page
