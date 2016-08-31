@@ -3,7 +3,8 @@ Feature: Router navigation
   I should be able to navigate through the application
 # HOME PAGE TEST
   Scenario: Text after init
-    Given I am on the main page
+    Given I wait "5000"
+      And I am on the main page
     Then I should see "toggleSDButton"
   
   Scenario: Open side drawer
