@@ -9,19 +9,23 @@
         <TabView selectedColor="#1B3C80" tabsBackgroundColor="#FFFFFF">
             <!-- ACTIVITY INDICATOR -->
             <StackLayout *tabItem="{title: 'ACTIVITY INDICATOR'}">
-                <ScrollView>
-                    <StackLayout>
-                        <ActivityIndicator busy="true" *ngFor="let switch of fontColors" [class]="'center s-margin ' + switch.style"></ActivityIndicator>
-                    </StackLayout>
-                </ScrollView>
+                <GridLayout class="fill-all">
+                    <ScrollView>
+                        <StackLayout>
+                            <ActivityIndicator busy="true" *ngFor="let switch of fontColors" [class]="'center s-margin ' + switch.style"></ActivityIndicator>
+                        </StackLayout>
+                    </ScrollView>
+                </GridLayout>
             </StackLayout>
             <!-- PROGRESS -->
             <StackLayout *tabItem="{title: 'PROGRESS'}">
-                <ScrollView>
-                    <StackLayout>
-                        <Progress maxValue="100" *ngFor="let slider of styles[3].styles; let i=index" [class]="'s-margin ' + slider.style" [value]="i*10"></Progress>
-                    </StackLayout>
-                </ScrollView>
+                <GridLayout class="fill-all">
+                    <ScrollView>
+                        <StackLayout>
+                            <Progress maxValue="100" *ngFor="let slider of styles[3].styles; let i=index" [class]="'s-margin ' + slider.style" [value]="i*10"></Progress>
+                        </StackLayout>
+                    </ScrollView>
+                </GridLayout>
             </StackLayout>
         </TabView>
     </StackLayout>
