@@ -64,8 +64,6 @@
     },
     "scripts": {
         "cucumber-android": "tns build android && nativescript-dev-cucumber android",
-        "cucumber-ios-simulator": "tns build ios && nativescript-dev-cucumber ios-simulator",
-        "appium-android": "tns build android && nativescript-dev-appium android",
-        "appium-ios-simulator": "tns build ios && nativescript-dev-appium ios-simulator"
+        "cucumber-ios-simulator": "tns build ios && nativescript-dev-cucumber ios-simulator"
     }
 }

@@ -27,6 +27,7 @@ if (testRunType === 'android') {
 
 function World() {
   this.driver = driver;
+  this.platformName = testRunType === 'android'? 'Android':'iOS';
 }
 
 module.exports = function() {

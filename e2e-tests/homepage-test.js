@@ -2,7 +2,7 @@
 var nsAppium = require("nativescript-dev-appium");
 
 describe("android simple", function () {
-    this.timeout(20000);
+    
     var driver;
 
     before(function (done) {
@@ -20,7 +20,7 @@ describe("android simple", function () {
 
     function openSideDrawer(driver){
         return driver
-            .elementByAccessibilityId("toggleSDButton")
+            .elementByAccessibilityId("toggleSideDrawerButton")
                 .should.eventually.exist
             .tap()
             .elementByAccessibilityId("sideDrawer")
