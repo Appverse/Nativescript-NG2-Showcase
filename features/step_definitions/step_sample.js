@@ -42,7 +42,7 @@ module.exports = function () {
 
   this.Given(/^I am on the main page$/, function (callback) {
     this.driver
-      .elementByAccessibilityId('router')
+      .elementByAccessibilityId('mainPage')
       .should.eventually.exist
       .and.notify(callback);
   });

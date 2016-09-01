@@ -9,7 +9,7 @@ import geolocation = require('nativescript-geolocation');
     styleUrls: ['location.css']
 })
 export class LocationPage {
-
+    //WORKING ON DEVICE
     private currentLocation;
     private isLocation: boolean = false;
 
@@ -18,6 +18,8 @@ export class LocationPage {
         if (!geolocation.isEnabled()) {
             console.log('enabling location request');
             geolocation.enableLocationRequest();
+        } else {
+            console.log('location already enabled');
         }
     }
     /* Gets the currents location using an Observable to handle async call */
@@ -28,6 +30,8 @@ export class LocationPage {
                 .then((loc) => {
                     this.currentLocation = loc;
                     this.isLocation = true;
+                }, (e)=> {
+                    console.log('Error: ' + e.message);
                 });
         } else {
             console.log('Location isn\'t enabled!');

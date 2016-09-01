@@ -3,7 +3,8 @@ Feature: Router navigation
   I should be able to navigate through the application
 # HOME PAGE TEST
   Scenario: Text after init
-    Given I am on the main page
+    Given I wait "5000"
+      And I am on the main page
     Then I should see "toggleSDButton"
   
   Scenario: Open side drawer
@@ -49,7 +50,6 @@ Feature: Router navigation
   Scenario: Open side drawer
     Given I am on the main page
     When I Select the button "toggleSDButton"
-       And I hide keyboard
     Then I should see "sideDrawer"
  
   Scenario: Open components sub side drawer
@@ -347,7 +347,7 @@ Feature: Router navigation
   Scenario: Page after menu button tap
     Given I can see "sideDrawer"
     When I Select the button "signaturepadButton"
-    Then I should read "SIGNATURE PAD" in "title"
+    Then I should read "SIGNATURE" in "title"
 
   Scenario: Open side drawer
     Given I am on the main page
