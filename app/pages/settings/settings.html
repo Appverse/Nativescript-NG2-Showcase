@@ -1,0 +1,15 @@
+<sc-showcase-layout title="SETTINGS">
+    <StackLayout>
+
+        <!-- THEMES -->
+        <GridLayout columns="auto,*" rows="auto" class="app-color-secondary">
+            <Label col="0" text="Theme" class="s-margin center"></Label>
+            <ScrollView orientation="horizontal" col="1">
+                <StackLayout orientation="horizontal">
+                    <Button *ngFor="let theme of themes" [text]="theme.name" (tap)="applyTheme(theme.path)" class="s-margin button app-color-primary"></Button>
+                </StackLayout>
+            </ScrollView>
+        </GridLayout>
+
+    </StackLayout>
+</sc-showcase-layout>

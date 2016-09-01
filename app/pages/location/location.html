@@ -1,0 +1,13 @@
+<sc-showcase-layout title="LOCATION">
+    <StackLayout>
+        <Button text="ENABLE LOCATION" (tap)="enableLocation()" class="s-margin app-color-primary"></Button>
+        <Button text="GET CURRENT LOCATION" (tap)="getLocation()" class="s-margin app-color-primary"></Button>
+        <StackLayout *ngIf="isLocation">
+            <Label [text]="'Latitude: ' + currentLocation.latitude"></Label>
+            <Label [text]="'Longitude: ' + currentLocation.longitude"></Label>
+            <Label [text]="'Altitude: ' + currentLocation.altitude"></Label>
+            <Label [text]="'Direction: ' + currentLocation.direction"></Label>
+            <Label [text]="'Time: ' + currentLocation.timestamp"></Label>
+        </StackLayout>
+    </StackLayout>
+</sc-showcase-layout>

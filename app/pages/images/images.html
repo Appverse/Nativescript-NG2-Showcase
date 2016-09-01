@@ -1,0 +1,36 @@
+<sc-showcase-layout title="IMAGES">
+    <TabView selectedColor="#1B3C80" tabsBackgroundColor="#FFFFFF">
+        <!-- IMAGES -->
+        <StackLayout *tabItem="{title: 'ICONS'}">
+            <GridLayout class="fill-all">
+                <ScrollView>
+                    <StackLayout>
+                        <Label text="DEFAULT" class="s-margin h5 center"></Label>
+                        <Image src="~/images/poster.png" class="s-margin half-width"></Image>
+                        <Label text="SMALL ROUNDED" class="s-margin h5 center"></Label>
+                        <Image src="~/images/poster.png" class="s-margin small-rounded half-width"></Image>
+                        <Label text="MEDIUM ROUNDED" class="s-margin h5 center"></Label>
+                        <Image src="~/images/poster.png" class="s-margin medium-rounded half-width"></Image>
+                        <Label text="BIG ROUNDED" class="s-margin h5 center"></Label>
+                        <Image src="~/images/poster.png" class="s-margin big-rounded half-width"></Image>
+                    </StackLayout>
+                </ScrollView>
+            </GridLayout>
+        </StackLayout>
+        <!-- ICONS -->
+        <StackLayout *tabItem="{title: 'ICONS'}">
+            <GridLayout class="fill-all">
+                <ScrollView>
+                    <StackLayout>
+                        <Label text="DEFAULT" class="s-margin h5 center"></Label>
+                        <Image src="~/images/yoda.png" class="default-icon s-margin"></Image>
+                        <Label text="ROUNDED" class="s-margin h5 center"></Label>
+                        <Image src="~/images/yoda.png" class="rounded-icon s-margin"></Image>
+                        <Label text="MATERIAL DESIGN" class="s-margin h5 center"></Label>
+                        <Image src="~/images/yoda.png" class="material-design-icon s-margin"></Image>
+                    </StackLayout>
+                </ScrollView>
+            </GridLayout>
+        </StackLayout>
+    </TabView>
+</sc-showcase-layout>

@@ -1,0 +1,21 @@
+
+<sc-showcase-layout title="BUTTONS">
+    <StackLayout extra-header orientation="horizontal" class="right">
+        <Label text="ROUNDED" class="h6 center"></Label>
+        <Switch checked="false" (tap)="switchChange($event)" class="app-color-primary center"></Switch>
+    </StackLayout>
+    <StackLayout>
+        <!-- STYLE SELECTOR -->
+        <SegmentedBar (selectedIndexChanged)="selectedIndexChanged($event)" [items]="styles" class="app-color-secondary" selectedBackgroundColor="#1B3C80">
+        </SegmentedBar>
+        <!-- BUTTONS -->
+        <ScrollView>
+            <StackLayout *ngIf="!rounded">
+                <Button *ngFor="let button of styles[styleSelected].styles" [text]="button.name" [class]="'button s-margin ' + button.style"></Button>
+            </StackLayout>
+            <StackLayout *ngIf="rounded">
+                <Button *ngFor="let button of styles[styleSelected].styles" [text]="button.name" [class]="'button s-margin full-rounded-button ' + button.style"></Button>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</sc-showcase-layout>

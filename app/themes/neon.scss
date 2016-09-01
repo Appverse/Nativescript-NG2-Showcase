@@ -1,0 +1,706 @@
+﻿@import 'themes/neon_var.scss';
+
+/* MIXINS */
+
+@mixin h-rounded($height){
+    height: $height;
+    border-radius: $height/2;
+}
+
+@mixin v-rounded($width){
+    width: $width;
+    border-radius: $width/2;
+}
+
+@mixin circle($width){
+    width: $width;
+    height: $width;
+    border-radius: $width/2;
+}
+
+/* APPLICATION */
+
+.app-color-primary{
+    background-color: $primary-color;
+    color: $secondary-color;
+}
+
+.app-color-secondary{
+    background-color: $secondary-color;
+    color: $darkest-color;
+}
+
+.app-color-tertiary{
+    background-color: $tertiary-color;
+    color: $darkest-color;
+}
+
+.app-color-quaternary{
+    background-color: $quaternary-color;
+    color: $darkest-color;
+}
+
+.app-color-darkest{
+    background-color: $primary-color;
+    color: $darkest-color;
+}
+
+.action-bar{
+    padding: 5;
+}
+
+.icon{
+    vertical-align: center;
+    horizontal-align: center;
+    font-size: 25;
+}
+
+.title{
+    font-size: 27;
+}
+
+.side-drawer{
+    height: 100%;
+    width: 130;
+}
+
+.backdrop{
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: black; 
+}
+
+.v-spacer{
+    width: 1;
+    height: 100%;
+}
+
+.h-spacer{
+    width: 100%;
+    height: 1;
+}
+
+.item{
+    height: 40;
+    padding-left: 10;
+    padding-right: 10;
+}
+
+.material-icon {
+   font-family: 'Material-Design-Iconic-Font';
+}
+
+.alte-font {
+   font-family: 'AlteHaasGroteskBold';
+}
+
+/* COMPONENTS */
+
+.button{
+    border-radius: $small-radius;
+    border-width: 1;
+    height: $medium-button-height;
+}
+
+.list-view, text-field, text-view, search-bar{
+    border-radius: $small-radius;
+    border-width: 1;
+}
+
+text-field{
+    height: $medium-text-field-height;
+}
+
+search-bar{
+    height: $medium-search-bar-height;
+}
+
+.tasks-item{
+    margin: 5;
+    border-radius: 10;
+    background-color: $secondary-color;
+}
+
+.input-task{
+    background-color: transparent;
+    border-radius: 10;
+    border-width: 2;
+    border-color: $primary-color; 
+}
+
+/* ROUNDED COMPONENTS */
+
+.small-rounded{
+    border-radius: $small-radius;
+}
+
+.medium-rounded{
+    border-radius: $medium-radius;
+}
+
+.big-rounded{
+    border-radius: $big-radius;
+}
+
+.full-rounded-button{
+    @include h-rounded($medium-button-height)
+}
+
+.full-small-rounded-button{
+    @include h-rounded($small-button-height)
+}
+
+.full-rounded-text-field{
+    @include h-rounded($medium-text-field-height)
+}
+
+.full-small-rounded-text-field{
+    @include h-rounded($small-text-field-height)
+}
+
+.full-rounded-search-bar{
+    @include h-rounded($medium-search-bar-height)
+}
+
+/*STYLES*/
+
+.inset{
+    border-radius: 3;
+    border-width: 1;
+}
+
+    /* COLOR */
+
+
+        /* DEFAULT */
+
+.light{
+    background-color: $light-primary;
+    color: #212121;
+    border-color: $light-secondary;
+}
+
+.stable{
+    background-color: $stable-primary;
+    color: #212121;
+    border-color: $stable-secondary;
+}
+
+.dark{
+    background-color: $dark-primary;
+    color: white;
+    border-color: $dark-secondary;
+}
+
+.primary{
+    background-color: $primary-primary;
+    color: white;
+    border-color: $primary-secondary;
+}
+
+.info{
+    background-color: $info-primary;
+    color: white;
+    border-color: $info-secondary;
+}
+
+.success{
+    background-color: $success-primary;
+    color: white;
+    border-color: $success-secondary;
+}
+
+.warning{
+    background-color: $warning-primary;
+    color: white;
+    border-color: $warning-secondary;
+}
+
+.danger{
+    background-color: $danger-primary;
+    color: white;
+    border-color: $danger-secondary;
+}
+
+        /* OUTLINED */
+
+.light-outlined{
+    background-color: transparent;
+    color: $light-secondary;
+    border-color: $light-secondary;
+}
+
+.stable-outlined{
+    background-color: transparent;
+    color: $stable-secondary;
+    border-color: $stable-secondary;
+}
+
+.dark-outlined{
+    background-color: transparent;
+    color: $dark-secondary;
+    border-color: $dark-secondary;
+}
+
+.primary-outlined{
+    background-color: transparent;
+    color: $primary-secondary;
+    border-color: $primary-secondary;
+}
+
+.info-outlined{
+    background-color: transparent;
+    color: $info-secondary;
+    border-color: $info-secondary;
+}
+
+.success-outlined{
+    background-color: transparent;
+    color: $success-secondary;
+    border-color: $success-secondary;
+}
+
+.warning-outlined{
+    background-color: transparent;
+    color: $warning-secondary;
+    border-color: $warning-secondary;
+}
+
+.danger-outlined{
+    background-color: transparent;
+    color: $danger-secondary;
+    border-color: $danger-secondary;
+}
+
+        /* CLEAR */
+
+.light-clear{
+    background-color: transparent;
+    color: $light-secondary;
+    border-color: transparent;
+}
+
+.stable-clear{
+    background-color: transparent;
+    color: $stable-secondary;
+    border-color: transparent;
+}
+
+.dark-clear{
+    background-color: transparent;
+    color: $dark-secondary;
+    border-color: transparent;
+}
+
+.primary-clear{
+    background-color: transparent;
+    color: $primary-secondary;
+    border-color: transparent;
+}
+
+.info-clear{
+    background-color: transparent;
+    color: $info-secondary;
+    border-color: transparent;
+}
+
+.success-clear{
+    background-color: transparent;
+    color: $success-secondary;
+    border-color: transparent;
+}
+
+.warning-clear{
+    background-color: transparent;
+    color: $warning-secondary;
+    border-color: transparent;
+}
+
+.danger-clear{
+    background-color: transparent;
+    color: $danger-secondary;
+    border-color: transparent;
+}
+
+        /* FULL */
+
+.light-full{
+    background-color: $light-primary;
+    color: $light-secondary;
+}
+
+.stable-full{
+    background-color: $stable-primary;
+    color: $stable-secondary;
+}
+
+.dark-full{
+    background-color: $dark-primary;
+    color: $dark-secondary;
+}
+
+.primary-full{
+    background-color: $primary-primary;
+    color: $primary-secondary;
+}
+
+.info-full{
+    background-color: $info-primary;
+    color: $info-secondary;
+}
+
+.success-full{
+    background-color: $success-primary;
+    color: $success-secondary;
+}
+
+.warning-full{
+    background-color: $warning-primary;
+    color: $warning-secondary;
+}
+
+.danger-full{
+    background-color: $danger-primary;
+    color: $danger-secondary;
+}
+
+/* POSITION */
+
+.center{
+    vertical-align: center;
+    horizontal-align: center;
+}
+
+.right{
+    vertical-align: center;
+    horizontal-align: right;
+}
+
+.left{
+    vertical-align: center;
+    horizontal-align: left;
+}
+
+.top{
+    vertical-align: top;
+    horizontal-align: center;
+}
+
+.bottom{
+    vertical-align: bottom;
+    horizontal-align: center;
+}
+
+.top-left{
+    vertical-align: top;
+    horizontal-align: left;
+}
+
+.top-right{
+    vertical-align: top;
+    horizontal-align: right;
+}
+
+.bottom-left{
+    vertical-align: bottom;
+    horizontal-align: left;
+}
+
+.bottom-right{
+    vertical-align: bottom;
+    horizontal-align: right;
+}
+
+/* SIZE */
+
+.fill-width{
+    width: 100%;
+}
+
+.threequarters-width{
+    width: 75%;
+}
+
+.half-width{
+    width: 50%;
+}
+
+.quarter-width{
+    width: 25%;
+}
+
+.fill-height{
+    height: 100%;
+}
+
+.threequarters-height{
+    height: 75%;
+}
+
+.half-height{
+    height: 50%;
+}
+
+.quarter-height{
+    height: 25%;
+}
+/* BORDER */
+
+.s-border{
+    border-width: 1;
+}
+
+.m-border{
+    border-width: 3;
+}
+
+.l-border{
+    border-width: 6;
+}
+
+/* MARGIN AND PADDING */
+
+.s-margin{
+    margin: 5;
+}
+
+.m-margin{
+    margin: 10;
+}
+
+.l-margin{
+    margin: 20;
+}
+
+.s-padding{
+    padding: 5;
+}
+
+.m-padding{
+    padding: 10;
+}
+
+.l-padding{
+    padding: 20;
+}
+
+/* SPECIFIC */
+
+.material-design-icon{
+    @include circle(50)
+}
+
+.rounded-icon{
+    width: 50;
+    height: 50;
+    border-radius: 10;
+}
+
+.default-icon{
+    width: 50;
+    height: 50;
+}
+
+/* TEXT */
+
+    /* STYLE */
+
+.bold{
+    font-weight: bold;
+}
+
+.italic{
+    font-style: italic;
+}
+
+    /* SIZE */
+
+.h1{
+    font-size: 45;
+}
+
+.h2{
+    font-size: 35;
+}
+
+.h3{
+    font-size: 28;
+}
+
+.h4{
+    font-size: 20;
+}
+
+.h5{
+    font-size: 15;
+}
+
+.h6{
+    font-size: 12;
+}
+
+    /* COLOR */
+
+.lightest-font{
+    color: $light-primary;
+}
+
+.light-font{
+    color: $light-secondary;
+}
+
+.stable-font{
+    color: $stable-secondary;
+}
+
+.dark-font{
+    color: $dark-secondary;
+}
+
+.primary-font{
+    color: $primary-secondary;
+}
+
+.info-font{
+    color: $info-secondary;
+}
+
+.success-font{
+    color: $success-secondary;
+}
+
+.warning-font{
+    color: $warning-secondary;
+}
+
+.danger-font{
+    color: $danger-secondary;
+}
+
+//ANIMATIONS
+
+// .rotate90left {
+//         animation-name: rotate90right;
+//         animation-duration: 0.2s;
+//         animation-fill-mode: forwards;
+//         animation-direction: reverse;
+// }
+// .rotate90right {
+//         animation-name: rotate90right;
+//         animation-duration: 0.2s;
+//         animation-fill-mode: forwards;
+// }
+// @keyframes rotate90right {
+//         from{
+//             transform: rotate(0)
+//         }
+//         100%{
+//             transform: rotate(90)
+//         }
+// }
+
+// .opacityZeroToPointThree {
+//         animation-name: opacityZeroToPointThree;
+//         animation-duration: 0.2s;
+//         animation-fill-mode: forwards;
+// }
+// .opacityPointThreeToZero {
+//         animation-name: opacityZeroToPointThree;
+//         animation-duration: 0.2s;
+//         animation-fill-mode: forwards;
+//         animation-direction: reverse;
+// }
+// @keyframes opacityZeroToPointThree {
+//         from{
+//             opacity: 0
+//         }
+//         100%{
+//             opacity: .3
+//         }
+// }
+
+// .openSideDrawer {
+//         animation-name: openSideDrawer;
+//         animation-duration: 0.2s;
+//         animation-fill-mode: forwards;
+// }
+// .closeSideDrawer {
+//         animation-name: openSideDrawer;
+//         animation-duration: 0.2s;
+//         animation-fill-mode: forwards;
+//         animation-direction: reverse;
+// }
+// @keyframes openSideDrawer {
+//     	from{
+//                     transform: translate(0,0)
+//         }
+//         100%{
+//                     transform: translate(130,0)
+//         }
+// }
+//sub side drawer animations arent used because a promise is needed
+.openSubSideDrawer {
+        animation-name: openSubSideDrawer;
+        animation-duration: 0.2s;
+        animation-fill-mode: forwards;
+}
+.closeSubSideDrawer {
+        animation-name: openSubSideDrawer;
+        animation-duration: 0.2s;
+        animation-fill-mode: forwards;
+        animation-direction: reverse;
+}
+@keyframes openSubSideDrawer {
+    	from{
+                    transform: translate(0,0)
+        }
+        100%{
+                    transform: translate(260,0)
+        }
+}
+
+.labelOne {
+        animation-name: labelOne;
+        animation-duration: 0.8s;
+        animation-fill-mode: forwards;
+        animation-timing-function: spring
+}
+@keyframes labelOne {
+    	from{
+                    transform: translate(-300,0)
+        }
+        to{
+                    transform: translate(0,0);
+        }
+}
+
+.labelTwo {
+        animation-name: labelTwo;
+        animation-duration: 0.8s;
+        animation-fill-mode: forwards;
+        animation-timing-function: spring
+}
+@keyframes labelTwo {
+    	from{
+                    transform: translate(300,0)
+        }
+        to{
+                    transform: translate(0,0);
+        }
+}
+
+.exit {
+        animation-name: exit;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+}
+@keyframes exit {
+        from{
+                transform: scale(1,1)
+        }
+        100%{
+                transform: scale(100,100);
+                opacity: 0;
+        }
+}

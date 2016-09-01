@@ -1,0 +1,21 @@
+<sc-showcase-layout title="BARCODE SCANNER">
+    <GridLayout columns="*,*,*" rows="*,*,*,*,*,*,2*">
+        <Button row="0" col="0" colSpan="3" text="SCAN ANY" (tap)="scan()" class="s-margin button app-color-secondary"></Button>
+        <Button row="1" col="0" text="QR CODE" (tap)="scan('QR_CODE')" class="s-margin button app-color-primary"></Button>
+        <Button row="1" col="1" text="CODE 39" (tap)="scan('CODE_39')" class="s-margin button app-color-primary"></Button>
+        <Button row="1" col="2" text="CODE 93" (tap)="scan('CODE_93')" class="s-margin button app-color-primary"></Button>
+        <Button row="2" col="0" text="CODE 128" (tap)="scan('CODE_128')" class="s-margin button app-color-primary"></Button>
+        <Button row="2" col="1" text="EAN 8" (tap)="scan('EAN_8')" class="s-margin button app-color-primary"></Button>
+        <Button row="2" col="2" text="EAN 13" (tap)="scan('EAN_13')" class="s-margin button app-color-primary"></Button>
+        <Button row="3" col="0" text="UPC E" (tap)="scan('UPC_E')" class="s-margin button app-color-primary"></Button>
+        <Button row="3" col="1" text="AZTEC" (tap)="scan('AZTEC ')" class="s-margin button app-color-primary"></Button>
+        <Button row="3" col="2" text="PDF 417" (tap)="scan('PDF_417')" class="s-margin button app-color-primary"></Button>
+        <Button row="4" col="0" text="DATA MATRIX" (tap)="scan('DATA_MATRIX')" class="s-margin button app-color-primary"></Button>
+        <Button row="4" col="1" text="CODABAR" (tap)="scan('CODABAR')" class="s-margin button app-color-primary"></Button>
+        <Button row="4" col="2" text="MAXICODE" (tap)="scan('MAXICODE')" class="s-margin button app-color-primary"></Button>
+        <Button row="5" col="0" text="ITF" (tap)="scan('ITF')" class="s-margin button app-color-primary"></Button>
+        <Button row="5" col="1" text="RSS 14" (tap)="scan('RSS_14')" class="s-margin button app-color-primary"></Button>
+        <Button row="5" col="2" text="UPC A" (tap)="scan('UPC_A')" class="s-margin button app-color-primary"></Button>
+        <Label row="6" col="0" colSpan="3" [text]="result" class="center"></Label>
+    </GridLayout>
+</sc-showcase-layout>

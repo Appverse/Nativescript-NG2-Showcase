@@ -1,0 +1,57 @@
+<sc-showcase-layout title="VIEWS">
+    <TabView selectedColor="#1B3C80" tabsBackgroundColor="#FFFFFF">
+        <!-- TAB VIEW -->
+        <StackLayout *tabItem="{title: 'TAB VIEW'}">
+            <GridLayout class="fill-all">
+                <StackLayout>
+                    <!-- TAB VIEW SELECTED COLOR AND BACKGROUND COLOR CAN ONLY BE SET HERE (HTML) OR PROGRAMATICALLY (TYPESCRIPT/JAVASCRIPT), IT CAN'T BE STYLED THROUGH CSS -->
+                    <TabView selectedColor="#FFFFFF" tabsBackgroundColor="#f44336" class="s-margin quarter-height">
+                        <StackLayout *tabItem="{title: 'VIEW 1'}">
+                            <Label text="First view"></Label>
+                        </StackLayout>
+                        <StackLayout *tabItem="{title: 'VIEW 2'}">
+                            <Label text="Second view"></Label>
+                        </StackLayout>
+                        <StackLayout *tabItem="{title: 'VIEW 3'}">
+                            <Label text="Third view"></Label>
+                        </StackLayout>
+                    </TabView>
+                    <TabView selectedColor="#FFFFFF" tabsBackgroundColor="#673ab7" class="s-margin quarter-height">
+                        <StackLayout *tabItem="{title: 'VIEW 1'}">
+                            <Label text="First view"></Label>
+                        </StackLayout>
+                        <StackLayout *tabItem="{title: 'VIEW 2'}">
+                            <Label text="Second view"></Label>
+                        </StackLayout>
+                        <StackLayout *tabItem="{title: 'VIEW 3'}">
+                            <Label text="Third view"></Label>
+                        </StackLayout>
+                    </TabView>
+                    <TabView selectedColor="#FFFFFF" tabsBackgroundColor="#03a9f4" class="s-margin quarter-height">
+                        <StackLayout *tabItem="{title: 'VIEW 1'}">
+                            <Label text="First view"></Label>
+                        </StackLayout>
+                        <StackLayout *tabItem="{title: 'VIEW 2'}">
+                            <Label text="Second view"></Label>
+                        </StackLayout>
+                        <StackLayout *tabItem="{title: 'VIEW 3'}">
+                            <Label text="Third view"></Label>
+                        </StackLayout>
+                    </TabView>
+                </StackLayout>
+            </GridLayout>
+        </StackLayout>
+        <!-- HTML VIEW -->
+        <GridLayout rows="*,*" *tabItem="{title: 'HTML VIEW'}">
+            <TextView row="0" #htmlCode text="<span><font color='#ff0000'>HTML VIEW</font></span>" class="dark s-margin"></TextView>
+            <Button row="0" text="VIEW HTML" (tap)="setHtmlCode()" class="light bottom-right full-rounded-small-button s-margin"></Button>
+            <HtmlView row="1" #htmlView class="light s-margin"></HtmlView>
+        </GridLayout>
+        <!-- WEB VIEW -->
+        <StackLayout *tabItem="{title: 'WEB VIEW'}">
+            <GridLayout class="fill-all">
+                <WebView height="100%" src="https://google.es"></WebView>
+            </GridLayout>
+        </StackLayout>
+    </TabView>
+</sc-showcase-layout>

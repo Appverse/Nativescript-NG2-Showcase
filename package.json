@@ -1,0 +1,71 @@
+{
+    "description": "GFT's NativeScript Showcase",
+    "license": "SEE LICENSE IN <your-license-filename>",
+    "readme": "NativeScript Application",
+    "repository": "<fill-your-repository-here>",
+    "nativescript": {
+        "id": "org.nativescript.showcase",
+        "tns-ios": {
+            "version": "2.2.1"
+        },
+        "tns-android": {
+            "version": "2.2.0"
+        }
+    },
+    "dependencies": {
+        "tns-core-modules": "2.3.0-2016-08-29-3966",
+        "nativescript-angular": "0.3.1-2016-08-08-788",
+        "@angular/core": "2.0.0-rc.4",
+        "@angular/common": "2.0.0-rc.4",
+        "@angular/compiler": "2.0.0-rc.4",
+        "@angular/http": "2.0.0-rc.4",
+        "@angular/platform-browser": "2.0.0-rc.4",
+        "@angular/platform-browser-dynamic": "2.0.0-rc.4",
+        "@angular/platform-server": "2.0.0-rc.4",
+        "@angular/router": "3.0.0-beta.2",
+        "nativescript-ng2-translate": "1.2.0",
+        "ng2-translate": "2.2.2",
+        "email-validator": "1.0.4",
+        "nativescript-accelerometer": "0.3.1",
+        "nativescript-barcodescanner": "1.3.5",
+        "nativescript-drawingpad": "1.1.1",
+        "nativescript-geolocation": "0.0.12",
+        "nativescript-master-technology": "1.0.7",
+        "nativescript-sqlite": "1.1.1",
+        "nativescript-telerik-ui-pro": "1.3.1",
+        "nativescript-themes": "1.1.0",
+        "nativescript-unit-test-runner": "0.3.3",
+        "rxjs": "5.0.0-beta.6",
+        "zone.js": "^0.6.12"
+    },
+    "devDependencies": {
+        "babel-traverse": "6.9.0",
+        "babel-types": "6.9.1",
+        "babylon": "6.8.1",
+        "chai": "^3.5.0",
+        "chai-as-promised": "^5.3.0",
+        "codelyzer": "0.0.28",
+        "filewalker": "0.1.2",
+        "jasmine-core": "^2.4.1",
+        "karma": "^1.1.1",
+        "karma-chai": "^0.1.0",
+        "karma-jasmine": "^1.0.2",
+        "karma-mocha": "^1.1.1",
+        "karma-nativescript-launcher": "^0.4.0",
+        "lazy": "1.0.11",
+        "mocha": "^2.5.3",
+        "nativescript-dev-appium": "0.0.11",
+        "nativescript-dev-cucumber": "^0.1.1",
+        "nativescript-dev-sass": "^0.2.0",
+        "nativescript-dev-typescript": "^0.3.2",
+        "tslint": "^3.15.1",
+        "typescript": "^1.8.10",
+        "wd": "0.4.0"
+    },
+    "scripts": {
+        "cucumber-android": "tns build android && nativescript-dev-cucumber android",
+        "cucumber-ios-simulator": "tns build ios && nativescript-dev-cucumber ios-simulator",
+        "appium-android": "tns build android && nativescript-dev-appium android",
+        "appium-ios-simulator": "tns build ios && nativescript-dev-appium ios-simulator"
+    }
+}

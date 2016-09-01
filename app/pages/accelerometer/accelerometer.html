@@ -1,0 +1,8 @@
+<sc-showcase-layout title="ACCELEROMETER">
+    <StackLayout>
+            <Button [text]="isAccelerometerActive ? 'Stop' : 'Start'" (tap)="toggleAccelerometer()" class="button app-color-primary s-margin"></Button>
+            <Label [text]="'X: ' + axisData.x" class="s-margin center"></Label>
+            <Label [text]="'Y: ' + axisData.y" class="s-margin center"></Label>
+            <Label [text]="'Z: ' + axisData.z" class="s-margin center"></Label>
+        </StackLayout>
+</sc-showcase-layout>

@@ -1,0 +1,20 @@
+<sc-showcase-layout title="CAMERA">
+    <StackLayout>
+        <GridLayout columns="auto,5*,*" rows="auto" class="s-margin">
+            <Label col="0" text="Width" class="s-margin"></Label>
+            <Slider [ngModel]="width" (ngModelChange)="widthEmitter.emit($event)" col="1" maxValue="1000"></Slider>
+            <Label [text]="width" col="2"></Label>
+        </GridLayout>
+        <GridLayout columns="auto,5*,*" rows="auto" class="s-margin">
+            <Label col="0" text="Height" class="s-margin"></Label>
+            <Slider [ngModel]="height" (ngModelChange)="heightEmitter.emit($event)" col="1" maxValue="1000"></Slider>
+            <Label [text]="height" col="2"></Label>
+        </GridLayout>
+        <GridLayout columns="auto,*" rows="auto" class="s-margin">
+            <Label col="0" text="Keep aspect ratio" class="s-margin"></Label>
+            <Switch [ngModel]="keepAspectRatio" (ngModelChange)="keepAspectRatioEmitter.emit($event)" col="1"></Switch>
+        </GridLayout>
+        <Button text="Camera" class="button app-color-primary s-margin" (tap)="openCamera()"></Button>
+        <Image #image class="center half-width s-margin"></Image>
+    </StackLayout>
+</sc-showcase-layout>

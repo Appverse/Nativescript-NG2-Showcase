@@ -1,0 +1,12 @@
+<GridLayout rows="auto, auto, *" class="app-color-tertiary fill-all">
+    <!-- TITLE -->
+    <GridLayout row="0" rows="auto" class="app-color-secondary">
+        <Label [text]="title" class="h4 center s-margin app-color-secondary" automationText="title"></Label>
+        <ng-content select="[extra-header]"></ng-content>
+    </GridLayout>
+    <GridLayout row="1" class="h-spacer app-color-primary bottom"></GridLayout>
+    <!-- COMPONENTS SELECTOR -->
+    <GridLayout row="2">
+        <ng-content></ng-content>
+    </GridLayout>
+</GridLayout>

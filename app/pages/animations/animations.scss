@@ -1,0 +1,86 @@
+.changeBackground {
+        animation-name: changeBG;
+        animation-duration: 1.2s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+}
+@keyframes changeBG {
+    	from{
+                    background-color: #1B3C80;
+        }
+        50% {
+                    background-color: #00A0FF;
+        }
+        100%{
+                    background-color: #1B3C80;
+        }
+}
+
+.changeOpacity {
+        animation-name: changeOp;
+        animation-duration: 1.2s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+}
+@keyframes changeOp {
+    	from{
+                    opacity: 1
+        }
+        50% {
+                    opacity: 0
+        }
+        100%{
+                    opacity: 1
+        }
+}
+
+.simpleTranslate {
+        animation-name: simpleTrans;
+        animation-duration: 1.2s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+}
+@keyframes simpleTrans {
+    	from{
+                    transform: translate(-100,0)
+        }
+        50% {
+                    transform: translate(100,0)
+        }
+        100%{
+                    transform: translate(-100,0)
+        }
+}
+
+.scale {
+        animation-name: scale;
+        animation-duration: 1.2s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+}
+@keyframes scale {
+    	from{
+                    transform: scale(1,1)
+        }
+    	50%{
+                    transform: scale(0,0)
+        }
+        100%{
+                    transform: scale(1,1)
+        }
+}
+
+.loopRotate {
+        animation-name: rotate;
+        animation-duration: 1.2s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+}
+@keyframes rotate {
+    	from{
+                    transform: rotate(0)
+        }
+        100%{
+                    transform: rotate(360)
+        }
+}

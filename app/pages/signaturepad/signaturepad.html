@@ -1,0 +1,19 @@
+<sc-showcase-layout title="SIGNATURE">
+    <StackLayout>
+        <!-- SIGNATURE PAD -->
+        <DrawingPad #drawingPad height="35%" id="drawingPad" penColor="#1B3C80" penWidth="3" class="half-height"></DrawingPad>
+        <!-- BUTTONS -->
+        <GridLayout columns="*,*" rows="auto,auto">
+            <button col="0" text="Get drawing" class="button s-margin primary" (tap)="getDrawingAsPic()"></button>
+            <button col="1" text="Get no bg drawing" class="button s-margin primary" (tap)="getNoBGDrawing()" *ngIf="isAndroid"></button>
+            <button col="0" row="1" text="Save drawing" class="button s-margin success" (tap)="saveDrawing()"></button>
+            <button col="1" row="1" text="Clear pad" class="button s-margin light" (tap)="clearUserDrawing()"></button>
+        </GridLayout>
+        <!-- SCROLL IMAGE VIEW -->
+        <ScrollView orientation="horizontal" class="s-margin primary-outlined s-border s-padding">
+            <StackLayout orientation="horizontal">
+                <Image *ngFor="let image of images" [src]="image" class="s-margin medium-rounded"></Image>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</sc-showcase-layout>

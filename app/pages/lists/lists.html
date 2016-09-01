@@ -1,0 +1,26 @@
+<sc-showcase-layout title="LISTS">
+    <StackLayout>
+        <!-- COLOR SELECTOR -->
+        <ScrollView orientation="horizontal">
+            <SegmentedBar width="{{ 100 * colors.length}}" (selectedIndexChanged)="selectedColorChanged($event)" [items]="colors" class="app-color-secondary" selectedBackgroundColor="#1B3C80">
+            </SegmentedBar>
+        </ScrollView>
+        <!-- LISTS -->
+        <ScrollView>
+            <StackLayout>
+                <StackLayout *ngFor="let list of colors[colorSelected].styles" height="100">
+                    <ListView #listView [items]="films" [class]="'s-margin list-view ' + list.style" (itemLoading)="changeCellBackground($event)">
+                        <!-- LIST TEMPLATE -->
+                        <template let-item="item">
+                            <GridLayout rows="auto,auto" columns="*,auto">
+                                <Label row="0" col="0" [text]="item.ep" class="s-margin"></Label>
+                                <Label row="1" col="0" [text]="item.name" class="s-margin"></Label>
+                                <Label row="0" col="1" rowSpan="2" [text]="item.year" class="center s-margin"></Label>
+                            </GridLayout>
+                        </template>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</sc-showcase-layout>

@@ -1,0 +1,16 @@
+<GridLayout class="app-color-tertiary fill-all">    
+    <!-- WELCOME LABEL -->
+    <Label *ngIf="firstLaunch && false" text="&#xf303;" class="material-icon icon upAndDown top-left" marginLeft="15" marginTop="20"></Label>
+    <StackLayout>
+        <Label text="Welcome to GFT's NativeScript Showcase" class="center s-margin" automationText="welcomeMessage"></Label>
+        <!-- ICON -->
+        <AbsoluteLayout class="animated-intro app-color-primary">
+            <label  text="{" top="-10" left="10" fontSize="90"></label>
+            <label  text="N" top="4" left="36" fontSize="65" class="bold"></label>
+            <label  text="GFT" top="70" left="40" fontSize="20" class="bold"></label>
+            <label  top="-10" left="76" text="}" fontSize="90"></label>
+        </AbsoluteLayout>
+        <!-- INDICATIONS LABEL -->
+        <Label *ngIf="firstLaunch" text="Please, select a category from the menu" class=" center s-margin"></Label>
+    </StackLayout>
+</GridLayout>
