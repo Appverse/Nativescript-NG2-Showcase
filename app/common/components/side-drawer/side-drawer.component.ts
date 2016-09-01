@@ -68,7 +68,7 @@ export class SideDrawerComponent implements OnInit, AfterViewInit {
             ]
         },
         { name: 'Settings', icon: '\uf1c6', page: 'settings' },
-        { name: 'Exit', icon: '\uf136', page: 'exit' },
+        // { name: 'Exit', icon: '\uf136', page: 'exit' },
     ];
     private subToggled: boolean = false;
     private animationDuration: number = 200;
