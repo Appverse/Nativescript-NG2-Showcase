@@ -111,7 +111,7 @@ export class SideDrawerComponent implements OnInit, AfterViewInit {
     //Menu sub item tap
     public navItemTap(args, pageName: string) {
         if (pageName !== 'exit') {
-            this.router.navigate(['home/', pageName]);
+            this.router.navigate(['home', pageName && pageName.length? '/' + pageName : '']);
         } else {
             this.exit.emit(false);
         }

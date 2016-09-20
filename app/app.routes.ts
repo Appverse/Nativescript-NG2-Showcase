@@ -29,8 +29,8 @@ import {TextPage} from './pages/text/text.component';
 
 export var routableComponents = [];
 export const routes: Routes = [
-    routeEntry({ path: '', redirectTo: '/splash', pathMatch: 'full' }),
-    {
+    { path: '', redirectTo: '/splash', pathMatch: 'full' },
+    routeEntry({
         path: 'home', component: WrapperComponent,
         children: [
             routeEntry({ path: '', component: HomePage }),
@@ -58,7 +58,7 @@ export const routes: Routes = [
             routeEntry({ path: 'animations', component: AnimationsPage }),
             routeEntry({ path: 'tasks', component: TasksPage })
         ]
-    },
+    }),
     routeEntry({ path: 'splash', component: SplashScreenComponent })
 ];
 

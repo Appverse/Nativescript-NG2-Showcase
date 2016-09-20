@@ -14,7 +14,7 @@
             </StackLayout>
         </ScrollView>
     </GridLayout>
-    <GridLayout #sideDrawer  class="side-drawer app-color-secondary" @state=" toggled ? 'activeSD' : 'inactiveSD' ">
+    <GridLayout #sideDrawer  class="side-drawer app-color-secondary" [@state]=" toggled ? 'activeSD' : 'inactiveSD' ">
         <ScrollView automationText="sideDrawer">
             <StackLayout marginTop="1" automationText="menuButtons">
                 <!-- ITEM -->
