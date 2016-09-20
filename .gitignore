@@ -4,3 +4,4 @@ app/**/*.map
 node_modules/
 platforms/
 hooks/
+lib/
