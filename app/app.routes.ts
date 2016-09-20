@@ -1,6 +1,4 @@
-import {WrapperComponent} from './pages/wrapper.component';
-import {nsProvideRouter} from 'nativescript-angular/router';
-import {RouterConfig} from '@angular/router';
+import {Routes} from '@angular/router';
 
 import {SplashScreenComponent} from './common/components/splash-screen/splash-screen.component';
 import {AccelerometerPage} from './pages/accelerometer/accelerometer.component';
@@ -17,6 +15,7 @@ import {ButtonsPage} from './pages/buttons/buttons.component';
 import {PickersPage} from './pages/pickers/pickers.component';
 import {LayoutsPage} from './pages/layouts/layouts.component';
 import {DialogsPage} from './pages/dialogs/dialogs.component';
+import {WrapperComponent} from './pages/wrapper.component';
 import {ImagesPage} from './pages/images/images.component';
 import {CameraPage} from './pages/camera/camera.component';
 import {ChartsPage} from './pages/charts/charts.component';
@@ -28,39 +27,44 @@ import {TasksPage} from './pages/tasks/tasks.component';
 import {HomePage} from './pages/home/home.component';
 import {TextPage} from './pages/text/text.component';
 
-const APP_ROUTES: RouterConfig = [
+export var routableComponents = [];
+export const routes: Routes = [
     { path: '', redirectTo: '/splash', pathMatch: 'full' },
-    {
+    routeEntry({
         path: 'home', component: WrapperComponent,
         children: [
-            { path: '', component: HomePage },
-            { path: 'buttons', component: ButtonsPage },
-            { path: 'text', component: TextPage },
-            { path: 'lists', component: ListsPage },
-            { path: 'pickers', component: PickersPage },
-            { path: 'layouts', component: LayoutsPage },
-            { path: 'selectors', component: SelectorsPage },
-            { path: 'indicators', component: IndicatorsPage },
-            { path: 'images', component: ImagesPage },
-            { path: 'views', component: ViewsPage },
-            { path: 'dialogs', component: DialogsPage },
-            { path: 'login', component: LoginPage },
-            { path: 'contacts', component: ContactsPage },
-            { path: 'table', component: TablePage },
-            { path: 'settings', component: SettingsPage },
-            { path: 'database', component: DatabasePage },
-            { path: 'camera', component: CameraPage },
-            { path: 'codescanner', component: CodeScannerPage },
-            { path: 'signaturepad', component: SignaturePadPage },
-            { path: 'location', component: LocationPage },
-            { path: 'charts', component: ChartsPage },
-            { path: 'accelerometer', component: AccelerometerPage },
-            { path: 'animations', component: AnimationsPage },
-            { path: 'tasks', component: TasksPage }
+            routeEntry({ path: '', component: HomePage }),
+            routeEntry({ path: 'buttons', component: ButtonsPage }),
+            routeEntry({ path: 'text', component: TextPage }),
+            routeEntry({ path: 'lists', component: ListsPage }),
+            routeEntry({ path: 'pickers', component: PickersPage }),
+            routeEntry({ path: 'layouts', component: LayoutsPage }),
+            routeEntry({ path: 'selectors', component: SelectorsPage }),
+            routeEntry({ path: 'indicators', component: IndicatorsPage }),
+            routeEntry({ path: 'images', component: ImagesPage }),
+            routeEntry({ path: 'views', component: ViewsPage }),
+            routeEntry({ path: 'dialogs', component: DialogsPage }),
+            routeEntry({ path: 'login', component: LoginPage }),
+            routeEntry({ path: 'contacts', component: ContactsPage }),
+            routeEntry({ path: 'table', component: TablePage }),
+            routeEntry({ path: 'settings', component: SettingsPage }),
+            routeEntry({ path: 'database', component: DatabasePage }),
+            routeEntry({ path: 'camera', component: CameraPage }),
+            routeEntry({ path: 'codescanner', component: CodeScannerPage }),
+            routeEntry({ path: 'signaturepad', component: SignaturePadPage }),
+            routeEntry({ path: 'location', component: LocationPage }),
+            routeEntry({ path: 'charts', component: ChartsPage }),
+            routeEntry({ path: 'accelerometer', component: AccelerometerPage }),
+            routeEntry({ path: 'animations', component: AnimationsPage }),
+            routeEntry({ path: 'tasks', component: TasksPage })
         ]
-    },
-    { path: 'splash', component: SplashScreenComponent }
+    }),
+    routeEntry({ path: 'splash', component: SplashScreenComponent })
 ];
-export const APP_ROUTER_PROVIDERS = [
-    nsProvideRouter(APP_ROUTES, { enableTracing: false }),
-];
+
+function routeEntry(data) {
+    routableComponents.push(data.component);
+    return data;
+}
+
+

@@ -12,9 +12,9 @@
                     </template>
         </ListView>
         <!-- MODAL -->
-        <AbsoluteLayout #backdrop class="backdrop" @state=" modalToggled ? 'activeBD' : 'inactiveBD' ">
+        <AbsoluteLayout #backdrop class="backdrop" [@state]=" modalToggled ? 'activeBD' : 'inactiveBD' ">
         </AbsoluteLayout>
-        <AbsoluteLayout #modal class="fill-width fill-heigth" @state=" modalToggled ? 'activeModal' : 'inactiveModal' ">
+        <AbsoluteLayout #modal class="fill-width fill-heigth" [@state]=" modalToggled ? 'activeModal' : 'inactiveModal' ">
             <GridLayout class="fill-width fill-height" *ngIf="toggled" (tap)="closeModal()">
                 <GridLayout rows="auto,auto,auto" class="light center threequarters-width medium-rounded" (tap)="null">
                     <GridLayout row="0" columns="auto, *" rows="auto">

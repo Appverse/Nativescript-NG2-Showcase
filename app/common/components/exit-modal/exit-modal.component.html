@@ -1,9 +1,9 @@
 <GridLayout #absolute row="1" width="100%" height="100%">
         <!-- BACKGROUND -->
-        <GridLayout #background width="100%" height="100%" class="backdrop" (tap)="closeModal()" @state=" toggled ? 'activeBD' : 'inactiveBD' ">
+        <GridLayout #background width="100%" height="100%" class="backdrop" (tap)="closeModal()" [@state]=" toggled ? 'activeBD' : 'inactiveBD' ">
         </GridLayout>
         <!-- TITLE -->
-        <GridLayout #modal rows="*,*" columns="*,*" class="modal center app-color-secondary" (tap)="null" @state=" toggled ? 'activeModal' : 'inactiveModal' ">
+        <GridLayout #modal rows="*,*" columns="*,*" class="modal center app-color-secondary" (tap)="null" [@state]=" toggled ? 'activeModal' : 'inactiveModal' ">
             <Label row="0" colSpan="2" class="h4 bold" text="Do you want to exit?"></Label>
             <Button row="1" col="1" text="YES" class="button app-color-secondary bottom m-margin" (tap)="exitApp()"></Button>
             <Button row="1" col="0" text="NO" class="button app-color-secondary bottom m-margin" (tap)="closeModal()"></Button>

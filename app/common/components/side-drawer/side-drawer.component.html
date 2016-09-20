@@ -3,7 +3,7 @@
         <ScrollView automationText="subSideDrawer">
             <StackLayout marginTop="1" automationText="subMenuButtons" id="subMenuButton">
                 <StackLayout *ngFor="let subItem of subItems; let i=index">
-                    <GridLayout [id]="subItem.name.toLowerCase()" columns="*,4*" rows="*,auto" height="40" 
+                    <GridLayout [id]="subItem.name.toLowerCase()" columns="*,4*" rows="*,auto" height="40"
                                  [automationText]="subItem.page + 'Button'"
                                 [nsRouterLink]="['/home', subItem.page]" nsRouterLinkActive="active" [nsRouterLinkActiveOptions]="{exact:true}">
                         <Label row="0" col="0" [text]="subItem.icon" class="material-icon center"></Label>
@@ -14,12 +14,12 @@
             </StackLayout>
         </ScrollView>
     </GridLayout>
-    <GridLayout #sideDrawer  class="side-drawer app-color-secondary" @state=" toggled ? 'activeSD' : 'inactiveSD' ">
+    <GridLayout #sideDrawer  class="side-drawer app-color-secondary" [@state]=" toggled ? 'activeSD' : 'inactiveSD' ">
         <ScrollView automationText="sideDrawer">
             <StackLayout marginTop="1" automationText="menuButtons">
                 <!-- ITEM -->
                 <StackLayout *ngFor="let item of sideDrawerCategories; let i=index" id="menuButton">
-                    <GridLayout columns="*,5*,*" rows="*,auto" [id]="item.name.toLowerCase()" height="40" 
+                    <GridLayout columns="*,5*,*" rows="*,auto" [id]="item.name.toLowerCase()" height="40"
                                 (tap)="itemTap($event,item.subItems,item.page)" [automationText]="item.name + 'Button'">
                         <Label row="0" col="0" [text]="item.icon" class="material-icon center"></Label>
                         <Label row="0" col="1" [text]="item.name" class="left"></Label>
