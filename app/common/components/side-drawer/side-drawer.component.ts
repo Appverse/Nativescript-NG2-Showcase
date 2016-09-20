@@ -32,7 +32,7 @@ export class SideDrawerComponent implements OnInit, AfterViewInit {
 
     //Menu categories
     sideDrawerCategories: Array<any> = [
-        { name: 'Home', icon: '\uf175', page: '' },
+        { name: 'Home', icon: '\uf175', page: '/home' },
         {
             name: 'Components', icon: '\uf328', subItems: [
                 { name: 'Buttons', page: 'buttons', icon: '\uf155' },
@@ -67,7 +67,7 @@ export class SideDrawerComponent implements OnInit, AfterViewInit {
                 { name: 'SignaturePad', page: 'signaturepad', icon: '\uf11f' }
             ]
         },
-        { name: 'Settings', icon: '\uf1c6', page: 'settings' },
+        { name: 'Settings', icon: '\uf1c6', page: '/home/settings' },
         // { name: 'Exit', icon: '\uf136', page: 'exit' },
     ];
     private subToggled: boolean = false;
@@ -111,7 +111,7 @@ export class SideDrawerComponent implements OnInit, AfterViewInit {
     //Menu sub item tap
     public navItemTap(args, pageName: string) {
         if (pageName !== 'exit') {
-            this.router.navigate(['home', pageName && pageName.length? '/' + pageName : '']);
+            this.router.navigate([pageName]);
         } else {
             this.exit.emit(false);
         }
