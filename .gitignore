@@ -1,0 +1,6 @@
+app/**/*.css
+app/**/*.js
+app/**/*.map
+node_modules/
+platforms/
+hooks/
