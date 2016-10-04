@@ -4,7 +4,7 @@ Feature: Router navigation
 
 # HOME PAGE TEST
   Scenario: Initializing
-    Given I wait "5000"
+    Given I wait "10000"
     When I am on the main page
     Then I should see "toggleSideDrawerButton"
   
