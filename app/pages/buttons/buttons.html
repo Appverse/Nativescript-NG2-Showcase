@@ -10,11 +10,8 @@
         </SegmentedBar>
         <!-- BUTTONS -->
         <ScrollView>
-            <StackLayout *ngIf="!rounded">
-                <Button *ngFor="let button of styles[styleSelected].styles" [text]="button.name" [class]="'button s-margin ' + button.style"></Button>
-            </StackLayout>
-            <StackLayout *ngIf="rounded">
-                <Button *ngFor="let button of styles[styleSelected].styles" [text]="button.name" [class]="'button s-margin full-rounded-button ' + button.style"></Button>
+            <StackLayout>
+                <Button *ngFor="let button of styles[styleSelected].styles" [text]="button.name" [class]="(rounded ? 'full-rounded-button ' : '') + 'button s-margin ' + button.style"></Button>
             </StackLayout>
         </ScrollView>
     </StackLayout>

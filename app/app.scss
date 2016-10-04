@@ -53,6 +53,10 @@ ActionBar {
   @extend .app-color-primary;
 }
 
+ListView {
+  background-color: transparent;
+}
+
 .active {
   @extend .app-color-quaternary;
 }
@@ -111,7 +115,7 @@ ActionBar {
 
 .button{
     border-radius: $small-radius;
-    border-width: 1;
+    border-color: transparent;
     height: $medium-button-height;
 }
 
@@ -190,48 +194,56 @@ search-bar{
 .light{
     background-color: $light-primary;
     color: #212121;
+    border-width: 1;
     border-color: $light-secondary;
 }
 
 .stable{
     background-color: $stable-primary;
     color: #212121;
+    border-width: 1;
     border-color: $stable-secondary;
 }
 
 .dark{
     background-color: $dark-primary;
     color: white;
+    border-width: 1;
     border-color: $dark-secondary;
 }
 
 .primary{
     background-color: $primary-primary;
     color: white;
+    border-width: 1;
     border-color: $primary-secondary;
 }
 
 .info{
     background-color: $info-primary;
     color: white;
+    border-width: 1;
     border-color: $info-secondary;
 }
 
 .success{
     background-color: $success-primary;
     color: white;
+    border-width: 1;
     border-color: $success-secondary;
 }
 
 .warning{
     background-color: $warning-primary;
     color: white;
+    border-width: 1;
     border-color: $warning-secondary;
 }
 
 .danger{
     background-color: $danger-primary;
     color: white;
+    border-width: 1;
     border-color: $danger-secondary;
 }
 
@@ -240,48 +252,56 @@ search-bar{
 .light-outlined{
     background-color: transparent;
     color: $light-secondary;
+    border-width: 1;
     border-color: $light-secondary;
 }
 
 .stable-outlined{
     background-color: transparent;
     color: $stable-secondary;
+    border-width: 1;
     border-color: $stable-secondary;
 }
 
 .dark-outlined{
     background-color: transparent;
     color: $dark-secondary;
+    border-width: 1;
     border-color: $dark-secondary;
 }
 
 .primary-outlined{
     background-color: transparent;
     color: $primary-secondary;
+    border-width: 1;
     border-color: $primary-secondary;
 }
 
 .info-outlined{
     background-color: transparent;
     color: $info-secondary;
+    border-width: 1;
     border-color: $info-secondary;
 }
 
 .success-outlined{
     background-color: transparent;
     color: $success-secondary;
+    border-width: 1;
     border-color: $success-secondary;
 }
 
 .warning-outlined{
     background-color: transparent;
     color: $warning-secondary;
+    border-width: 1;
     border-color: $warning-secondary;
 }
 
 .danger-outlined{
     background-color: transparent;
     color: $danger-secondary;
+    border-width: 1;
     border-color: $danger-secondary;
 }
 
@@ -474,6 +494,18 @@ search-bar{
 
 .l-border{
     border-width: 6;
+}
+
+.s-rounded{
+    border-radius: 5
+}
+
+.m-rounded{
+    border-radius: 10
+}
+
+.l-rounded{
+    border-radius: 15
 }
 
 /* MARGIN AND PADDING */
