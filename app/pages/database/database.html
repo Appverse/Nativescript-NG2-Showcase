@@ -4,10 +4,10 @@
         <Button row="0" col="1" text="CLOSE DB" (tap)="closeDB()" class="button s-margin danger"></Button>
         <Button row="1" col="0" text="GET ALL" (tap)="getAll()" class="button s-margin primary"></Button>
         <Button row="1" col="1" text="DELETE ALL" (tap)="deleteAll()" class="button s-margin warning"></Button>
-        <TextField [ngModel]="name" (ngModelChange)="nameEmitter.emit($event)" row="2" col="0" hint="Name" class="s-margin text-field app-color-secondary"></TextField>
-        <TextField [ngModel]="age" (ngModelChange)="ageEmitter.emit($event)" row="2" col="1" hint="Age" class="s-margin text-field app-color-secondary"></TextField>
+        <TextField #name (textChange)="model.name = name.text" row="2" col="0" hint="Name" class="s-margin text-field app-color-secondary"></TextField>
+        <TextField #age (textChange)="model.age = age.text" row="2" col="1" hint="Age" class="s-margin text-field app-color-secondary"></TextField>
         <Button row="3" col="0" colSpan="2" text="INSERT" (tap)="insert()" class="button s-margin primary"></Button>
-        <ListView row="4" col="0" colSpan="2" [items]="results" class="s-margin list-view" (itemLoading)="changeCellBackground($event)">
+        <ListView row="4" col="0" colSpan="2" [items]="results" class="s-margin list-view" separatorColor="transparent" (itemLoading)="changeCellBackground($event)">
             <!-- LIST TEMPLATE -->
             <template let-item="item">
                 <GridLayout height="30" rows="auto" columns="*,auto">
@@ -16,6 +16,6 @@
                 </GridLayout>
             </template>
         </ListView>
-        <TextField row="5" col="0" colSpan="2" [text]="info" class="center"></TextField>
+        <TextField *ngIf="info.length > 0" row="5" col="0" colSpan="2" [text]="info" class="center"></TextField>
     </GridLayout>
 </sc-showcase-layout>
