@@ -1,12 +1,12 @@
 <sc-showcase-layout title="TASKS">
     <GridLayout rows="auto,*">
         <!-- INPUT -->
-        <GridLayout row="0" columns="*,auto" margin="3">
+        <GridLayout row="0" columns="5*,*" margin="3">
             <TextField #input col="0" hint=" New Task" class="input-task"></TextField>
-            <Button col="1" text="ADD" class="app-color-primary" (tap)="add()"></Button>
+            <Button col="1" text="ADD" class="app-color-primary s-margin s-rounded" (tap)="add()"></Button>
         </GridLayout>
         <!-- TASK LIST -->
-        <ListView row="1" id="listview" [items]="tasks">
+        <ListView row="1" id="listview" [items]="tasks" separatorColor="transparent" (itemLoading)="changeCellBackground($event)">
             <template let-task="item" let-i="index">
                 <GridLayout class="in-from-left">
                     <GridLayout columns="auto,*,auto" class="tasks-item">

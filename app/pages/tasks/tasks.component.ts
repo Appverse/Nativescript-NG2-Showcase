@@ -1,5 +1,7 @@
 import {Component, ViewChild, ElementRef, NgZone, AfterViewInit} from '@angular/core';
 import {ContentService} from '../../common/services/content.service';
+import platform = require('platform');
+import colorModule = require('color');
 
 @Component({
     moduleId: module.id,
@@ -9,6 +11,9 @@ import {ContentService} from '../../common/services/content.service';
 export class TasksPage implements AfterViewInit {
 
     private tasks: any[];
+    private isAndroid: boolean = platform.isAndroid;
+
+
 
     @ViewChild('input') private inputRef: ElementRef;
     private input;
@@ -53,5 +58,12 @@ export class TasksPage implements AfterViewInit {
             this.tasks.splice(index, 1);
             args.object.parent.translateX = 0;
         });
+    }
+
+    public changeCellBackground(args) {
+        if (!this.isAndroid) {
+            var cell = args.ios; //return UITableViewCell
+            cell.backgroundColor = new colorModule.Color('0,0,0,0').ios;
+        }
     }
 }
