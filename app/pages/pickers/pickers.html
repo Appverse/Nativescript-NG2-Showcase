@@ -3,8 +3,8 @@
         <!-- LIST PICKER -->
         <StackLayout *tabItem="{title: 'LIST'}">
             <GridLayout rows="*,*">
-                <ListPicker (selectedIndexChange)="selectedJediChange($event)" [items]="jedis" class="s-margin"></ListPicker>
-                <Label row="1" [text]="'Selected: ' + jediSelected" class="h3 center"></Label>
+                <ListPicker [(ngModel)]="jediSelected" [items]="jedis" class="s-margin"></ListPicker>
+                <Label row="1" [text]="'Selected: ' + jedis[jediSelected]" class="h3 center"></Label>
             </GridLayout>
         </StackLayout>
         <!-- DATE PICKER -->

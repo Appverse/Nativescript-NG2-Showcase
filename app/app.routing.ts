@@ -1,7 +1,8 @@
-import {WrapperComponent} from './pages/wrapper.component';
-import {nsProvideRouter} from 'nativescript-angular/router';
-import {RouterConfig} from '@angular/router';
+import { NgModule } from "@angular/core";
+import { NativeScriptRouterModule } from "nativescript-angular/router";
+import { Routes } from "@angular/router";
 
+import {WrapperComponent} from './pages/wrapper.component';
 import {SplashScreenComponent} from './common/components/splash-screen/splash-screen.component';
 import {AccelerometerPage} from './pages/accelerometer/accelerometer.component';
 import {SignaturePadPage} from './pages/signaturepad/signaturepad.component';
@@ -28,7 +29,7 @@ import {TasksPage} from './pages/tasks/tasks.component';
 import {HomePage} from './pages/home/home.component';
 import {TextPage} from './pages/text/text.component';
 
-const APP_ROUTES: RouterConfig = [
+const routes: Routes = [
     { path: '', redirectTo: '/splash', pathMatch: 'full' },
     {
         path: 'home', component: WrapperComponent,
@@ -61,6 +62,9 @@ const APP_ROUTES: RouterConfig = [
     },
     { path: 'splash', component: SplashScreenComponent }
 ];
-export const APP_ROUTER_PROVIDERS = [
-    nsProvideRouter(APP_ROUTES, { enableTracing: false }),
-];
+
+@NgModule({
+    imports: [NativeScriptRouterModule.forRoot(routes)],
+    exports: [NativeScriptRouterModule]
+})
+export class AppRoutingModule { }

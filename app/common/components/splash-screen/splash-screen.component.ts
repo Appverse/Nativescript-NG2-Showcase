@@ -12,6 +12,7 @@ export class SplashScreenComponent implements AfterViewInit {
 
     constructor(private nav: RouterExtensions, page: Page) {
         page.className = 'app-color-primary';
+        page.actionBarHidden = true;
     }
 
     ngAfterViewInit() {

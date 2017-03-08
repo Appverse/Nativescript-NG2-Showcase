@@ -39,17 +39,18 @@ export class DatabasePage implements OnInit {
 
     ngOnInit() {
         let instance = this;
-        this.nameEmitter
-            .subscribe(v => {
-                instance.name = v;
-            });
-        this.ageEmitter
-            .subscribe(v => {
-                instance.age = v;
-            });
+        // this.nameEmitter
+        //     .subscribe(v => {
+        //         instance.name = v;
+        //     });
+        // this.ageEmitter
+        //     .subscribe(v => {
+        //         instance.age = v;
+        //     });
     }
     // Inserts a new row executing SQL
     public insert() {
+        console.log('name', this.name, 'age', this.age);
         let instance = this;
         //CHECK IF ITS OPEN
         if (this.db.isOpen()) {

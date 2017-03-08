@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
     selector: 'sc-showcase-layout',
     templateUrl: 'showcase-layout.component.html'
 })
-export class ShowcaseLayout  {
+export class ShowcaseLayout {
     @Input() title: string;
 }

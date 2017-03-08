@@ -2,9 +2,9 @@
 <sc-showcase-layout title="BUTTONS">
     <StackLayout extra-header orientation="horizontal" class="right">
         <Label text="ROUNDED" class="h6 center"></Label>
-        <Switch checked="false" (tap)="switchChange($event)" class="app-color-primary center"></Switch>
+        <Switch checked="false" (tap)="switchChange($event)" class="switch-dark center"></Switch>
     </StackLayout>
-    <StackLayout>
+    <StackLayout class="app-color-secondary">
         <!-- STYLE SELECTOR -->
         <SegmentedBar (selectedIndexChanged)="selectedIndexChanged($event)" [items]="styles" class="app-color-secondary" selectedBackgroundColor="#1B3C80">
         </SegmentedBar>

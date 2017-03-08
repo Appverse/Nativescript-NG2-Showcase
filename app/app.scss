@@ -99,6 +99,11 @@ ActionBar {
     padding-right: 10;
 }
 
+.switch-dark {
+    background-color: $primary-color;
+    color: $primary-color;
+}
+
 .material-icon {
    font-family: 'Material-Design-Iconic-Font';
 }

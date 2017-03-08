@@ -1,6 +1,8 @@
 import {Component, ViewChild, ElementRef, EventEmitter, OnInit, AfterViewInit} from '@angular/core';
+import { isIOS, isAndroid } from "platform";
+import { ImageAsset, ImageAssetOptions } from "image-asset";
 // import cameraModule for accesing camera hardware
-import cameraModule = require('camera');
+import * as camera from "nativescript-camera";
 
 @Component({
     moduleId: module.id,
@@ -21,13 +23,17 @@ export class CameraPage implements OnInit, AfterViewInit {
     private image;
 
     public constructor() {
+        camera.requestPermissions();
     }
     //Opens camera module and passes the picture
     public openCamera() {
-        cameraModule.takePicture({ width: this.width, height: this.height, keepAspectRatio: this.keepAspectRatio }).then(picture => {
-            this.image.src = picture;
+        let options = { width: this.width, height: this.height, keepAspectRatio: this.keepAspectRatio };
+        camera.takePicture(options)
+            .then(picture => {
+                this.image = picture;
         });
     }
+
     //On page init it subscribes to EventEmitters that are emited by the UI
     ngOnInit() {
         let instance = this;

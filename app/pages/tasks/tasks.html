@@ -6,7 +6,7 @@
             <Button col="1" text="ADD" class="app-color-primary" (tap)="add()"></Button>
         </GridLayout>
         <!-- TASK LIST -->
-        <ListView row="1" id="listview" [items]="tasks">
+        <ListView row="1" id="listview" [items]="tasks" class="app-color-secondary">
             <template let-task="item" let-i="index">
                 <GridLayout class="in-from-left">
                     <GridLayout columns="auto,*,auto" class="tasks-item">

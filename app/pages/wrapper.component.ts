@@ -4,7 +4,7 @@ import {Router, NavigationEnd} from '@angular/router';
 
 // nativescript
 import {RadSideDrawerComponent, SideDrawerType} from 'nativescript-telerik-ui-pro/sidedrawer/angular';
-import {DrawerTransitionBase, SlideInOnTopTransition} from 'nativescript-telerik-ui-pro/sidedrawer';
+import {DrawerTransitionBase, SlideInOnTopTransition, RadSideDrawer} from 'nativescript-telerik-ui-pro/sidedrawer';
 import {SideDrawerComponent} from '../common/components/side-drawer/side-drawer.component';
 import {ExitModalComponent} from '../common/components/exit-modal/exit-modal.component';
 import {Page} from 'ui/page';
@@ -14,7 +14,6 @@ var application = require('application');
     moduleId: module.id,
     selector: 'sc-wrapper',
     templateUrl: 'wrapper.component.html',
-    directives: [SideDrawerComponent, ExitModalComponent],
     animations: [
         trigger('state', [
             state('inactive', style({ transform: 'rotate(0)' })),

@@ -3,7 +3,7 @@
         <GridLayout row="0" columns="*,8*,*">
             <!-- LEFT ICON -->
             <GridLayout col="0" (tap)="toggle()" automationText="toggleSideDrawerButton">
-                <Label #menuIcon text="&#xf197;" class="material-icon icon" @state=" toggled ? 'active' : 'inactive' "></Label>
+                <Label #menuIcon text="&#xf197;" class="material-icon icon" [@state]=" toggled ? 'active' : 'inactive' "></Label>
             </GridLayout>
             <!-- TITLE -->
             <Label col="1" text="GFT &#xf15e; NativeScript" class="title center material-icon bold"></Label>

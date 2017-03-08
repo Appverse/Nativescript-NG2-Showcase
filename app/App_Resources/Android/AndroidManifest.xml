@@ -13,9 +13,7 @@
 	<uses-sdk
 		android:minSdkVersion="17"
 		android:targetSdkVersion="__APILEVEL__"/>
-	<uses-feature android:name="android.hardware.camera" />
 
-	<uses-permission android:name="android.permission.CAMERA" />
 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 	<uses-permission android:name="android.permission.INTERNET"/>
@@ -31,7 +29,8 @@
 			android:name="com.tns.NativeScriptActivity"
 			android:label="@string/title_activity_kimera"
 			android:configChanges="keyboardHidden|orientation|screenSize"
-			android:theme="@style/LaunchScreenTheme">
+			android:theme="@style/LaunchScreenTheme"
+			android:windowSoftInputMode="adjustNothing">
 
 			<meta-data android:name="SET_THEME_ON_LAUNCH" android:resource="@style/AppTheme" />
 

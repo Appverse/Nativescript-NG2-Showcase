@@ -18,10 +18,6 @@ export class PickersPage {
         this.jedis = _contentService.getJedis();
     }
 
-    public selectedJediChange(args) {
-        this.jediSelected = this.jedis[args.object.selectedIndex];
-    }
-
     public selectedDateChange(args) {
         this.date = this.padTwo(args.object.day) + '/' + this.padTwo(args.object.month) + '/' + args.object.year;
     }

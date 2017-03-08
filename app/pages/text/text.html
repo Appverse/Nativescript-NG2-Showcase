@@ -20,7 +20,7 @@
         <StackLayout *tabItem="{title: 'FIELD'}">
             <!-- STYLE SELECTOR -->
             <SegmentedBar (selectedIndexChanged)="selectedIndexChanged($event)" [items]="styles" class="app-color-secondary" selectedBackgroundColor="#1B3C80"></SegmentedBar>
-            <GridLayout class="fill-all">
+            <GridLayout class="fill-all" class="app-color-secondary">
                 <ScrollView>
                     <StackLayout *ngIf="!rounded">
                         <TextField *ngFor="let textfield of styles[styleSelected].styles" [text]="textfield.name" [class]="'text-field s-margin ' + textfield.style" (loaded)="textFieldLoaded($event)"></TextField>
@@ -32,7 +32,7 @@
             </GridLayout>
         </StackLayout>
         <!-- TEXTVIEW -->
-        <StackLayout *tabItem="{title: 'TEXTVIEW'}">
+        <StackLayout *tabItem="{title: 'TEXTVIEW'}" class="app-color-secondary">
             <!-- COLOR SELECTOR -->
             <ScrollView orientation="horizontal">
                 <SegmentedBar width="{{ 100 * colors.length}}" (selectedIndexChanged)="selectedColorChanged($event)" [items]="colors" class="app-color-secondary" selectedBackgroundColor="#1B3C80"></SegmentedBar>
@@ -48,7 +48,7 @@
             </GridLayout>
         </StackLayout>
         <!-- SEARCHBAR -->
-        <StackLayout *tabItem="{title: 'SEARCH'}">
+        <StackLayout *tabItem="{title: 'SEARCH'}" class="app-color-secondary">
             <GridLayout class="fill-all">
                 <ScrollView>
                     <StackLayout *ngIf="!rounded">
