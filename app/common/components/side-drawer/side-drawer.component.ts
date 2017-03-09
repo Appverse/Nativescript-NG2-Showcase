@@ -32,7 +32,7 @@ export class SideDrawerComponent implements OnInit, AfterViewInit {
 
     //Menu categories
     sideDrawerCategories: Array<any> = [
-        { name: 'Home', icon: '\uf175', page: '' },
+        { name: 'Home', icon: '\uf175', page: 'home' },
         {
             name: 'Components', icon: '\uf328', subItems: [
                 { name: 'Buttons', page: 'buttons', icon: '\uf155' },

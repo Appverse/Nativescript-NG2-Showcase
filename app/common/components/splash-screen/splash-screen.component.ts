@@ -18,7 +18,7 @@ export class SplashScreenComponent implements AfterViewInit {
     ngAfterViewInit() {
         //Closing splash screen
         setTimeout(() => {
-            this.nav.navigate(['/home/'], {
+            this.nav.navigate(['/home/home'], {
                 clearHistory: true,
                 transition: {
                     name: 'fade',

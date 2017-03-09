@@ -2,20 +2,11 @@ Feature: Router navigation
   As a user of the mobile application
   I should be able to navigate through the application
 
-# HOME PAGE TEST
+# INIT TEST
   Scenario: Initializing
-    Given I wait "5000"
+    Given I wait "15000"
     When I am on the main page
     Then I should see "toggleSideDrawerButton"
-  
-  Scenario: Open side drawer
-    When I Select the button "toggleSideDrawerButton"
-    Then I should see "sideDrawer"
-
-  Scenario: Page Home
-    Given I can see "sideDrawer"
-    When I Select the button "HomeButton"
-    Then I should read "Welcome to GFT's NativeScript Showcase" in "welcomeMessage"
 
 # BUTTONS PAGE TEST
   Scenario: Page "buttons"
@@ -177,7 +168,13 @@ Feature: Router navigation
     Then I should read "CHARTS" in "title"
 
 # SETTINGS PAGE TEST
-  Scenario: Page after menu button tap
+  Scenario: Page "settings"
     Given I open the sidedrawer
     When I Select the button "SettingsButton"
     Then I should read "SETTINGS" in "title"
+
+# SETTINGS PAGE TEST
+  Scenario: Page "settings"
+    Given I open the sidedrawer
+    When I Select the button "HomeButton"
+    Then I should read "Welcome to GFT's NativeScript Showcase" in "welcomeMessage"

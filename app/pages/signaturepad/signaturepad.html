@@ -4,7 +4,7 @@
         <DrawingPad #drawingPad height="35%" id="drawingPad" penColor="#1B3C80" penWidth="3" class="half-height"></DrawingPad>
         <!-- BUTTONS -->
         <GridLayout columns="*,*" rows="auto,auto">
-            <button col="0" text="Get drawing" class="button s-margin primary" (tap)="getDrawingAsPic()"></button>
+            <button col="0" [colspan]=" isAndroid ? 1 : 2 " text="Get drawing" class="button s-margin primary" (tap)="getDrawingAsPic()"></button>
             <button col="1" text="Get no bg drawing" class="button s-margin primary" (tap)="getNoBGDrawing()" *ngIf="isAndroid"></button>
             <button col="0" row="1" text="Save drawing" class="button s-margin success" (tap)="saveDrawing()"></button>
             <button col="1" row="1" text="Clear pad" class="button s-margin light" (tap)="clearUserDrawing()"></button>

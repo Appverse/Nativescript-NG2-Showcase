@@ -34,7 +34,7 @@ const routes: Routes = [
     {
         path: 'home', component: WrapperComponent,
         children: [
-            { path: '', component: HomePage },
+            { path: 'home', component: HomePage },
             { path: 'buttons', component: ButtonsPage },
             { path: 'text', component: TextPage },
             { path: 'lists', component: ListsPage },
