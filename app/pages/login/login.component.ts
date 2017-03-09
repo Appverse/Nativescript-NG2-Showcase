@@ -9,34 +9,15 @@ var validator = require('email-validator');
     templateUrl: 'login.html',
     styleUrls: ['login.css']
 })
-export class LoginPage implements OnInit, AfterViewInit {
+export class LoginPage implements AfterViewInit {
 
     private email: string;
     private password: string;
     private passwordCheck: string;
     private isLogin: boolean = true;
-    private emailEmitter = new EventEmitter<string>();
-    private passwordEmitter = new EventEmitter<string>();
-    private passwordCheckEmitter = new EventEmitter<string>();
 
     @ViewChild('modal') private modalRef: ElementRef;
     private modal;
-
-    ngOnInit() {
-        let instance = this;
-        this.emailEmitter
-            .subscribe(v=> {
-                instance.email = v;
-            });
-        this.passwordEmitter
-            .subscribe(v=> {
-                instance.password = v;
-            });
-        this.passwordCheckEmitter
-            .subscribe(v=> {
-                instance.passwordCheck = v;
-            });
-    }
 
     ngAfterViewInit() {
         this.setNativeElements();
