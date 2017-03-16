@@ -1,24 +1,17 @@
-<StackLayout class="app-color-tertiary">
-    <!-- TITLE -->
-    <GridLayout rows="auto" class="app-color-secondary">
-        <Label text="DIALOGS" class="h4 center s-margin app-color-secondary" automationText="title"></Label>
-    </GridLayout>
-    <GridLayout class="h-spacer app-color-primary bottom"></GridLayout>
-    <!-- BUTTONS TO FIRE DIALOGS -->
-    <StackLayout>
-        <Button text="Alert dialog" (tap)="alert(false)" class="dark rounded"></Button>
-        <Button text="Confirm dialog" (tap)="confirm(false)" class="dark rounded"></Button>
-        <Button text="Prompt dialog" (tap)="prompt(false)" class="dark rounded"></Button>
-        <Button text="Login dialog" (tap)="login(false)" class="dark rounded"></Button>
-        <Button text="Action dialog" (tap)="action(false)" class="dark rounded"></Button>
-        
-        <Button text="Alert options dialog" (tap)="alert(true)" class="light rounded"></Button>
-        <Button text="Confirm options dialog" (tap)="confirm(true)" class="light rounded"></Button>
-        <Button text="Prompt options dialog" (tap)="prompt(true)" class="light rounded"></Button>
-        <Button text="Login options dialog" (tap)="login(true)" class="light rounded"></Button>
-        <Button text="Action options dialog" (tap)="action(true)" class="light rounded"></Button>
-    </StackLayout>
-       
-</StackLayout>
+<sc-showcase-layout title="DIALOGS">
+    <ScrollView orientation="vertical">
+        <StackLayout class="app-color-secondary">
+            <Button text="Alert dialog" (tap)="alert(false)" class="dark rounded"></Button>
+            <Button text="Confirm dialog" (tap)="confirm(false)" class="dark rounded"></Button>
+            <Button text="Prompt dialog" (tap)="prompt(false)" class="dark rounded"></Button>
+            <Button text="Login dialog" (tap)="login(false)" class="dark rounded"></Button>
+            <Button text="Action dialog" (tap)="action(false)" class="dark rounded"></Button>
 
-
+            <Button text="Alert options dialog" (tap)="alert(true)" class="light rounded"></Button>
+            <Button text="Confirm options dialog" (tap)="confirm(true)" class="light rounded"></Button>
+            <Button text="Prompt options dialog" (tap)="prompt(true)" class="light rounded"></Button>
+            <Button text="Login options dialog" (tap)="login(true)" class="light rounded"></Button>
+            <Button text="Action options dialog" (tap)="action(true)" class="light rounded"></Button>
+        </StackLayout>
+    </ScrollView>
+</sc-showcase-layout>

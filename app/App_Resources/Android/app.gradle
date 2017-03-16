@@ -7,7 +7,8 @@
 
 android {  
   defaultConfig {  
-    generatedDensities = []  
+    generatedDensities = []
+    applicationId = "org.nativescript.newversiontest"  
   }  
   aaptOptions {  
     additionalParameters "--no-version-vectors"  

@@ -1,12 +1,11 @@
-import {Component} from "@angular/core";
+import {Component} from '@angular/core';
 
 @Component({
-    selector: "ImagesPage",
-    templateUrl: 'pages/images/images.html',
-    styleUrls: ['pages/images/images.css']
+    moduleId: module.id,
+    selector: 'sc-images-page',
+    templateUrl: 'images.html',
+    styleUrls: ['images.css']
 })
 export class ImagesPage {
 
-    public constructor(){
-    }
 }

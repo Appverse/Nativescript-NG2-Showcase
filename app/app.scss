@@ -20,7 +20,7 @@
 
 /* APPLICATION */
 
-.app-color-primary{
+.app-color-primary, {
     background-color: $primary-color;
     color: $secondary-color;
 }
@@ -43,6 +43,18 @@
 .app-color-darkest{
     background-color: $primary-color;
     color: $darkest-color;
+}
+
+Page {
+  @extend .app-color-primary;
+}
+
+ActionBar {
+  @extend .app-color-primary;
+}
+
+.active {
+  @extend .app-color-quaternary;
 }
 
 .action-bar{
@@ -85,6 +97,11 @@
     height: 40;
     padding-left: 10;
     padding-right: 10;
+}
+
+.switch-dark {
+    background-color: $primary-color;
+    color: $primary-color;
 }
 
 .material-icon {
@@ -414,6 +431,11 @@ search-bar{
 
 /* SIZE */
 
+.fill-all{
+    height: 100%;
+    height: 100%;
+}
+
 .fill-width{
     width: 100%;
 }
@@ -657,36 +679,6 @@ search-bar{
         }
         100%{
                     transform: translate(260,0)
-        }
-}
-
-.labelOne {
-        animation-name: labelOne;
-        animation-duration: 0.8s;
-        animation-fill-mode: forwards;
-        animation-timing-function: spring
-}
-@keyframes labelOne {
-    	from{
-                    transform: translate(-300,0)
-        }
-        to{
-                    transform: translate(0,0);
-        }
-}
-
-.labelTwo {
-        animation-name: labelTwo;
-        animation-duration: 0.8s;
-        animation-fill-mode: forwards;
-        animation-timing-function: spring
-}
-@keyframes labelTwo {
-    	from{
-                    transform: translate(300,0)
-        }
-        to{
-                    transform: translate(0,0);
         }
 }
 

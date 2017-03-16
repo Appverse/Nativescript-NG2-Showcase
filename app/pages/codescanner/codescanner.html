@@ -1,11 +1,5 @@
-<StackLayout class="app-color-tertiary">
-    <!-- TITLE -->
-    <GridLayout rows="auto" class="app-color-secondary">
-        <Label text="BARCODE SCANNER" class="h4 center s-margin app-color-secondary" automationText="title"></Label>
-    </GridLayout>
-    <GridLayout class="h-spacer app-color-primary bottom"></GridLayout>
-    <!-- BARCODE SCANNER -->
-    <GridLayout columns="*,*,*" rows="*,*,*,*,*,*,2*">
+<sc-showcase-layout title="BARCODE SCANNER">
+    <GridLayout columns="*,*,*" rows="*,*,*,*,*,*,2*" class="app-color-secondary">
         <Button row="0" col="0" colSpan="3" text="SCAN ANY" (tap)="scan()" class="s-margin button app-color-secondary"></Button>
         <Button row="1" col="0" text="QR CODE" (tap)="scan('QR_CODE')" class="s-margin button app-color-primary"></Button>
         <Button row="1" col="1" text="CODE 39" (tap)="scan('CODE_39')" class="s-margin button app-color-primary"></Button>
@@ -24,5 +18,4 @@
         <Button row="5" col="2" text="UPC A" (tap)="scan('UPC_A')" class="s-margin button app-color-primary"></Button>
         <Label row="6" col="0" colSpan="3" [text]="result" class="center"></Label>
     </GridLayout>
-</StackLayout>
-
+</sc-showcase-layout>

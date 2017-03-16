@@ -1,50 +1,25 @@
-import {Component, ViewChild, ElementRef, EventEmitter} from "@angular/core";
+import { Component, ViewChild, ElementRef } from '@angular/core';
 // import cameraModule for accesing camera hardware
-import cameraModule = require("camera");
+import * as camera from "nativescript-camera";
 
 @Component({
-    selector: "CameraPage",
-    templateUrl: 'pages/camera/camera.html',
-    styleUrls: ['pages/camera/camera.css']
+    moduleId: module.id,
+    selector: 'sc-camera-page',
+    templateUrl: 'camera.html',
+    styleUrls: ['camera.css']
 })
 export class CameraPage {
 
-    private width: number = 0;
-    private height: number = 0;
-    private keepAspectRatio: boolean = false;
-    private widthEmitter = new EventEmitter<string>();
-    private heightEmitter = new EventEmitter<string>();
-    private keepAspectRatioEmitter = new EventEmitter<boolean>();
+    private image;
 
-    public constructor(){
+    public requestPermission() {
+        camera.requestPermissions();
     }
     //Opens camera module and passes the picture
-    public openCamera(){
-        cameraModule.takePicture({width: this.width, height: this.height, keepAspectRatio: this.keepAspectRatio}).then(picture => {
-            this.image.src = picture;
+    public openCamera() {
+        camera.takePicture()
+            .then(picture => {
+                this.image = picture;
         });
     }
-    //On page init it subscribes to EventEmitters that are emited by the UI
-    ngOnInit(){
-        let instance = this;
-        this.widthEmitter
-            .subscribe(v=>{
-                instance.width = v;
-            });
-        this.heightEmitter
-            .subscribe(v=>{
-                instance.height = v;
-            });
-        this.keepAspectRatioEmitter
-            .subscribe(v=>{
-                instance.keepAspectRatio = v;
-            });
-    }
-    /* Get the elements from the UI */
-    ngAfterViewInit(){
-        this.image=this.imageRef.nativeElement;
-    }
-
-    @ViewChild('image') imageRef: ElementRef;
-    private image;
 }

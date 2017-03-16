@@ -1,25 +1,20 @@
-<StackLayout class="app-color-tertiary">
-    <!-- TITLE -->
-    <GridLayout rows="auto" class="app-color-secondary">
-        <Label text="CONTACTS" class="h4 center s-margin app-color-secondary" automationText="title"></Label>
-    </GridLayout>
-    <GridLayout class="h-spacer app-color-primary bottom"></GridLayout>
+<sc-showcase-layout title="CONTACTS">
     <GridLayout>
         <!-- CONTACTS LIST -->
-            <ListView id="listview" [items]="contacts" (itemTap)="itemTap($event)">
-                <template let-contact="item" let-i="index">
-                    <GridLayout columns="auto,*,*" rows="auto,auto">
-                        <Image col="0" row="0" rowSpan="2" [src]="contact.icon" class="material-design-icon s-margin"></Image>
-                        <Label col="1" row="0" rowSpan="2" [text]="contact.name" class="left s-margin bold"></Label>
-                        <Label col="2" row="0" [text]="contact.number" class="right s-margin"></Label>
-                        <Label col="2" row="1" [text]="contact.from" class="right s-margin"></Label>
-                    </GridLayout>
-                </template>
-            </ListView>
+        <ListView id="listview" [items]="contacts" (itemTap)="itemTap($event)" class="app-color-secondary">
+            <template let-contact="item" let-i="index">
+                        <GridLayout columns="auto,*,*" rows="auto,auto">
+                            <Image col="0" row="0" rowSpan="2" [src]="contact.icon" class="material-design-icon s-margin"></Image>
+                            <Label col="1" row="0" rowSpan="2" [text]="contact.name" class="left s-margin bold"></Label>
+                            <Label col="2" row="0" [text]="contact.number" class="right s-margin"></Label>
+                            <Label col="2" row="1" [text]="contact.from" class="right s-margin"></Label>
+                        </GridLayout>
+                    </template>
+        </ListView>
         <!-- MODAL -->
-        <AbsoluteLayout #backdrop class="backdrop" @state=" modalToggled ? 'activeBD' : 'inactiveBD' ">
+        <AbsoluteLayout #backdrop class="backdrop" [@state]=" modalToggled ? 'activeBD' : 'inactiveBD' ">
         </AbsoluteLayout>
-        <AbsoluteLayout #modal class="fill-width fill-heigth" @state=" modalToggled ? 'activeModal' : 'inactiveModal' ">
+        <AbsoluteLayout #modal class="fill-width fill-heigth" [@state]=" modalToggled ? 'activeModal' : 'inactiveModal' ">
             <GridLayout class="fill-width fill-height" *ngIf="toggled" (tap)="closeModal()">
                 <GridLayout rows="auto,auto,auto" class="light center threequarters-width medium-rounded" (tap)="null">
                     <GridLayout row="0" columns="auto, *" rows="auto">
@@ -45,4 +40,4 @@
             </GridLayout>
         </AbsoluteLayout>
     </GridLayout>
-</StackLayout>
+</sc-showcase-layout>
